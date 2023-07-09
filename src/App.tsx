@@ -5,6 +5,8 @@ import   Cup   from './pages/Cup';
 import Cart  from './pages/Cart';
 import Payment  from './pages/Payment';
 import Products  from './pages/Products';
+import Detail  from './pages/Detail';
+
 
 import cupdata from './data'
 import {Routes, Route, Link} from 'react-router-dom';
@@ -17,6 +19,8 @@ function App() {
       <Route path="/cup" element={<Cup />} />
       <Route path="/payment" element={<Payment />}/>
       <Route path="/products" element={<Products />}/>
+      <Route path="/detail" element={<Detail  />}/>
+
       <Route />
     </Routes>
     </div>
