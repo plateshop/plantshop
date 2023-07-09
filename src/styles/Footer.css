@@ -9,6 +9,16 @@
     margin: 0 auto;
     padding: 40px 0 7px;
 }
+
+.innerLayout{
+    position: relative;
+    margin: 0;
+    padding: 0 175px;
+    text-align: center;
+    color: #000;
+    font-size: 12px;
+    backface-visibility: hidden;
+}
 .innerMain{
     margin: 0;
     font-size: 15px;
@@ -16,5 +26,14 @@
     letter-spacing: 0.02em;
     text-align: center;
 }
+
+.address{
+    padding: 3px 0 5px 0;
+    font-size: 13px;
+    color: #e5e5e5;
+    line-height: 1.8em;
+    word-break: keep-all;
+}
+
 
 

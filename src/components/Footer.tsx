@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Tabs.css';
+import '../styles/Footer.css';
 
 const Footer = () => {
     return(
@@ -7,7 +7,7 @@ const Footer = () => {
             <div className='footerInner'>
                 <div className='innerLayout'>
                     <div className='innerMain'>
-                        <span style={{ fontSize: '1.2rem' }}>
+                        <span style={{ fontSize: 'x-large' }}>
                             02-336-5288
                         </span>
                         <br />
