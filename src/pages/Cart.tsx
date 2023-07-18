@@ -2,11 +2,15 @@ import '../styles/Cart.css';
 import React, { useState } from 'react';
 import  Tabs  from '../components/Tabs';
 import  Footer  from '../components/Footer';
+import  { Navbar }  from '../components/navbar';
+
 
 
 
 const Cart = () => {
     return(
+        <div>
+        <Navbar />
         <div className='container'>
             <div className='contents'>
                 <div className='title'>
@@ -46,6 +50,7 @@ const Cart = () => {
             </div>
             <Footer />
         </div>
+    </div>  
     )
 }
 
