@@ -1,11 +1,11 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import React, { FC } from "react";
-import logo from "../../img/logo2.png";
-import menu1 from "../../img/search.png";
-import menu2 from "../../img/person.png";
-import menu3 from "../../img/favorite.png";
-import menu4 from "../../img/cart.png";
+import logo from "../img/logo2.png";
+import menu1 from "../img/ui/search.png";
+import menu2 from "../img/person.png";
+import menu3 from "../img/favorite.png";
+import menu4 from "../img/cart.png";
 import "../../styles/Navbar.css";
 
 type NavbarProps = {};
