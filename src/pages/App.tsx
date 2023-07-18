@@ -1,10 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Register from "./pages/Register.tsx";
 import { useState, useEffect } from "react";
-import { Navbar } from "./components/layout/Navbar";
-import Detail from "./pages/Detail.tsx";
-import List from "./pages/List.tsx";
+import React from "react";
+import { Navbar } from "../components/navbar";
+import Cart from "../pages/Cart";
+import Customer from "../pages/Customer";
+import Favorite from "../pages/Favorite";
+import Search from "../pages/Search";
 
 function App() {
   return (
@@ -20,9 +22,10 @@ function App() {
             </div>
           }
         />
-        <Route path="/register" element={<Register />} />
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/customer" element={<Customer />} />
+        <Route path="/favorite" element={<Favorite />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </div>
   );
