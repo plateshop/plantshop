@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React from "react";
 import { Navbar } from "./components/navbar";
@@ -15,6 +15,8 @@ import Detail  from './pages/Detail';
 
 
 import cupdata from './data'
+
+//페이지 이동버튼<Link to="/detail">상세페이지</Link>
 
 function App() {
   return (
