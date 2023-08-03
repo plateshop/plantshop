@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../styles/Login example.css";
 import Login from "./Login";
 
 const App: React.FC = () => {
