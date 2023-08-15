@@ -26,7 +26,7 @@ const Detail = ( ) => {
                     <div className='detail_container_menu'>
                         <div className='detail_container_menu_fixbox'>
                             <div className='detail_container_info'>
-                                <h4 className='info_title'>D11 머그 민트마블</h4>
+                                <h4 className='info_title'>D11 머그 민트마블1</h4>
                                 <div className='info_wrap'>
                                     <p className='info_wrap_price'>
                                         "20,000"
