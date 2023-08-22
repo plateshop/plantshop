@@ -1,47 +1,49 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 import { Navbar } from "./components/navbar";
 import Cart from "./pages/Cart";
-// import Customer from "../pages/Customer";
-// import Favorite from "../pages/Favorite";
-// import Search from "../pages/Search";
-import './App.css';
-import   Cup   from './pages/Cup';
-import Payment  from './pages/Payment';
-import Products  from './pages/Products';
-import Detail  from './pages/Detail';
+// import Customer from "./pages/Customer";
+// import Favorite from "./pages/Favorite";
+// import Search from "./pages/Search";
+import Cup from './pages/Cup';
+import Payment from './pages/Payment';
+import Products from './pages/Products';
+import Detail from './pages/Detail';
+import Login from './pages/Login';
 
-
-import cupdata from './data'
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <div className="main-bg">
-                <Navbar />
-              </div>
-            </div>
-          }
-        />
-        <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/customer" element={<Customer />} />
-        <Route path="/favorite" element={<Favorite />} />
-        <Route path="/search" element={<Search />} /> */}
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/cup" element={<Cup />} />
-        <Route path="/payment" element={<Payment />}/>
-        <Route path="/products" element={<Products />}/>
-        <Route path="/detail" element={<Detail  />}/>
-       </Routes>
+      <div className="main-bg">
+        <Navbar />
+      </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={() => <div>Home Page Content</div>} />
+          {/* <Route path="/customer" element={<Customer />} />
+          <Route path="/favorite" element={<Favorite />} />
+          <Route path="/search" element={<Search />} /> */} 
+          <Route path="/cart" component={Cart} />
+          <Route path="/cup" component={Cup} />
+          <Route path="/payment" component={Payment} />
+          <Route path="/products" component={Products} />
+          <Route path="/detail" component={Detail} />
+          <Route path="/login" component={Login} />
+
+        </Switch>
+      </Router>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
