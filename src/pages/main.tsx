@@ -1,7 +1,6 @@
-import './App.css';
-import { useState } from 'react';
+import "./main.css";
+import { useState } from "react";
 // import { useHistory } from 'react-router-dom';
-
 
 // function App() {
 //   return (
@@ -18,6 +17,7 @@ import { useState } from 'react';
 //     </div>
 //   );
 // }
+
 interface AppProps {
   title: string;
   sub: string;
@@ -34,7 +34,7 @@ function App(props: AppProps) {
       <div>
         <div className="main">
           <a href="/" onClick={handlePageChange}>
-            <img src="main.png" alt="Main" />
+            <img src="main2.png" alt="Main" />
             {props.title}
           </a>
           {props.sub}
@@ -43,6 +43,5 @@ function App(props: AppProps) {
     </div>
   );
 }
-
 
 export default App;
