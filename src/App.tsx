@@ -22,12 +22,11 @@ function App() {
   return (
     <div className="App">
       <div className="main-bg">
-        <Main title="Main Title" sub="Sub Title" />
-
+        {/* <Main title="Main Title" sub="Sub Title" /> */}
       </div>
       <Router>
         <Switch>
-          <Route path="/" exact component={() => <div>Home Page Content</div>} />
+        <Route path="/" exact component={() => <Main title="Main Title" sub="Sub Title" />} />
           {/* <Route path="/customer" element={<Customer />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/search" element={<Search />} /> */} 
