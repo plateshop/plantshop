@@ -11,13 +11,19 @@ import Payment from './pages/Payment';
 import Products from './pages/Products';
 import Detail from './pages/Detail';
 import Login from './pages/Login';
+import  Main   from './pages/Main.tsx';
+import Customer6 from './pages/Customer6';
+
+
+
 
 
 function App() {
   return (
     <div className="App">
       <div className="main-bg">
-        <Navbar />
+        <Main title="Main Title" sub="Sub Title" />
+
       </div>
       <Router>
         <Switch>
@@ -31,6 +37,10 @@ function App() {
           <Route path="/products" component={Products} />
           <Route path="/detail" component={Detail} />
           <Route path="/login" component={Login} />
+          <Route path="/Customer6" component={Customer6} />
+
+
+
 
         </Switch>
       </Router>

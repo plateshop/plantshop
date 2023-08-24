@@ -10,7 +10,7 @@ import  { Navbar }  from '../components/navbar';
 const Cart = () => {
     return(
         <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className='container'>
             <div className='contents'>
                 <div className='title'>

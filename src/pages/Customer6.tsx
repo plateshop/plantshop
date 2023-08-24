@@ -4,7 +4,7 @@ import Tab from "../components/Tab"; // 수정: 경로를 정확하게 지정
 import UserInfoTab from "../components/UserInfoTab";
 import OrderHistoryTab from "../components/OrderHistoryTab";
 import ChangePasswordTab from "../components/ChangePasswordTab";
-import "./App.css";
+// import "./App.css";
 
 // interface TabProps {
 //   label: string;
