@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Tab from "./components/Tab";
-import UserInfoTab from "./components/UserInfoTab";
-import OrderHistoryTab from "./components/OrderHistoryTab";
-import ChangePasswordTab from "./components/ChangePasswordTab";
+import Tab from "../components/Tab";
+import UserInfoTab from "../components/UserInfoTab";
+import OrderHistoryTab from "../components/OrderHistoryTab";
+import ChangePasswordTab from "../components/ChangePasswordTab";
 import "./App.css";
 
 const App: React.FC = () => {

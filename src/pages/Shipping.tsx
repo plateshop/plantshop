@@ -6,7 +6,7 @@ import {
   ShippingAddressFormsWrap,
   ShippingAddressHeaderStyled,
   ShippingAddressTitleStyled,
-} from "./ShippingAddress.styles";
+} from "../ShippingAddress.styles";
 import CloseIcon from "../icons/CloseIcon/CloseIcon";
 
 import { useDaumPostcodePopup } from "react-daum-postcode";
