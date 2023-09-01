@@ -15,6 +15,7 @@ const Cup: React.FC = () => {
 
   return (
     <div>
+      
       <div className="cup">
         {cup.map((cupItem) => (
           <Card key={cupItem.id} cup={cupItem} />

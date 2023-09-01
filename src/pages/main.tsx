@@ -16,10 +16,10 @@ function Main(props: AppProps) {
       <div>
         <div className="main">
           <a href="/" onClick={handlePageChange}>
-            <img src="../img/logo/main2.png" alt="Main" />
-            {props.title}
+            {/* <img src="../img/logo/main2.png" alt="Main" /> */}
+            {/* {props.title} */}
           </a>
-          {props.sub}
+          {/* {props.sub} */}
         </div>
       </div>
     </div>

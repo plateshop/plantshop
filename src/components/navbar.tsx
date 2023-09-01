@@ -12,29 +12,48 @@ type NavbarProps = {};
 
 export const Navbar: FC<NavbarProps> = () => {
   return (
-    <NavbarBootstrap>
-      <Container>
-        <NavbarBootstrap.Brand>
-          <img src={logo} width="400" height="100" />
-        </NavbarBootstrap.Brand>
-
-        <div className="all">
-          <Nav className="me-auto">
-            <Nav.Link className="menu" href="/">
+    <header className="Navbar">
+      <section className="Navbar-member">
+          <a href="/login" className="member">회원가입</a>
+          <a href="/login" className="member">로그인</a>
+      </section>    
+      <div className="Navbar-content">
+        <div className="Navbar-logo">
+          <a className="Logo-wrap" href="/">
+            <img className="logo" src={logo} alt="Crow Canyon Home" width="400" height="100" />
+          </a>
+        </div>  
+        <div className="right-menu">
+          <li className="menu-search">
+            <a href="/">
               <img src={menu1} width="30" />
-            </Nav.Link>
-            <Nav.Link className="menu" href="/Register">
+            </a>
+          </li>
+          <li className="menu-wishlist">  
+            <a href="/Register">
               <img src={menu2} width="30" />
-            </Nav.Link>
-            <Nav.Link className="menu" href="/List">
+            </a>  
+          </li>
+          <li className="menu-account">
+            <a href="/List">
               <img src={menu3} width="30" />
-            </Nav.Link>
-            <Nav.Link className="menu" href="/List">
+            </a>  
+          </li>
+          <li className="menu-cart">
+            <a href="/List">
               <img src={menu4} width="30" />
-            </Nav.Link>
-          </Nav>
+            </a>  
+          </li>
         </div>
-      </Container>
-    </NavbarBootstrap>
+      </div>
+      <nav className="Navbar-menu">
+        <ul className="menu-wrap">
+          <a className="menu">Cup</a>
+          <a className="menu">Bowls</a>
+          <a className="menu">Plates</a>
+          <a className="menu">kitchenware</a>
+        </ul>
+      </nav> 
+   </header>
   );
 };
