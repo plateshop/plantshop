@@ -13,6 +13,11 @@ import Detail from './pages/Detail';
 import Login from './pages/Login';
 import  Main   from './pages/Main.tsx';
 import Customer6 from './pages/Customer6';
+import Pngword from './pages/Pngword';
+import Basket from './pages/Basket';
+
+
+
 
 
 
@@ -37,6 +42,10 @@ function App() {
           <Route path="/detail" component={Detail} />
           <Route path="/login" component={Login} />
           <Route path="/Customer6" component={Customer6} />
+          <Route path="/Basket" component={Basket} />
+          <Route path="/Pngword" component={Pngword} />
+
+
 
 
 
