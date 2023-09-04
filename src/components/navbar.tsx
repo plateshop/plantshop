@@ -13,6 +13,7 @@ type NavbarProps = {};
 export const Navbar: FC<NavbarProps> = () => {
   return (
     <header className="Navbar">
+      <div >
       <section className="Navbar-member">
           <a href="/login" className="member">회원가입</a>
           <a href="/login" className="member">로그인</a>
@@ -48,12 +49,13 @@ export const Navbar: FC<NavbarProps> = () => {
       </div>
       <nav className="Navbar-menu">
         <ul className="menu-wrap">
-          <a className="menu">Cup</a>
-          <a className="menu">Bowls</a>
-          <a className="menu">Plates</a>
-          <a className="menu">kitchenware</a>
+          <a href="/Cup" className="menu">Cup</a>
+          <a href="/Bowls" className="menu">Bowls</a>
+          <a href="/Plates" className="menu">Plates</a>
+          <a href="/Kitchenware" className="menu">Kitchenware</a>
         </ul>
       </nav> 
+      </div>
    </header>
   );
 };

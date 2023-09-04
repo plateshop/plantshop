@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
-import { Navbar } from "./components/navbar";
+// import { Navbar } from "./components/Navbar";
 import Cart from "./pages/Cart";
 // import Customer from "./pages/Customer";
 // import Favorite from "./pages/Favorite";
@@ -15,6 +15,12 @@ import  Main   from './pages/Main.tsx';
 import Customer6 from './pages/Customer6';
 import Pngword from './pages/Pngword';
 import Basket from './pages/Basket';
+import Bowls from './pages/Bowls';
+import Plates from './pages/Plates';
+import Kitchenware from './pages/Kitchenware';
+
+
+
 
 
 
@@ -44,6 +50,11 @@ function App() {
           <Route path="/Customer6" component={Customer6} />
           <Route path="/Basket" component={Basket} />
           <Route path="/Pngword" component={Pngword} />
+          <Route path="/Bowls" component={Bowls} />
+          <Route path="/Plates" component={Plates} />
+          <Route path="/Kitchenware" component={Kitchenware} />
+
+
 
 
 

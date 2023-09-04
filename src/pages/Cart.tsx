@@ -2,7 +2,7 @@ import '../styles/Cart.css';
 import React, { useState } from 'react';
 import  Tabs  from '../components/Tabs';
 import  Footer  from '../components/Footer';
-import  { Navbar }  from '../components/navbar';
+import  {Navbar}   from '../components/Navbar';
 
 
 

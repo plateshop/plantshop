@@ -1,49 +1,46 @@
 import React, { useState } from 'react';
 import '../styles/Cup.css';
-import cupdata from '../Data/Cupdata';
+import Bowlsdata from '../Data/Bowlsdata';
 import Footer from '../components/Footer';
 import { Navbar }  from '../components/Navbar';
 
-interface CupData {
+interface Bowlsdata {
   id: number;
   img: string;
   title: string;
   price: string;
 }
 
-const Cup: React.FC = () => {
-  const [cup] = useState<CupData[]>(cupdata);
+const Bowls: React.FC = () => {
+  const [cup] = useState<Bowlsdata[]>(Bowlsdata);
 
   return (
     <div>
       <Navbar />
-     <div className='cupwrap'> 
       <div className="cup">
         {cup.map((cupItem) => (
-          <Card key={cupItem.id} cup={cupItem} />
+          <Card key={cupItem.id} bowls={cupItem} />
         ))}
       </div>
       <Footer />
     </div>
-  </div> 
   );
 };
 
 interface CardProps {
-  cup: CupData;
+  bowls: Bowlsdata;
 }
 
-function Card({ cup }: CardProps) {
+function Card({ bowls }: CardProps) {
   return (
     <div>
       <div className="card">
-        <img src={cup.img} width="175px" alt={cup.title} />
-        <h4>{cup.title}</h4>
-        <p>{cup.price}</p>
+        <img src={bowls.img} width="175px" alt={bowls.title} />
+        <h4>{bowls.title}</h4>
+        <p>{bowls.price}</p>
       </div>
     </div>
   );
 }
 
-export default Cup;
-
+export default Bowls;

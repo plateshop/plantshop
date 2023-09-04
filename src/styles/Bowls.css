@@ -1,19 +1,7 @@
-.cupwrap{
-    display: table;
-    width: 100%;
-    min-width: 756px;
-    margin: -20px 0 0;
-    font-size: 0;
-    line-height: 0;   
-}
-
 .cup{
-    /* width: 90%;
+    width: 90%;
     margin: 10px auto;
-    display: flex; */
-    box-sizing: border-box;
     display: flex;
-    justify-content: center;
 }
 
 .first {

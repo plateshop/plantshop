@@ -1,4 +1,4 @@
-let data = [
+let Cupdata = [
     {
         id : 0,
         img: "https://crowcanyon.co.kr/web/product/medium/202212/333caecd9c54d8b5f854d45a75243b90.jpg",
@@ -29,4 +29,4 @@ let data = [
 
 ]
 
-export default data;
+export default Cupdata;

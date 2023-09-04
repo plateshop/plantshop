@@ -1,36 +1,34 @@
 import React, { useState } from 'react';
 import '../styles/Cup.css';
-import cupdata from '../Data/Cupdata';
+import Platesdata from '../Data/Platesdata';
 import Footer from '../components/Footer';
 import { Navbar }  from '../components/Navbar';
 
-interface CupData {
+interface PlatesData {
   id: number;
   img: string;
   title: string;
   price: string;
 }
 
-const Cup: React.FC = () => {
-  const [cup] = useState<CupData[]>(cupdata);
+const Plates: React.FC = () => {
+  const [Plates] = useState<PlatesData[]>(Platesdata);
 
   return (
     <div>
       <Navbar />
-     <div className='cupwrap'> 
       <div className="cup">
-        {cup.map((cupItem) => (
-          <Card key={cupItem.id} cup={cupItem} />
+        {Plates.map((PlatesItem) => (
+          <Card key={PlatesItem.id} cup={PlatesItem} />
         ))}
       </div>
       <Footer />
     </div>
-  </div> 
   );
 };
 
 interface CardProps {
-  cup: CupData;
+  cup: PlatesData;
 }
 
 function Card({ cup }: CardProps) {
@@ -45,5 +43,4 @@ function Card({ cup }: CardProps) {
   );
 }
 
-export default Cup;
-
+export default Plates;
