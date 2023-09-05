@@ -35,20 +35,24 @@
     box-sizing: border-box;
 } */
 
-.cup {
-    display: flex;
-    flex-wrap: wrap; /* 상품이 넘칠 경우 자동으로 다음 줄로 이동 */
-    justify-content: space-between; /* 가로 여백을 균등하게 분배 */
-    margin: 0 -10px; /* 가로 여백을 조절 */
-    padding: 0 500px; /* 양쪽에 공백을 추가 */
-  }
-  
-  .first, .second, .third, .fourth {
-    border: none;
-    flex: 1;
-    width: 22%; /* 각 상품의 가로 너비를 22%로 설정 (좌우 여백을 고려하여 조정) */
-    margin: 10px 0; /* 각 상품의 상하 여백을 조절 */
+.out {
     box-sizing: border-box;
-    text-align: center; /* 텍스트를 가운데 정렬 */
-  }
-  
+    display: flex;
+    justify-content: center; 
+}
+
+.kitchenware {
+    grid-gap: 20px;
+    /* display: grid; */
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill,180px);
+    justify-content: center;
+    min-height: 50vh;
+    width: 100%;
+}
+
+.cup {
+    align-content: space-between;
+    padding-bottom: 60px;
+    width: 180px;
+}

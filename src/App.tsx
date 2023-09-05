@@ -11,20 +11,14 @@ import Payment from './pages/Payment';
 import Products from './pages/Products';
 import Detail from './pages/Detail';
 import Login from './pages/Login';
-import  Main   from './pages/Main.tsx';
+import  Main  from './pages/Main.tsx';
 import Customer6 from './pages/Customer6';
 import Pngword from './pages/Pngword';
 import Basket from './pages/Basket';
 import Bowls from './pages/Bowls';
 import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
-
-
-
-
-
-
-
+import Image from './components/ImagePage';
 
 
 
@@ -53,12 +47,7 @@ function App() {
           <Route path="/Bowls" component={Bowls} />
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
-
-
-
-
-
-
+          <Route path="/img" component={Image} />
 
 
         </Switch>
