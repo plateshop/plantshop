@@ -10,7 +10,7 @@ import Detail from "../pages/Detail";
 import Login from "../pages/Login";
 import Customer6 from "../pages/Customer6";
 
-function App() {
+function Main() {
   return (
     <div className="App">
       <div className="main-bg">
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
