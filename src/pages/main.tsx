@@ -1,29 +1,17 @@
-import '../styles/Main.css'; 
-import { useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ImagePage from "../components/ImagePage"; // ImagePage 컴포넌트를 가져옵니다.
+import App from "../App"; // 다른 페이지 컴포넌트를 가져옵니다.
 
-interface AppProps {
-  title: string;
-  sub: string;
-}
-
-function Main(props: AppProps) {
-  const handlePageChange = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-  };
-
+const Main = () => {
   return (
-    <div className="App">
-      <div>
-        <div className="main">
-          <a href="/" onClick={handlePageChange}>
-            <img src="../img/logo/main2.png" alt="Main" />
-            {props.title}
-          </a>
-          {props.sub}
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={ImagePage} />
+        <Route path="/App" component={App} />
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default Main;
