@@ -4,7 +4,7 @@ import Tab from "../components/Tab";
 import UserInfoTab from "../components/UserInfoTab";
 import OrderHistoryTab from "../components/OrderHistoryTab";
 import ChangePasswordTab from "../components/ChangePasswordTab";
-import "./App.css";
+import "../styles/main.css";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState("user-info");
