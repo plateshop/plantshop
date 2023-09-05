@@ -11,11 +11,8 @@ import Payment from './pages/Payment';
 import Products from './pages/Products';
 import Detail from './pages/Detail';
 import Login from './pages/Login';
-import  Main   from './pages/Main.tsx';
+import  Main from './pages/Main'; 
 import Customer6 from './pages/Customer6';
-
-
-
 
 
 function App() {
