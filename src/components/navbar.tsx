@@ -1,5 +1,7 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import { BrowserRouter as Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import React, { FC } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
