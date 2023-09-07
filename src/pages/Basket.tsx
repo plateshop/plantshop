@@ -21,3 +21,5 @@ const Basket: React.FC<BasketProps> = ({ initialItemCount }) => {
     </div>
   );
 };
+
+export default Basket;

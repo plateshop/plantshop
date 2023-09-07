@@ -1,36 +1,53 @@
-import "../styles/main.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React from "react";
+import "../styles/Main.css";
+import React, { useState, useEffect } from "react";
+import slide1 from "../img/slide/slide1.png";
+import slide2 from "../img/slide/slide2.png";
+import slide3 from "../img/slide/slide3.png";
+import slide4 from "../img/slide/slide4.png";
 import { Navbar } from "../components/navbar";
-import Cart from "../pages/Cart";
-import Cup from "../pages/Cup";
-import Payment from "../pages/Payment";
-import Products from "../pages/Products";
-import Detail from "../pages/Detail";
-import Login from "../pages/Login";
-import Customer6 from "../pages/Customer6";
 
-function Main() {
+interface AppProps {
+  title: string;
+  sub: string;
+}
+
+function Main({ title, sub }: AppProps) {
+  const [currentSlide, setCurrentSlide] = useState<number>(1);
+
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      if (event.deltaY > 0) {
+        setCurrentSlide((prevSlide) => (prevSlide % 4) + 1);
+      } else {
+        setCurrentSlide((prevSlide) => ((prevSlide - 2 + 4) % 4) + 1);
+      }
+    };
+
+    document.addEventListener("wheel", handleWheel);
+
+    return () => {
+      document.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <div className="main-bg">
-        {/* <Main title="Main Title" sub="Sub Title" /> */}
+    <div className="wrap">
+      <div className="maininner">
+        <Navbar />
+        <div>{title}</div>
+        <img
+          src={
+            currentSlide === 1
+              ? slide1
+              : currentSlide === 2
+              ? slide2
+              : currentSlide === 3
+              ? slide3
+              : slide4
+          }
+          alt={`Slide ${currentSlide}`}
+        />
       </div>
-      <Router>
-        <Switch>
-          <Route path="/" exact />
-          {/* <Route path="/customer" element={<Customer />} />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/search" element={<Search />} /> */}
-          <Route path="/cart" component={Cart} />
-          <Route path="/cup" component={Cup} />
-          <Route path="/payment" component={Payment} />
-          <Route path="/products" component={Products} />
-          <Route path="/detail" component={Detail} />
-          <Route path="/login" component={Login} />
-          <Route path="/Customer6" component={Customer6} />
-        </Switch>
-      </Router>
     </div>
   );
 }

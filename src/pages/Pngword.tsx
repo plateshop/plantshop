@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import search from "../img/ui/search.png";
 import favorite from "../img/ui/favorite.png";
 import person from "../img/ui/person.png";
@@ -24,7 +23,7 @@ const Icon: React.FC<IconProps> = ({ src, tooltip }) => {
   );
 };
 
-const App: React.FC = () => {
+const Pngword: React.FC = () => {
   return (
     <div className="app">
       <Icon src={search} tooltip="검색" />
@@ -34,4 +33,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Pngword;

@@ -1,0 +1,35 @@
+.cup {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+}
+
+.first {
+  border: none;
+  flex: 1;
+  width: 30%;
+  box-sizing: border-box;
+}
+
+.second {
+  border: none;
+  flex: 1;
+  margin: 0px 5%;
+  width: 30%;
+  box-sizing: border-box;
+}
+
+.third {
+  border: none;
+  flex: 1;
+  margin: 0px 5%;
+  width: 30%;
+  box-sizing: border-box;
+}
+
+.fourth {
+  border: none;
+  flex: 1;
+  width: 30%;
+  box-sizing: border-box;
+}
