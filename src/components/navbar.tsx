@@ -20,7 +20,7 @@ export const Navbar: FC<NavbarProps> = () => {
       </section>    
       <div className="Navbar-content">
         <div className="Navbar-logo">
-          <a className="Logo-wrap" href="/">
+          <a className="Logo-wrap" href="/main">
             <img className="logo" src={logo} alt="Crow Canyon Home" width="400" height="100" />
           </a>
         </div>  

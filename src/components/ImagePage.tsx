@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import png from "../img/logo/main2.png";
 
+
 const ImagePage = () => {
   return (
     <div>

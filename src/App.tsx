@@ -31,7 +31,7 @@ function App() {
       </div>
       <Router>
         <Switch>
-        <Route path="/" exact component={() => <Main title="Main Title" sub="Sub Title" />} />
+        <Route path="/" exact component={Image} />
           {/* <Route path="/customer" element={<Customer />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/search" element={<Search />} /> */} 
@@ -48,6 +48,9 @@ function App() {
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
+          <Route path="/main" component={Main} />
+
+
 
 
         </Switch>
