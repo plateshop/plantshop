@@ -37,9 +37,11 @@ function Card({ cup }: CardProps) {
   return (
     <div>
       <div className="card">
+        <div className='cup-box'>
         <img src={cup.img} width="175px" alt={cup.title} />
         <h4>{cup.title}</h4>
         <p>{cup.price}</p>
+        </div>
       </div>
     </div>
   );

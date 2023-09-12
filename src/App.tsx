@@ -20,9 +20,6 @@ import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
 import Image from './components/ImagePage';
 
-
-
-
 function App() {
   return (
     <div className="App">
@@ -49,9 +46,6 @@ function App() {
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
           <Route path="/main" component={Main} />
-
-
-
 
         </Switch>
       </Router>
