@@ -1,35 +1,37 @@
-.cup{
-    width: 90%;
-    margin: 10px auto;
-    display: flex;
+.cupwrap {
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
-.first {
-    border: none;
-    flex:1;
-    width:30%;
-    box-sizing: border-box;
+.cup-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  align-items: center;
 }
 
-.second{
-    border: none;
-    flex:1;
-    margin: 0px 5%;
-    width:30%;
-    box-sizing: border-box;
+.card {
+  border: none;
+  flex: 1;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
 }
 
-.third{
-    border: none;
-    flex:1;
-    margin: 0px 5%;
-    width:30%;
-    box-sizing: border-box;
+.card img {
+  max-width: 100%;
+  height: auto;
 }
 
-.fourth{
-    border: none;
-    flex:1;
-    width:30%;
-    box-sizing: border-box;
+.card h4 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin-top: 5px;
+  font-size: 1rem;
 }

@@ -1,7 +1,75 @@
-.top {
-  text-align: center;
+.Navbar {
+  align-items: center;
+  border-bottom: 1px solid #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 300;
+}
+
+.Navbar-member {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  gap: 1rem;
+  height: 2.6rem;
+  justify-content: flex-end;
+  width: 74vw;
+}
+
+.member {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+
+  font-family: "Zilla Slab", sans-serif;
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: -2px;
+}
+
+.Navbar-content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Navbar-logo {
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.right-menu {
+  align-items: center;
+  display: flex;
+  gap: 1.4rem;
+}
+
+.Navbar-menu {
+  padding-top: 1rem;
+  width: 100%;
+  border-top: 1px solid #d3d3d3;
+}
+
+.menu-wrap {
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  height: 4rem;
+  justify-content: space-between;
+}
+
+li {
+  list-style: none;
 }
 
 .menu {
-  margin: 0 10px;
+  text-decoration: none;
 }
