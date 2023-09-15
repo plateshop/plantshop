@@ -1,7 +1,7 @@
 import "../styles/Detail.css";
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 
 const Detail = () => {
   return (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Kitchenware.css";
 import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 
 interface Kitchenwaredata {
   id: number;

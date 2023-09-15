@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Cup.css";
 import Platesdata from "../Data/Platesdata";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components/Navbar";
 
 interface PlatesData {
   id: number;
