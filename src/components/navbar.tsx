@@ -6,7 +6,7 @@ import menu1 from "../img/ui/search.png";
 import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
 
 type NavbarProps = {};
 
