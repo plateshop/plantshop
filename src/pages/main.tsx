@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "../components/Navbar";
 import "../styles/Main.css";
-
 import slide1 from "../img/slide/slide1.png";
 import slide2 from "../img/slide/slide2.png";
 import slide3 from "../img/slide/slide3.png";
 import slide4 from "../img/slide/slide4.png";
 import ex1 from "../img/slide/ex1.png";
-import ex2 from "../img/slide/ex2.png";
 
-const slides = [slide1, slide2, slide3, slide4, ex1, ex2];
+const slides = [slide1, slide2, slide3, slide4];
 
 const Main: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [ex1Position, setEx1Position] = useState(0);
+
+  const handleWheel = (event: WheelEvent) => {
+    if (event.deltaY > 0) {
+      // 마우스 휠을 아래로 내렸을 때
+      setEx1Position((prevPosition) => prevPosition + 10); // 1cm씩 아래로 이동
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 8000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  const handleWheel = (e: WheelEvent) => {
-    if (e.deltaY > 0) {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
-      );
-    }
-  };
-
-  useEffect(() => {
     window.addEventListener("wheel", handleWheel);
 
     return () => {
+      clearInterval(interval);
       window.removeEventListener("wheel", handleWheel);
     };
   }, []);
@@ -52,13 +45,21 @@ const Main: React.FC = () => {
               key={index}
               className={`slide ${index === currentIndex ? "active" : ""}`}
               style={{
-                backgroundImage: `url(./assets/${slide})`,
+                backgroundImage: `url(${slide})`,
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
             ></div>
           ))}
         </div>
       </div>
+      <img
+        src={ex1}
+        alt="Ex1"
+        className="ex1"
+        style={{
+          bottom: `${ex1Position}px`, // 1cm씩 아래로 이동
+        }}
+      />
     </div>
   );
 };
