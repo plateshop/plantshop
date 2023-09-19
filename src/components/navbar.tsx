@@ -1,23 +1,36 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom"; // 이 부분 수정
+import { NavLink } from "react-router-dom"; // 이 부분 수정
 import React, { FC } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
 import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
-import "../styles/navbar.css";
+import "../styles/Navbar.css";
 
-type NavbarProps = {};
+type NavbarProps = {
+  isLoggedIn: boolean;
+  userName: string;
+  onLogout: () => void;
+};
 
-export const Navbar: FC<NavbarProps> = () => {
+export const Navbar: FC<NavbarProps> = ({ isLoggedIn,userName, onLogout }) => {
   return (
     <header className="Navbar">
       <div >
       <section className="Navbar-member">
-          <a href="/login" className="member">회원가입</a>
-          <a href="/login" className="member">로그인</a>
-      </section>    
+      {isLoggedIn ? (
+            <>
+              <span>환영합니다, {userName}님</span>
+              <button onClick={onLogout}>로그아웃</button>
+            </>
+          ) : (
+            <>
+              <NavLink to="/joinpage" className="member">회원가입</NavLink>
+              <NavLink to="/login" className="member">로그인</NavLink>
+            </>
+          )}
+        </section>
       <div className="Navbar-content">
         <div className="Navbar-logo">
           <a className="Logo-wrap" href="/main">
@@ -27,22 +40,22 @@ export const Navbar: FC<NavbarProps> = () => {
         <div className="right-menu">
           <li className="menu-search">
             <a href="/">
-              <img src={menu1} width="30" />
+              <img src={menu1} width="40" />
             </a>
           </li>
           <li className="menu-wishlist">  
             <a href="/Register">
-              <img src={menu2} width="30" />
+              <img src={menu2} width="40" />
             </a>  
           </li>
           <li className="menu-account">
             <a href="/List">
-              <img src={menu3} width="30" />
+              <img src={menu3} width="40" />
             </a>  
           </li>
           <li className="menu-cart">
             <a href="/List">
-              <img src={menu4} width="30" />
+              <img src={menu4} width="40" />
             </a>  
           </li>
         </div>
@@ -59,3 +72,73 @@ export const Navbar: FC<NavbarProps> = () => {
    </header>
   );
 };
+
+// import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
+// import { Link } from "react-router-dom"; // 이 부분 수정
+// import React, { FC } from "react";
+// import logo from "../img/logo/logo2.png";
+// import menu1 from "../img/ui/search.png";
+// import menu2 from "../img/ui/person.png";
+// import menu3 from "../img/ui/favorite.png";
+// import menu4 from "../img/ui/cart.png";
+// import "../styles/Navbar.css";
+
+// type NavbarProps = {
+//   isLoggedIn: boolean;
+//   onLogout: () => void;
+// };
+
+// export const Navbar: FC<NavbarProps> = ({ isLoggedIn, onLogout }) => {
+//   return (
+//     <NavbarBootstrap bg="light" expand="lg" className="Navbar">
+//       <Container>
+//         <NavbarBootstrap.Brand href="/main">
+//           <img
+//             className="logo"
+//             src={logo}
+//             alt="Crow Canyon Home"
+//             width="400"
+//             height="100"
+//           />
+//         </NavbarBootstrap.Brand>
+//         <NavbarBootstrap.Toggle aria-controls="basic-navbar-nav" />
+//         <NavbarBootstrap.Collapse id="basic-navbar-nav">
+//           <Nav className="mr-auto">
+//             <Nav.Link href="/">홈</Nav.Link>
+//             <Nav.Link href="/Cup">Cup</Nav.Link>
+//             <Nav.Link href="/Bowls">Bowls</Nav.Link>
+//             <Nav.Link href="/Plates">Plates</Nav.Link>
+//             <Nav.Link href="/Kitchenware">Kitchenware</Nav.Link>
+//           </Nav>
+//           <Nav className="right-menu">
+//             <Nav.Link href="/">
+//               <img src={menu1} width="30" alt="" />
+//             </Nav.Link>
+//             {isLoggedIn ? (
+//               <>
+//                 <Nav.Link href="/List">
+//                   <img src={menu3} width="30" alt="" />
+//                 </Nav.Link>
+//                 <Nav.Link href="/List">
+//                   <img src={menu4} width="30" alt="" />
+//                 </Nav.Link>
+//                 <Nav.Link href="#" onClick={onLogout}> {/* 텍스트 클릭으로 로그아웃 */}
+//                 로그아웃
+//               </Nav.Link>
+//             </>
+//             ) : (
+//               <>
+//                 <Nav.Link href="/Register">
+//                   <img src={menu2} width="30" alt="" />
+//                 </Nav.Link>
+//                 <Link to="/login">
+//                   <Nav.Link>로그인</Nav.Link>
+//                 </Link>
+//               </>
+//             )}
+//           </Nav>
+//         </NavbarBootstrap.Collapse>
+//       </Container>
+//     </NavbarBootstrap>
+//   );
+// };

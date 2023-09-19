@@ -15,32 +15,12 @@
 }
 
 .buttonBox{
-    /* width: 200px;
-  height: 50px;
-
-  background: none;
-  border-color: white;
-  border-radius: 20px;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;d
-  line-height: 15px;
-  color: white; */
   position: relative;
   padding: 10px 0;
   text-align: center;
 } 
 
 .button1{
-    /* width: 200px;
-    height: 50px;
-    color: white;
-  
-    background: black;
-    border-color: black;
-    border-radius: 5px;*/
     width: 120px;
     padding-left: 8px;
     padding-right: 8px;
@@ -64,12 +44,6 @@
 } 
 
 .button2{
-    /* width: 200px;
-  height: 50px; */
-
-  /* background: none; */
-  /* border-color: white;
-  border-radius: 5px; */
   width: 120px;
   padding-left: 8px;
   padding-right: 8px;
@@ -93,18 +67,10 @@
 }
 
 .button3{
-  /* width: 200px;
-  height: 50px;
-  border: 1px solid gray;
-
-  background: white;
-  border-radius: 5px; */
-
   float: right;
   text-align: right;
   padding: 10px 16px;
 
-  /* display: inline-block; */
   box-sizing: border-box;
   padding: 2px 8px;
   border: 1px solid #ddd;

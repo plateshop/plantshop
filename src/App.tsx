@@ -18,7 +18,9 @@ import Basket from './pages/Basket';
 import Bowls from './pages/Bowls';
 import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
+import JoinPage from './pages/JoinPage.tsx';
 import Image from './components/ImagePage';
+
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
           <Route path="/main" component={Main} />
+          <Route path="/joinpage" component={JoinPage} />
 
         </Switch>
       </Router>
