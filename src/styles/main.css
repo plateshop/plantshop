@@ -3,15 +3,14 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* overflow: hidden; /
+  /* overflow: hidden; */
 }
 
 .wrap,
 .maininner {
   margin: 0;
   padding: 0;
-  height: 100vh; / 변경된 부분 */
-  overflow: hidden;
+  height: 100vh; /* 변경된 부분 */
 }
 
 .slider-container {

@@ -1,10 +1,10 @@
 .Navbar {
   align-items: center;
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid black;
   display: flex;
   flex-direction: column;
-  position: relative;
   z-index: 300;
+  width: 100%;
 }
 
 .Navbar-member {
@@ -12,9 +12,9 @@
   display: flex;
   font-size: 12px;
   gap: 1rem;
-  height: 2.6rem;
+  height: 3.6rem;
   justify-content: flex-end;
-  width: 74vw;
+  width: 200%;
 }
 
 .member {
@@ -27,7 +27,7 @@
   font-size: 20px;
   line-height: normal;
   font-weight: 500;
-  font-style: italic;
+  /* font-style: italic; */
   margin-bottom: -2px;
 }
 
@@ -35,7 +35,8 @@
   align-items: center;
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  flex-direction: column; /* 요소들을 세로로 정렬합니다. */
+  justify-content: center;
   width: 100%;
 }
 
@@ -44,6 +45,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .right-menu {
@@ -53,9 +55,11 @@
 }
 
 .Navbar-menu {
+  align-items: center;
   padding-top: 1rem;
   width: 100%;
-  border-top: 1px solid #d3d3d3;
+  border-top: 1px solid black;
+  margin-left: 0;
 }
 
 .menu-wrap {
@@ -72,4 +76,15 @@ li {
 
 .menu {
   text-decoration: none;
+  font-family: "LeferiBaseRegular", sans-serif;
+  color: black;
+  line-height: normal;
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LeferiBaseRegular;
+  src: url("../fonts/LeferiBaseRegular.otf");
 }
