@@ -20,7 +20,6 @@ import Plates from "./pages/Plates";
 import Kitchenware from "./pages/Kitchenware";
 import Image from "./components/ImagePage";
 import JoinPage from "./pages/JoinPage";
-import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -49,7 +48,6 @@ function App() {
           <Route path="/img" component={Image} />
           <Route path="/main" component={Main} />
           <Route path="/JoinPage" component={JoinPage} />
-          <Route path="/LoginPage" component={LoginPage} />
         </Switch>
       </Router>
     </div>
