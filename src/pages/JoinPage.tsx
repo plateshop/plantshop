@@ -2,7 +2,6 @@ import React from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { TextField, Button } from "@material-ui/core";
 import * as yup from "yup";
-import "../styles/JoinPage.css";
 
 // Yup 스키마 정의
 const schema = yup.object().shape({

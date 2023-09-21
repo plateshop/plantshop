@@ -11,6 +11,8 @@ const slides = [slide1, slide2, slide3, slide4];
 
 const Main: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoggedIN, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,9 +26,30 @@ const Main: React.FC = () => {
     };
   }, []);
 
+  const handleLogin = () => {
+    const username = prompt("사용자 이름을 입력하세요:");
+    if (username) {
+      setIsLoggedIn(true);
+      setUserName(username);
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userName", username);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUserName("");
+    localStorage.setItem("isLoggedIn", "false");
+    localStorage.removeItem("userName");
+  };
+
   return (
     <div className="wrap">
-      <Navbar />
+      <Navbar
+        isLoggedIn={isLoggedIN}
+        userName={userName}
+        onLogout={handleLogout}
+      />
       <div className="maininner">
         <div className="slider-container">
           {slides.map((slide, index) => (
