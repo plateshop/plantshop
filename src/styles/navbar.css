@@ -71,7 +71,27 @@
 }
 
 li {
-  list-style: none;
+  position: relative;
+  cursor: pointer;
+}
+
+li::after {
+  content: attr(data-tooltip); /* data-tooltip 속성의 값으로 텍스트 표시 */
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7); /* 배경색과 투명도 조절 */
+  color: white;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 5px 10px;
+  white-space: nowrap; /* 텍스트가 너무 길 경우 줄 바꿈 방지 */
+  display: none; /* 초기에는 숨김 */
+  top: 100%; /* 아이콘 위에 위치 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+li:hover::after {
+  display: block; /* 마우스를 올렸을 때 툴팁 표시 */
 }
 
 .menu {
@@ -82,6 +102,22 @@ li {
   font-size: 20px;
   font-weight: 500;
   font-style: italic;
+}
+
+.cart-item-count {
+  position: relative;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%; /* 동그란 모양으로 만듭니다. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -10px; /* 말풍선을 아이콘 위에 위치시킵니다. */
+  right: -10px; /* 말풍선을 아이콘 오른쪽에 위치시킵니다. */
+  z-index: 1; /* 아이콘 위로 표시됩니다. */
 }
 
 @font-face {

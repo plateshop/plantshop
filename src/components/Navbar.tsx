@@ -1,6 +1,6 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom"; // 이 부분 수정
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
 import menu2 from "../img/ui/person.png";
@@ -15,6 +15,9 @@ type NavbarProps = {
 };
 
 export const Navbar: FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
+  const [cartItemCount, setCartItemCount] = useState<number>(0);
+  const addToCart = () => {};
+
   return (
     <header className="Navbar">
       <div>
@@ -50,22 +53,22 @@ export const Navbar: FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
           <div className="right-menu">
             <li className="menu-search">
               <a href="/">
-                <img src={menu1} width="40" />
-              </a>
-            </li>
-            <li className="menu-wishlist">
-              <a href="/Register">
-                <img src={menu2} width="40" />
+                <img src={menu1} width="40" data-tooltip="검색" />
               </a>
             </li>
             <li className="menu-account">
+              <a href="/Register">
+                <img src={menu2} width="40" data-tooltip="마이 페이지" />
+              </a>
+            </li>
+            <li className="menu-wishlist">
               <a href="/List">
-                <img src={menu3} width="40" />
+                <img src={menu3} width="40" data-tooltip="즐겨찾기" />
               </a>
             </li>
             <li className="menu-cart">
               <a href="/List">
-                <img src={menu4} width="40" />
+                <img src={menu4} width="40" data-tooltip="장바구니" />
               </a>
             </li>
           </div>
