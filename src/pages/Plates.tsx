@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Cup.css';
 import Platesdata from '../Data/Platesdata';
 import Footer from '../components/Footer';
-import { Navbar }  from '../components/Navbar';
+// import { Navbar }  from '../components/Navbar';
 
 interface PlatesData {
   id: number;
@@ -16,7 +16,7 @@ const Plates: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="cup">
         {Plates.map((PlatesItem) => (
           <Card key={PlatesItem.id} cup={PlatesItem} />

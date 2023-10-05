@@ -2,7 +2,7 @@ import '../styles/Cart.css';
 import React, { useState } from 'react';
 import  Tabs  from '../components/Tabs';
 import  Footer  from '../components/Footer';
-import  {Navbar}   from '../components/Navbar';
+// import  {Navbar}   from '../components/Navbar';
 
 
 
@@ -10,7 +10,7 @@ import  {Navbar}   from '../components/Navbar';
 const Cart = () => {
     return(
         <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className='container'>
             <div className='contents'>
                 <div className='title'>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Kitchenware.css';
 import Kitchenwaredata from '../Data/Kitchenwaredata';
 import Footer from '../components/Footer';
-import { Navbar }  from '../components/Navbar';
+// import { Navbar }  from '../components/Navbar';
 
 interface Kitchenwaredata {
   id: number;
@@ -16,7 +16,7 @@ const Kitchenware: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className='out'>
         <div className='kitchenware'>
         <div className="cup">

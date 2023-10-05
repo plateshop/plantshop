@@ -1,13 +1,13 @@
 import '../styles/Detail.css';
 import React, { useState } from 'react';
 import  Footer  from '../components/Footer';
-import { Navbar } from "../components/Navbar";
+// import { Navbar } from "../components/Navbar";
 
 
 const Detail = ( ) => {
     return(
         <div>
-            < Navbar />
+            {/* < Navbar /> */}
         <div className='detail_out'>
             <div className='product_detail'>
                 <div className='detail_container'>

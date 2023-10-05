@@ -49,7 +49,7 @@
 // export default Main;
 
 import React, { useState, useEffect } from "react";
-import { Navbar } from "../components/Navbar";
+import  Navbar  from "../components/Navbar";
 import "../styles/Main.css";
 
 import slide1 from "../img/slide/slide1.png";

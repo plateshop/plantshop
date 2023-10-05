@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Cup.css';
 import cupdata from '../Data/Cupdata';
 import Footer from '../components/Footer';
-import { Navbar }  from '../components/Navbar';
+// import { Navbar }  from '../components/Navbar';
 
 interface CupData {
   id: number;
@@ -16,7 +16,7 @@ const Cup: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
      <div className='cupwrap'> 
       <div className="cup">
         {cup.map((cupItem) => (

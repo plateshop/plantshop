@@ -1,12 +1,13 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom"; // 이 부분 수정
-import React, { FC } from "react";
+import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
 import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
+import { useAuth } from "../AuthContext";
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -14,7 +15,15 @@ type NavbarProps = {
   onLogout: () => void;
 };
 
-export const Navbar: FC<NavbarProps> = ({ isLoggedIn,userName, onLogout }) => {
+
+const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
+
+  Navbar.defaultProps = {
+    isLoggedIn: false,
+    userName: "",
+    onLogout: () => {},
+  };
+
   return (
     <header className="Navbar">
       <div >
@@ -72,6 +81,8 @@ export const Navbar: FC<NavbarProps> = ({ isLoggedIn,userName, onLogout }) => {
    </header>
   );
 };
+
+export default Navbar;
 
 // import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
 // import { Link } from "react-router-dom"; // 이 부분 수정
