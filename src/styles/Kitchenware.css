@@ -34,25 +34,36 @@
     width:30%;
     box-sizing: border-box;
 } */
-
-.out {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center; 
-}
-
-.kitchenware {
-    grid-gap: 20px;
-    /* display: grid; */
-    gap: 20px;
-    grid-template-columns: repeat(auto-fill,180px);
-    justify-content: center;
-    min-height: 50vh;
-    width: 100%;
-}
-
 .cup {
-    align-content: space-between;
-    padding-bottom: 60px;
-    width: 180px;
-}
+    align-items: center;
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .card {
+    border: none;
+    width: calc(25% - 20px); /* 4개가 나란히 정렬되도록 25%로 설정 */
+    box-sizing: border-box;
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 70%;
+    height: auto;
+  }
+  
+  .card h4 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  

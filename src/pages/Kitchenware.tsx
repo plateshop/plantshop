@@ -17,16 +17,12 @@ const Kitchenware: React.FC = () => {
   return (
     <div>
       {/* <Navbar /> */}
-      <div className='out'>
-        <div className='kitchenware'>
         <div className="cup">
         {Kitchenware.map((KitchenwareItem) => (
           <Card key={KitchenwareItem.id} Kitchenware={KitchenwareItem} />
         ))}
       </div>
       <Footer />
-      </div>
-      </div>
     </div>
   );
 };
@@ -37,13 +33,11 @@ interface CardProps {
 
 function Card({ Kitchenware }: CardProps) {
   return (
-    <div>
       <div className="card">
-        <img src={Kitchenware.img} width="175px" alt={Kitchenware.title} />
+        <img src={Kitchenware.img} alt={Kitchenware.title} />
         <h4>{Kitchenware.title}</h4>
         <p>{Kitchenware.price}</p>
-        </div>
-    </div>
+      </div>
   );
 }
 

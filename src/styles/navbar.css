@@ -7,14 +7,22 @@
   width: 100%;
 }
 
+.login-box {
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 100px;
+}
+
 .Navbar-member {
   align-items: center;
   display: flex;
   font-size: 12px;
   gap: 1rem;
   height: 3.6rem;
-  justify-content: flex-end;
-  width: 200%;
+  justify-content: right;
+  width: 100%;
+ 
 } 
 
 .member {
@@ -24,50 +32,58 @@
   cursor: pointer;
 
     font-family: 'Zilla Slab', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     line-height: normal;
     font-weight: 500;
     /* font-style: italic; */
-    margin-bottom: -2px;
+    margin-bottom: -3px;
 }
 
 .Navbar-content {
   align-items: center;
   display: flex;
-  gap: 1rem;
-  flex-direction: column; /* 요소들을 세로로 정렬합니다. */
-  justify-content: center;
+  justify-content: space-between;
   width: 100%;
 }
 
+.Logo-right-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+
 .Navbar-logo {
-  flex-grow: 1;
   align-items: center;
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  margin-left: auto; /* .Navbar-logo를 오른쪽으로 밀어내고 */
+  margin-right: 30rem; /*.Navbar-logo를 왼쪽으로 밀어내어 가운데에 정렬합니다.*/
 }
 
 .right-menu {
-  align-items: center;
   display: flex;
   gap: 1.4rem;
 }
 
 .Navbar-menu {
   align-items: center;
-  padding-top: 1rem;
+  justify-content: space-between; /* 여기에 추가합니다. */
+  /* padding-top: 1rem; */
   width: 100%;
   border-top: 1px solid black;
-  margin-left: 0;
+  /* margin-left: 0; */
 }
 
 .menu-wrap {
   align-items: center;
   display: flex;
-  font-weight: 600;
+  font-weight: 400;
   height: 4rem;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 100px;
 }
 
 li {
@@ -79,9 +95,10 @@ li {
   font-family: 'LeferiBaseRegular', sans-serif;
   color: black;
   line-height: normal;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 400;
   font-style: italic;
+  
 
 }
 

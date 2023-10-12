@@ -26,8 +26,8 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
 
   return (
     <header className="Navbar">
-      <div >
-      <section className="Navbar-member">
+      <div className="login-box">
+      <div className="Navbar-member">
       {isLoggedIn ? (
             <>
               <span>환영합니다, {userName}님</span>
@@ -39,8 +39,10 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
               <NavLink to="/login" className="member">로그인</NavLink>
             </>
           )}
-        </section>
+        </div>
+      </div>
       <div className="Navbar-content">
+       <div className="Logo-right-wrap">
         <div className="Navbar-logo">
           <a className="Logo-wrap" href="/main">
             <img className="logo" src={logo} alt="Crow Canyon Home" width="400" height="100" />
@@ -49,24 +51,25 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
         <div className="right-menu">
           <li className="menu-search">
             <a href="/">
-              <img src={menu1} width="40" />
+              <img src={menu1} width="30" />
             </a>
           </li>
           <li className="menu-wishlist">  
             <a href="/Register">
-              <img src={menu2} width="40" />
+              <img src={menu2} width="30" />
             </a>  
           </li>
           <li className="menu-account">
             <a href="/List">
-              <img src={menu3} width="40" />
+              <img src={menu3} width="30" />
             </a>  
           </li>
           <li className="menu-cart">
             <a href="/List">
-              <img src={menu4} width="40" />
+              <img src={menu4} width="30" />
             </a>  
           </li>
+          </div>
         </div>
       </div>
       <nav className="Navbar-menu">
@@ -77,12 +80,11 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
           <a href="/Kitchenware" className="menu">Kitchenware</a>
         </ul>
       </nav> 
-      </div>
    </header>
   );
 };
 
-export default Navbar;
+export default Navbar; 
 
 // import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
 // import { Link } from "react-router-dom"; // 이 부분 수정

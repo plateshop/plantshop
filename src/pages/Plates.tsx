@@ -33,13 +33,11 @@ interface CardProps {
 
 function Card({ cup }: CardProps) {
   return (
-    <div>
-      <div className="card">
-        <img src={cup.img} width="175px" alt={cup.title} />
+    <div className="card">
+      <img src={cup.img} width="175px" alt={cup.title} />
         <h4>{cup.title}</h4>
         <p>{cup.price}</p>
       </div>
-    </div>
   );
 }
 
