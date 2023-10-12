@@ -3,8 +3,9 @@ import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { TextField, Button, Grid } from "@material-ui/core";
 import * as yup from "yup";
 import "../styles/JoinPage.css";
+import Footer from '../components/Footer';
+import AddressSearch from "../components/AddressSearch";
 
-// Yup 스키마 정의
 const schema = yup.object().shape({
   username: yup.string().required("아이디를 입력하세요"),
   password: yup
@@ -25,7 +26,6 @@ const schema = yup.object().shape({
   phoneNumber3: yup.string().required("전화번호를 입력하세요"),
 });
 
-// 폼 데이터의 타입 정의
 interface FormData {
   username: string;
   password: string;
@@ -89,29 +89,40 @@ function JoinPage() {
   };
 
   return (
-    <div className="join-page">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
-          <Controller
-            name="username"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="아이디"
-                variant="outlined"
-                error={!!errors.username}
-                helperText={errors?.username?.message}
-              />
-            )}
-          />
-          {/* 중복 확인 탭 */}
-          {/* 중복 확인 로직을 추가하세요 */}
+  <div className="login-container"> 
+    <div className="joinout">
+      <div className="join-page">
+        <div className="join-header">
+          <h2>회원가입</h2>
         </div>
-
+        <div className="loin">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="login-list">
+              <div className="list">이메일</div>
+              <div className="form-group">
+                <Controller
+                  name="username"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <TextField
+                      {...field}
+                      label="아이디"
+                      variant="outlined"
+                      error={!!errors.username}
+                      helperText={errors?.username?.message}
+                    />
+                  )}
+                />
+              </div>
+              <div className="list-button" style={{ marginLeft: '10px' }}>
+                <button className="Double-check">중복 확인</button>
+              </div>
+            </div>
+      <div className="login-list">
+       <div className="list">비밀번호</div>
         <div className="form-group">
-          <Controller
+           <Controller
             name="confirmPassword"
             control={control}
             defaultValue=""
@@ -126,11 +137,14 @@ function JoinPage() {
               />
             )}
           />
-          <div className="password-requirements">
-            * 영어와 특수문자(@#$%^&+=!) 한 개를 포함해야 합니다.
-          </div>
         </div>
+      </div>
+      <div className="password-requirements">
+            * 영어와 특수문자(@#$%^&+=!) 한 개를 포함해야 합니다.
+      </div>
 
+    <div className="login-list">
+      <div className="list">비밀번호 확인</div>
         <div className="form-group">
           <Controller
             name="confirmPassword"
@@ -148,7 +162,10 @@ function JoinPage() {
             )}
           />
         </div>
+      </div>
 
+      <div className="login-list">
+      <div className="list">닉네임</div>
         <div className="form-group">
           <Controller
             name="nickname"
@@ -167,107 +184,102 @@ function JoinPage() {
           {/* 중복 확인 탭 */}
           {/* 중복 확인 로직을 추가하세요 */}
         </div>
+      </div>
 
-        <div className="form-group">
+      <div className="login-list">
+  <div className="list">주소</div>
+  <div className="form-group">
+    <Controller
+      name="address"
+      control={control}
+      defaultValue=""
+      render={({ field }) => (
+        <AddressSearch
+          onAddressSelect={(address, zipcode) => {
+            field.onChange(address); // 주소를 업데이트
+            // 우편번호를 업데이트하는 로직을 추가하세요 (필요하다면)
+          }}
+        />
+      )}
+    />
+  </div>
+</div>
+
+      <div className="login-list">
+  <div className="list">전화번호</div>
+  <div className="form-group">
+    <Grid container spacing={1} alignItems="center">
+      <Grid item xs={3}>
           <Controller
-            name="address"
+            name="phoneNumber1"
             control={control}
             defaultValue=""
             render={({ field }) => (
               <TextField
                 {...field}
-                label="주소"
                 variant="outlined"
-                error={!!errors.address}
-                helperText={errors?.address?.message}
+                error={!!errors.phoneNumber1}
+                helperText={errors?.phoneNumber1?.message}
+                inputRef={phoneNumber1Ref}
+                onInput={handlePhoneNumber1Input}
               />
             )}
           />
-        </div>
+      </Grid>
+      <Grid item xs={1}>
+        <span style={{ lineHeight: "55px" }}>-</span>
+      </Grid>
+      <Grid item xs={3}>
+        <Controller
+          name="phoneNumber2"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              {...field}
+              variant="outlined"
+              error={!!errors.phoneNumber2}
+              helperText={errors?.phoneNumber2?.message}
+              inputRef={phoneNumber2Ref}
+            />
+          )}
+        />
+      </Grid>
+      <Grid item xs={1}>
+        <span style={{ lineHeight: "55px" }}>-</span>
+      </Grid>
+      <Grid item xs={4}>
+        <Controller
+          name="phoneNumber3"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              {...field}
+              variant="outlined"
+              error={!!errors.phoneNumber3}
+              helperText={errors?.phoneNumber3?.message}
+            />
+          )}
+        />
+      </Grid>
+    </Grid>
+  </div>
+</div>
 
-        <div className="form-group">
-          <Controller
-            name="zipcode"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="우편번호"
-                variant="outlined"
-                error={!!errors.zipcode}
-                helperText={errors?.zipcode?.message}
-              />
-            )}
-          />
-        </div>
 
-        <div className="form-group">
-          <Grid container spacing={1} alignItems="center">
-            <Grid item xs={3}>
-              <Controller
-                name="phoneNumber1"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    label="전화번호"
-                    variant="outlined"
-                    error={!!errors.phoneNumber1}
-                    helperText={errors?.phoneNumber1?.message}
-                    inputRef={phoneNumber1Ref}
-                    onInput={handlePhoneNumber1Input}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={1}>
-              <span style={{ lineHeight: "55px" }}>-</span>
-            </Grid>
-            <Grid item xs={3}>
-              <Controller
-                name="phoneNumber2"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    variant="outlined"
-                    error={!!errors.phoneNumber2}
-                    helperText={errors?.phoneNumber2?.message}
-                    inputRef={phoneNumber2Ref}
-                  />
-                )}
-              />
-            </Grid>
-            <Grid item xs={1}>
-              <span style={{ lineHeight: "55px" }}>-</span>
-            </Grid>
-            <Grid item xs={4}>
-              <Controller
-                name="phoneNumber3"
-                control={control}
-                defaultValue=""
-                render={({ field }) => (
-                  <TextField
-                    {...field}
-                    variant="outlined"
-                    error={!!errors.phoneNumber3}
-                    helperText={errors?.phoneNumber3?.message}
-                  />
-                )}
-              />
-            </Grid>
-          </Grid>
+            <Button className="
+save" variant="contained" color="primary" type="submit">
+              저장
+            </Button>
+          </form>
         </div>
-
-        <Button variant="contained" color="primary" type="submit">
-          저장
-        </Button>
-      </form>
+      </div>
     </div>
+    <Footer />
+  </div>
   );
 }
 
 export default JoinPage;
+      

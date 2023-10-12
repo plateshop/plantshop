@@ -1,52 +1,3 @@
-// import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
-// import "../styles/Login.css";// 스타일 파일을 불러옵니다.
-
-// const Login: React.FC = () => {
-//   const [isLoggedIn, setIsLoggedIn] = useState(false);
-//   const [nickname, setNickname] = useState(""); 
-
-//   const history = useHistory();
-
-//   const handleLogin = () => {
-//     const username = prompt("사용자 이름을 입력하세요:");
-//     if (username) {
-//       setIsLoggedIn(true);
-//       setNickname(username);
-//       localStorage.setItem("isLoggedIn", "true");
-//       localStorage.setItem("userName", username);
-//     }
-//   };
-
-//   const handleLogout = () => {
-//     setIsLoggedIn(false);
-//     setNickname("");
-//     localStorage.setItem("isLoggedIn", "false");
-//     localStorage.removeItem("userName");
-//   };
-
-//   return (
-//     <div className="login-container">
-//       {isLoggedIn ? (
-//         <div>
-//           <h2>🍽 환영합니다, {nickname}님! 💖</h2>
-//           <button onClick={handleLogout}>로그아웃</button>
-//         </div>
-//       ) : (
-//         <div>
-//           <h2>로그인</h2>
-//           <button onClick={handleLogin}>로그인</button>
-//           <a href="/joinpage">
-//             <button>회원가입</button>
-//           </a>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Login;
-
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -85,7 +36,9 @@ const Login: React.FC = () => {
           </div>
         ) : (
           <div>
-            <h2>로그인</h2>
+            <div className="login-header">
+              <h2>로그인</h2>
+            </div>
             <div className="input-group">
               <input type="text" placeholder="아이디" />
               <input type="password" placeholder="비밀번호" />
