@@ -17,6 +17,19 @@ const Plates: React.FC = () => {
   return (
     <div>
       {/* <Navbar /> */}
+      <div className='list-img-box'>
+        <div className='list-img'>
+          <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/TABLEWARE.jpg' alt='Kitchenware' />
+          <div className='list-img-text'>
+            <div className='left-text-header'>
+              <h1>Plates</h1>
+              <div className='left-text-description'>
+                <p>Find your favorite canvas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="cup">
         {Plates.map((PlatesItem) => (
           <Card key={PlatesItem.id} cup={PlatesItem} />

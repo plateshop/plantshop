@@ -17,6 +17,19 @@ const Cup: React.FC = () => {
   return (
     <div>
       {/* <Navbar /> */}
+      <div className='list-img-box'>
+        <div className='list-img'>
+          <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/VINTAGE-e159.jpg' alt='Kitchenware' />
+          <div className='list-img-text'>
+            <div className='left-text-header'>
+              <h1>Cup</h1>
+              <div className='left-text-description'>
+                <p>Keep it cool (or hot).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="cup">
         {cup.map((cupItem) => (
           <Card key={cupItem.id} cup={cupItem} />

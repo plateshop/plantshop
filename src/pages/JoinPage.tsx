@@ -1,10 +1,11 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { TextField, Button, Grid } from "@material-ui/core";
 import * as yup from "yup";
 import "../styles/JoinPage.css";
-import Footer from '../components/Footer';
+import Footer from "../components/Footer";
 import AddressSearch from "../components/AddressSearch";
+import AddressSearchModal from "../components/AddressSearchModal";
 
 const schema = yup.object().shape({
   username: yup.string().required("아이디를 입력하세요"),
@@ -77,8 +78,16 @@ function JoinPage() {
   const phoneNumber1Ref = useRef<HTMLInputElement | null>(null);
   const phoneNumber2Ref = useRef<HTMLInputElement | null>(null);
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
-    console.log(data);
+  const [isAddressSearchModalOpen, setAddressSearchModalOpen] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState("");
+  const [selectedZipcode, setSelectedZipcode] = useState("");
+
+  const openAddressSearchModal = () => {
+    setAddressSearchModalOpen(true);
+  };
+
+  const closeAddressSearchModal = () => {
+    setAddressSearchModalOpen(false);
   };
 
   const handlePhoneNumber1Input = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,193 +97,212 @@ function JoinPage() {
     }
   };
 
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+  };
+
+  const handleAddressSelect = (address: string, zipcode: string) => {
+    setSelectedAddress(address);
+    setSelectedZipcode(zipcode);
+  };
+
   return (
-  <div className="login-container"> 
-    <div className="joinout">
-      <div className="join-page">
-        <div className="join-header">
-          <h2>회원가입</h2>
-        </div>
-        <div className="loin">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="login-list">
-              <div className="list">이메일</div>
-              <div className="form-group">
-                <Controller
-                  name="username"
-                  control={control}
-                  defaultValue=""
-                  render={({ field }) => (
-                    <TextField
-                      {...field}
-                      label="아이디"
-                      variant="outlined"
-                      error={!!errors.username}
-                      helperText={errors?.username?.message}
-                    />
-                  )}
-                />
+    <div className="login-container">
+      <div className="joinout">
+        <div className="join-page">
+          <div className="join-header">
+            <h2>회원가입</h2>
+          </div>
+          <div className="loin">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="login-list">
+                <div className="list">이메일</div>
+                <div className="form-group">
+                  <Controller
+                    name="username"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <TextField
+                        {...field}
+                        label="아이디"
+                        variant="outlined"
+                        error={!!errors.username}
+                        helperText={errors?.username?.message}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="list-button" style={{ marginLeft: "10px" }}>
+                  <button className="Double-check">중복 확인</button>
+                </div>
               </div>
-              <div className="list-button" style={{ marginLeft: '10px' }}>
-                <button className="Double-check">중복 확인</button>
+              <div className="login-list">
+                <div className="list">비밀번호</div>
+                <div className="form-group">
+                  <Controller
+                    name="confirmPassword"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <TextField
+                        {...field}
+                        label="비밀번호"
+                        type="password"
+                        variant="outlined"
+                        error={!!errors.password}
+                        helperText={errors?.password?.message}
+                      />
+                    )}
+                  />
+                </div>
               </div>
-            </div>
-      <div className="login-list">
-       <div className="list">비밀번호</div>
-        <div className="form-group">
-           <Controller
-            name="confirmPassword"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="비밀번호"
-                type="password"
-                variant="outlined"
-                error={!!errors.password}
-                helperText={errors?.password?.message}
-              />
-            )}
-          />
+              <div className="password-requirements">
+                * 영어와 특수문자(@#$%^&+=!) 한 개를 포함해야 합니다.
+              </div>
+
+              <div className="login-list">
+                <div className="list">비밀번호 확인</div>
+                <div className="form-group">
+                  <Controller
+                    name="confirmPassword"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <TextField
+                        {...field}
+                        label="비밀번호 확인"
+                        type="password"
+                        variant="outlined"
+                        error={!!errors.confirmPassword}
+                        helperText={errors?.confirmPassword?.message}
+                      />
+                    )}
+                  />
+                </div>
+              </div>
+
+              <div className="login-list">
+                <div className="list">닉네임</div>
+                <div className="form-group">
+                  <Controller
+                    name="nickname"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <TextField
+                        {...field}
+                        label="닉네임"
+                        variant="outlined"
+                        error={!!errors.nickname}
+                        helperText={errors?.nickname?.message}
+                      />
+                    )}
+                  />
+                  {/* 중복 확인 탭 */}
+                  {/* 중복 확인 로직을 추가하세요 */}
+                </div>
+              </div>
+
+              <div className="login-list">
+                <div className="list">주소</div>
+                <div className="form-group">
+                  <TextField
+                    label="주소"
+                    variant="outlined"
+                    value={selectedAddress}
+                    onClick={openAddressSearchModal}
+                  />
+                  <Button onClick={openAddressSearchModal}>주소 검색</Button>
+                  <TextField
+                    label="우편번호"
+                    variant="outlined"
+                    value={selectedZipcode}
+                  />
+                </div>
+              </div>
+
+              <div className="login-list">
+                <div className="list">전화번호</div>
+                <div className="form-group">
+                  <Grid container spacing={1} alignItems="center">
+                    <Grid item xs={3}>
+                      <Controller
+                        name="phoneNumber1"
+                        control={control}
+                        defaultValue=""
+                        render={({ field }) => (
+                          <TextField
+                            {...field}
+                            variant="outlined"
+                            error={!!errors.phoneNumber1}
+                            helperText={errors?.phoneNumber1?.message}
+                            inputRef={phoneNumber1Ref}
+                            onInput={handlePhoneNumber1Input}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item xs={1}>
+                      <span style={{ lineHeight: "55px" }}>-</span>
+                    </Grid>
+                    <Grid item xs={3}>
+                      <Controller
+                        name="phoneNumber2"
+                        control={control}
+                        defaultValue=""
+                        render={({ field }) => (
+                          <TextField
+                            {...field}
+                            variant="outlined"
+                            error={!!errors.phoneNumber2}
+                            helperText={errors?.phoneNumber2?.message}
+                            inputRef={phoneNumber2Ref}
+                          />
+                        )}
+                      />
+                    </Grid>
+                    <Grid item xs={1}>
+                      <span style={{ lineHeight: "55px" }}>-</span>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <Controller
+                        name="phoneNumber3"
+                        control={control}
+                        defaultValue=""
+                        render={({ field }) => (
+                          <TextField
+                            {...field}
+                            variant="outlined"
+                            error={!!errors.phoneNumber3}
+                            helperText={errors?.phoneNumber3?.message}
+                          />
+                        )}
+                      />
+                    </Grid>
+                  </Grid>
+                </div>
+              </div>
+
+              <Button
+                className="save"
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                저장
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
-      <div className="password-requirements">
-            * 영어와 특수문자(@#$%^&+=!) 한 개를 포함해야 합니다.
-      </div>
-
-    <div className="login-list">
-      <div className="list">비밀번호 확인</div>
-        <div className="form-group">
-          <Controller
-            name="confirmPassword"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="비밀번호 확인"
-                type="password"
-                variant="outlined"
-                error={!!errors.confirmPassword}
-                helperText={errors?.confirmPassword?.message}
-              />
-            )}
-          />
-        </div>
-      </div>
-
-      <div className="login-list">
-      <div className="list">닉네임</div>
-        <div className="form-group">
-          <Controller
-            name="nickname"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label="닉네임"
-                variant="outlined"
-                error={!!errors.nickname}
-                helperText={errors?.nickname?.message}
-              />
-            )}
-          />
-          {/* 중복 확인 탭 */}
-          {/* 중복 확인 로직을 추가하세요 */}
-        </div>
-      </div>
-
-      <div className="login-list">
-  <div className="list">주소</div>
-  <div className="form-group">
-    <Controller
-      name="address"
-      control={control}
-      defaultValue=""
-      render={({ field }) => (
-        <AddressSearch 
-          onAddressSelect={(address, zipcode) => {
-            field.onChange(address); // 주소를 업데이트
-            // 우편번호를 업데이트하는 로직을 추가하세요 (필요하다면)
-          }}
-        />
-      )}
-    />
-  </div>
-</div>
-
-      <div className="login-list">
-  <div className="list">전화번호</div>
-  <div className="form-group">
-    <Grid container spacing={1} alignItems="center">
-      <Grid item xs={3}>
-          <Controller
-            name="phoneNumber1"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                variant="outlined"
-                error={!!errors.phoneNumber1}
-                helperText={errors?.phoneNumber1?.message}
-                inputRef={phoneNumber1Ref}
-                onInput={handlePhoneNumber1Input}
-              />
-            )}
-          />
-      </Grid>
-      <Grid item xs={1}>
-        <span style={{ lineHeight: "55px" }}>-</span>
-      </Grid>
-      <Grid item xs={3}>
-        <Controller
-          name="phoneNumber2"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              {...field}
-              variant="outlined"
-              error={!!errors.phoneNumber2}
-              helperText={errors?.phoneNumber2?.message}
-              inputRef={phoneNumber2Ref}
-            />
-          )}
-        />
-      </Grid>
-      <Grid item xs={1}>
-        <span style={{ lineHeight: "55px" }}>-</span>
-      </Grid>
-      <Grid item xs={4}>
-        <Controller
-          name="phoneNumber3"
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <TextField
-              {...field}
-              variant="outlined"
-              error={!!errors.phoneNumber3}
-              helperText={errors?.phoneNumber3?.message}
-            />
-          )}
-        />
-      </Grid>
-    </Grid>
-  </div>
-</div>
-<div className="save-botton">
-  <Button className="save">저장</Button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <Footer />
+      <AddressSearchModal
+        open={isAddressSearchModalOpen}
+        onClose={closeAddressSearchModal}
+        onAddressSelect={handleAddressSelect}
+      />
     </div>
-    <Footer />
-  </div>
   );
 }
 

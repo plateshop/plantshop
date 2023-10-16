@@ -17,7 +17,20 @@ const Kitchenware: React.FC = () => {
   return (
     <div>
       {/* <Navbar /> */}
-        <div className="cup">
+      <div className='list-img-box'>
+        <div className='list-img'>
+          <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/KITCHEN-1.jpg' alt='Kitchenware' />
+          <div className='list-img-text'>
+            <div className='left-text-header'>
+              <h1>Kitchenware</h1>
+              <div className='left-text-description'>
+                <p>Dress up your tasting room.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="cup">
         {Kitchenware.map((KitchenwareItem) => (
           <Card key={KitchenwareItem.id} Kitchenware={KitchenwareItem} />
         ))}

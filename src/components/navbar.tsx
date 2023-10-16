@@ -45,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
        <div className="Logo-right-wrap">
         <div className="Navbar-logo">
           <a className="Logo-wrap" href="/main">
-            <img className="logo" src={logo} alt="Crow Canyon Home" width="400" height="100" />
+            <img className="logo" src={logo} alt="Crow Canyon Home" width="300" height="80" />
           </a>
         </div>  
         <div className="right-menu">

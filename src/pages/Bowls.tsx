@@ -64,6 +64,20 @@ const Bowls: React.FC = () => {
 
   return (
     <div>
+      <div className='list-img-box'>
+        <div className='list-img'>
+          <img src='https://crowcanyonhome.com/wp-content/uploads/2023/04/Bowls-and-Basins.jpg
+' alt='Kitchenware' />
+          <div className='list-img-text'>
+            <div className='left-text-header'>
+              <h1>Bowls</h1>
+              <div className='left-text-description'>
+                <p>Fill life to the brim.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     <div className="cup">
       {bowlsData.map((bowlsItem) => (
         <Card key={bowlsItem.id} bowls={bowlsItem} />
