@@ -43,21 +43,20 @@
   margin-right: 10px; /* 라벨과 입력 필드 사이의 간격을 조정합니다. */
 }
 
-.form-group {
+.form-group  {
   display: flex;
   align-items: center;
   width: 100%;
   flex-grow: 1;
   flex: 2;
 }
-
 .MuiFormControl-root {
   width: 100%;
 }
 
 .Double-check {
-  background-color: #000;
-  color: #fff;
+  background-color: #ccc;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -71,17 +70,17 @@
   margin-top: 5px;
 }
 
-.button-group button[type="submit"] {
+/* .button-group button[type="submit"] {
   width: 100%;
   height: 50px;
   margin-top: 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #000;
+  background-color: #ccc;
   color: #fff;
   font-size: 16px;
-}
+} */
 
 .save{
 width: 550px; 
@@ -91,6 +90,6 @@ border: none;
 border-radius: 5px;
 cursor: pointer;
 
-color: black;
-background-color: #ccc;
+color: #ccc;
+background-color: black;
 }

@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
             </a>  
           </li>
           <li className="menu-cart">
-            <a href="/List">
+            <a href="/Cart">
               <img src={menu4} width="30" />
             </a>  
           </li>

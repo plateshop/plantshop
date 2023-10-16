@@ -194,7 +194,7 @@ function JoinPage() {
       control={control}
       defaultValue=""
       render={({ field }) => (
-        <AddressSearch
+        <AddressSearch 
           onAddressSelect={(address, zipcode) => {
             field.onChange(address); // 주소를 업데이트
             // 우편번호를 업데이트하는 로직을 추가하세요 (필요하다면)
@@ -266,12 +266,9 @@ function JoinPage() {
     </Grid>
   </div>
 </div>
-
-
-            <Button className="
-save" variant="contained" color="primary" type="submit">
-              저장
-            </Button>
+<div className="save-botton">
+  <Button className="save">저장</Button>
+            </div>
           </form>
         </div>
       </div>
