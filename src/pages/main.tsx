@@ -52,6 +52,7 @@ import React, { useState, useEffect } from "react";
 import  Navbar  from "../components/Navbar";
 import "../styles/Main.css";
 
+
 import slide1 from "../img/slide/slide1.png";
 import slide2 from "../img/slide/slide2.png";
 import slide3 from "../img/slide/slide3.png";

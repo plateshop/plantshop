@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/Cup.css';
 import Platesdata from '../Data/Platesdata';
 import Footer from '../components/Footer';
-// import { Navbar }  from '../components/Navbar';
+import Navbar   from '../components/Navbar';
 
 interface PlatesData {
   id: number;
@@ -16,7 +16,7 @@ const Plates: React.FC = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <div className='list-img-box'>
         <div className='list-img'>
           <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/TABLEWARE.jpg' alt='Kitchenware' />

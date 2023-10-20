@@ -51,6 +51,7 @@ import React, { useState } from 'react';
 import '../styles/Bowls.css';
 import Bowlsdata from '../Data/Bowlsdata';
 import Footer from '../components/Footer';
+import Navbar   from '../components/Navbar';
 
 interface Bowlsdata {
   id: number;
@@ -64,6 +65,7 @@ const Bowls: React.FC = () => {
 
   return (
     <div>
+      <Navbar />
       <div className='list-img-box'>
         <div className='list-img'>
           <img src='https://crowcanyonhome.com/wp-content/uploads/2023/04/Bowls-and-Basins.jpg
