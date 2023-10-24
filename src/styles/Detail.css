@@ -1,7 +1,11 @@
+.detail_wrap{
+    margin-left: 0;
+}
 .detail_out{
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    margin-left: 0;
 }
 
 .detail_container{
@@ -9,8 +13,7 @@
     height: auto;
     justify-content: space-between;
     padding-bottom: 150px;
-    padding-top: 30px;
-    width: 74vw;
+    width: 80vw;
 }
 
 .detail_container_imgarea{
@@ -19,6 +22,8 @@
     justify-content: center;
     width: 65%;
     margin: 0px auto;
+    margin-left: 0;
+
 }
 
 .detail_container_menu{
@@ -32,6 +37,7 @@
     padding-left: 40px;
     padding-top: 50px;
     width: 35%;
+    text-align: left;
 }
 
 .detail_container_menu_fixbox{

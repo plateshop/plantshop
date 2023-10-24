@@ -3,6 +3,7 @@ import '../styles/Cup.css';
 import cupdata from '../Data/Cupdata';
 import Footer from '../components/Footer';
 import  Navbar  from '../components/Navbar';
+import cupImage from '../img/list/cup.jpg';
 
 interface CupData {
   id: number;
@@ -19,7 +20,7 @@ const Cup: React.FC = () => {
       <Navbar />
       <div className='list-img-box'>
         <div className='list-img'>
-          <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/VINTAGE-e159.jpg' alt='Kitchenware' />
+          <img src={cupImage} alt='Kitchenware' />
           <div className='list-img-text'>
             <div className='left-text-header'>
               <h1>Cup</h1>

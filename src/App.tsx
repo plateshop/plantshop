@@ -20,6 +20,10 @@ import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
 import JoinPage from './pages/JoinPage.tsx';
 import Image from './components/ImagePage';
+import Shipping from './pages/Shipping';
+import ShippingAddress from './components/ShippingAddress';
+
+
 
 
 function App() {
@@ -49,6 +53,9 @@ function App() {
           <Route path="/img" component={Image} />
           <Route path="/main" component={Main} />
           <Route path="/joinpage" component={JoinPage} />
+          <Route path="/shipping" component={Shipping} />
+          <Route path="/shippingaddress" component={ShippingAddress} />
+
 
         </Switch>
       </Router>

@@ -3,6 +3,7 @@ import '../styles/Kitchenware.css';
 import Kitchenwaredata from '../Data/Kitchenwaredata';
 import Footer from '../components/Footer';
 import  Navbar  from '../components/Navbar';
+import KitchenwareImage from '../img/list/kitchenware.jpg';
 
 interface Kitchenwaredata {
   id: number;
@@ -19,7 +20,7 @@ const Kitchenware: React.FC = () => {
       <Navbar />
       <div className='list-img-box'>
         <div className='list-img'>
-          <img src='https://crowcanyonhome.com/wp-content/uploads/2020/09/KITCHEN-1.jpg' alt='Kitchenware' />
+          <img src={KitchenwareImage}  alt='Kitchenware' />
           <div className='list-img-text'>
             <div className='left-text-header'>
               <h1>Kitchenware</h1>
