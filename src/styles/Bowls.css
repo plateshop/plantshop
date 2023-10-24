@@ -1,35 +1,32 @@
 .cup {
-  width: 90%;
-  margin: 10px auto;
+  align-items: center;
+  width: 100%;
+  margin: 100px auto;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.first {
+.card {
   border: none;
-  flex: 1;
-  width: 30%;
+  width: calc(25% - 20px); /* 4개가 나란히 정렬되도록 25%로 설정 */
   box-sizing: border-box;
+  margin: 10px;
+  background-color: white;
+  text-align: center;
 }
 
-.second {
-  border: none;
-  flex: 1;
-  margin: 0px 5%;
-  width: 30%;
-  box-sizing: border-box;
+.card img {
+  width: 70%;
+  height: auto;
 }
 
-.third {
-  border: none;
-  flex: 1;
-  margin: 0px 5%;
-  width: 30%;
-  box-sizing: border-box;
+.card h4 {
+  margin: 5px 0;
+  font-size: 1.2rem;
 }
 
-.fourth {
-  border: none;
-  flex: 1;
-  width: 30%;
-  box-sizing: border-box;
+.card p {
+  margin: 0;
+  font-size: 1rem;
 }

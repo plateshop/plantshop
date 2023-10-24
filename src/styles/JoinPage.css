@@ -1,15 +1,83 @@
-.join-page {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.form-group {
+.joinout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.join-page {
+  max-width: 600px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.join-header {
+  text-align: center;
   margin-bottom: 20px;
 }
 
+.login-list {
+  display: flex;
+  height: 48px;
+  min-width: 600px;
+  padding: 10px 20px;
+}
+
+.list {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-basis: 30%; /* 라벨이 차지하는 공간을 조정할 수 있습니다. /
+  margin-right: 10px; / 라벨과 입력 필드 사이의 간격을 조정합니다. */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+  flex: 2;
+}
+.MuiFormControl-root {
+  width: 100%;
+}
+
+.Double-check {
+  background-color: #ccc;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
 .password-requirements {
-  font-size: 12px;
-  color: red;
-  margin-top: 4px;
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.save {
+  width: 550px;
+  height: 50px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  color: #ccc;
+  background-color: black;
 }

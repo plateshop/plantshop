@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Kitchenware.css";
 import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar";
 
 interface Kitchenwaredata {
   id: number;
@@ -17,16 +17,28 @@ const Kitchenware: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <div className="out">
-        <div className="kitchenware">
-          <div className="cup">
-            {Kitchenware.map((KitchenwareItem) => (
-              <Card key={KitchenwareItem.id} Kitchenware={KitchenwareItem} />
-            ))}
+      <div className="list-img-box">
+        <div className="list-img">
+          <img
+            src="https://crowcanyonhome.com/wp-content/uploads/2020/09/KITCHEN-1.jpg"
+            alt="Kitchenware"
+          />
+          <div className="list-img-text">
+            <div className="left-text-header">
+              <h1>Kitchenware</h1>
+              <div className="left-text-description">
+                <p>Dress up your tasting room.</p>
+              </div>
+            </div>
           </div>
-          <Footer />
         </div>
       </div>
+      <div className="cup">
+        {Kitchenware.map((KitchenwareItem) => (
+          <Card key={KitchenwareItem.id} Kitchenware={KitchenwareItem} />
+        ))}
+      </div>
+      <Footer />
     </div>
   );
 };
@@ -37,12 +49,10 @@ interface CardProps {
 
 function Card({ Kitchenware }: CardProps) {
   return (
-    <div>
-      <div className="card">
-        <img src={Kitchenware.img} width="175px" alt={Kitchenware.title} />
-        <h4>{Kitchenware.title}</h4>
-        <p>{Kitchenware.price}</p>
-      </div>
+    <div className="card">
+      <img src={Kitchenware.img} alt={Kitchenware.title} />
+      <h4>{Kitchenware.title}</h4>
+      <p>{Kitchenware.price}</p>
     </div>
   );
 }
