@@ -32,3 +32,27 @@ html {
 .active {
   transform: translateX(0);
 }
+
+.main-middle-section-wrap {
+ width: 100%;
+}
+.main-middle-section-wrap-inner {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.main-middle-section-wrap-inner-r {
+  width: 50%;
+  padding-right: 2px;
+
+}
+.main-middle-section-wrap-inner-l-img{
+  width: 50%;
+  padding-left: 2px;
+}
+.main-middle-section-wrap-inner-r-img .main-middle-section-wrap-inner-l-img {
+  flex-basis: 100%;
+  position: relative;
+  margin-bottom: 26px;
+}
