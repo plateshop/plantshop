@@ -40,19 +40,36 @@ html {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
+  justify-content: center;
 }
 
-.main-middle-section-wrap-inner-r {
-  width: 50%;
-  padding-right: 2px;
+.main-middle-section-wrap-inner-box {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.main-middle-section-wrap-inner-r,
+.main-middle-section-wrap-inner-l {
+  flex-basis: calc(50% - 1000.5px);
+  padding-right: 13px;
+  padding: 0 6.5px;
+  box-sizing: border-box; /* 패딩을 포함한 전체 크기로 계산합니다 */
 }
-.main-middle-section-wrap-inner-l-img{
-  width: 50%;
-  padding-left: 2px;
-}
-.main-middle-section-wrap-inner-r-img .main-middle-section-wrap-inner-l-img {
+
+.main-middle-section-wrap-inner-r-img,
+.main-middle-section-wrap-inner-l-img {
   flex-basis: 100%;
   position: relative;
   margin-bottom: 26px;
+}
+
+.main-middle-section-wrap-inner-l-img {
+  margin-bottom: 26px;
+}
+
+.newsletter-section {
+  width: 100%;
+  padding-top: 56px;
+  /* padding-bottom: 56px; */
+  /* margin-bottom: 75px; */
 }

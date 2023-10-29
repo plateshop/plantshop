@@ -39,11 +39,11 @@
   align-items: center;
   font-weight: bold;
   font-size: 18px;
-  flex-basis: 30%; /* 라벨이 차지하는 공간을 조정할 수 있습니다. */
-  margin-right: 10px; /* 라벨과 입력 필드 사이의 간격을 조정합니다. */
+  flex-basis: 30%; /* 라벨이 차지하는 공간을 조정할 수 있습니다. /
+  margin-right: 10px; / 라벨과 입력 필드 사이의 간격을 조정합니다. */
 }
 
-.form-group  {
+.form-group {
   display: flex;
   align-items: center;
   width: 100%;
@@ -70,14 +70,25 @@
   margin-top: 5px;
 }
 
-.save{
-width: 550px; 
-height: 50px;
-margin-bottom: 10px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
+.save {
+  width: 550px;
+  height: 50px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 
-color: #ccc;
-background-color: black;
+  color: #ccc;
+  background-color: black;
+}
+
+.modal-content {
+  background-color: white;
+  border: 2px solid #000;
+  width: 300px; 
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

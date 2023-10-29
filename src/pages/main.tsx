@@ -5,10 +5,7 @@ import middle1 from "../img/home/middle1.jpg";
 import middle2 from "../img/home/middle2.jpg";
 import middle3 from "../img/home/middle3.jpg";
 import middle4 from "../img/home/middle4.jpg";
-
-
-
-
+import middle5 from "../img/home/middle5.jpg";
 
 import slide1 from "../img/slide/slide1.png";
 import slide2 from "../img/slide/slide5.png";
@@ -77,25 +74,39 @@ const Main: React.FC = () => {
         <div className="main-middle-section-wrap">
           <div className="main-middle-section-wrap-inner">
               <div className="main-middle-section-wrap-inner-r">
+                <div className="main-middle-section-wrap-inner-box">
               <div className="main-middle-section-wrap-inner-r-img">
+                <a href="/cup">
                   <img src={middle1} alt="middle1" />
+                </a>  
                 </div>
                 <div className="main-middle-section-wrap-inner-r-img">
+                <a href="/plates">
                   <img src={middle2} alt="middle2" />
+                </a>
                 </div>
+              </div>
               </div>
               <div className="main-middle-section-wrap-inner-l">
+              <div className="main-middle-section-wrap-inner-box">
                 <div className="main-middle-section-wrap-inner-l-img">
+                <a href="/bowls">
                   <img src={middle3} alt="middle3" />
+                </a>
                 </div>
                 <div className="main-middle-section-wrap-inner-l-img">
+                <a href="/kitchenware">
                   <img src={middle4} alt="middle4" />
-                </div>
-                
+                </a>
               </div>
-
+            </div>
+          </div>  
           </div>
         </div>
+      </div>
+      <div className="newsletter-section">
+        <img src={middle5} alt="middle5"/>
+
       </div>
       <Footer />
     </div>
