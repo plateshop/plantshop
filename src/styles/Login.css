@@ -15,10 +15,9 @@ h2 {
 .login-header {
   border-bottom: 2px solid #333;
   margin-bottom: 20px;
-  padding-bottom: 20px; /* 조정 /
-text-align: center;
+  padding-bottom: 20px; /* 조정 */
+  text-align: center;
 }
-
 
 .input-group {
   display: flex;
@@ -34,18 +33,18 @@ text-align: center;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .button-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; / 수정된 부분 /
+  width: 100%; /* 수정된 부분 */
 }
 
 .button-group button {
-  width: 500px; / 수정된 부분 */
+  width: 500px; /* 수정된 부분 */
   height: 50px;
   margin-bottom: 10px;
   border: none;

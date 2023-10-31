@@ -1,22 +1,37 @@
 import React, { useState } from "react";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+
 import "../styles/Login.css";
 
 const Login: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState(""); // 추가: 사용자 이름 상태
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    const username = prompt("사용자 이름을 입력하세요:");
+    if (username) {
+      setIsLoggedIn(true);
+      setUserName(username); // 사용자 이름 설정
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userName", username);
+    }
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    setUserName(""); // 사용자 이름 초기화
+    localStorage.setItem("isLoggedIn", "false");
+    localStorage.removeItem("userName");
   };
 
   return (
     <div>
-      <Navbar />
+      <Navbar
+        isLoggedIn={isLoggedIn}
+        userName={userName}
+        onLogout={handleLogout}
+      />
       <div className="login-container">
         {isLoggedIn ? (
           <div>
@@ -25,7 +40,9 @@ const Login: React.FC = () => {
           </div>
         ) : (
           <div>
-            <h2>로그인</h2>
+            <div className="login-header">
+              <h2>로그인</h2>
+            </div>
             <div className="input-group">
               <input type="text" placeholder="아이디" />
               <input type="password" placeholder="비밀번호" />

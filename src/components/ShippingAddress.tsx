@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from "react";
-import ShippingAddress from "../styles/ShippingAddress.css";
+import "../styles/ShippingAddress.css";
 import CloseIcon from "../components/CloseIcon";
-import { useDaumPostcodePopup, DaumPostcodeData } from "react-daum-postcode";
+import { useDaumPostcodePopup } from "react-daum-postcode";
 
 interface Forms {
   recipient: string;
@@ -20,7 +20,7 @@ export default function ShippingAddress() {
 
   const open = useDaumPostcodePopup();
 
-  const handleComplete = (data: DaumPostcodeData) => {
+  const handleComplete = (data: any) => {
     let fullAddress = data.address;
     let extraAddress = "";
 
@@ -48,7 +48,7 @@ export default function ShippingAddress() {
     open({ onComplete: handleComplete });
   };
 
-  const handleDetailAddressChange = (e) => {
+  const handleDetailAddressChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForms({
       ...forms,
       detailAddress: e.target.value,
