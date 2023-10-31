@@ -11,15 +11,17 @@ import Payment from "./pages/Payment";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Login from "./pages/Login";
-import Main from "./pages/Main";
+import Main from "./pages/Main.tsx";
 import Customer6 from "./pages/Customer6";
 import Pngword from "./pages/Pngword";
 import Basket from "./pages/Basket";
 import Bowls from "./pages/Bowls";
 import Plates from "./pages/Plates";
 import Kitchenware from "./pages/Kitchenware";
+import JoinPage from "./pages/JoinPage.tsx";
 import Image from "./components/ImagePage";
-import JoinPage from "./pages/JoinPage";
+import Shipping from "./pages/Shipping";
+import ShippingAddress from "./components/ShippingAddress";
 
 function App() {
   return (
@@ -47,7 +49,9 @@ function App() {
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
           <Route path="/main" component={Main} />
-          <Route path="/JoinPage" component={JoinPage} />
+          <Route path="/joinpage" component={JoinPage} />
+          <Route path="/shipping" component={Shipping} />
+          <Route path="/shippingaddress" component={ShippingAddress} />
         </Switch>
       </Router>
     </div>

@@ -1,25 +1,21 @@
 .cartBox {
   font-size: 30px;
 }
-
 .contents {
   max-width: 1230px;
   margin: 0 auto;
   padding: 0 80px;
 }
-
 .title {
   min-height: 30px;
   margin: 10px 0 40px;
   text-align: center;
 }
-
 .buttonBox {
   position: relative;
   padding: 10px 0;
   text-align: center;
 }
-
 .button1 {
   width: 120px;
   padding-left: 8px;
@@ -42,7 +38,6 @@
   color: #fff;
   background-color: #333;
 }
-
 .button2 {
   width: 120px;
   padding-left: 8px;
@@ -65,12 +60,10 @@
   color: #fff;
   background-color: #999;
 }
-
 .button3 {
   float: right;
   text-align: right;
   padding: 10px 16px;
-
   box-sizing: border-box;
   padding: 2px 8px;
   border: 1px solid #ddd;
@@ -87,18 +80,15 @@
   color: #333;
   background-color: #fff;
 }
-
 .informationUse {
   margin: 20px 0;
   border: 1px solid #ddd;
   line-height: 18px;
 }
-
 .inner {
   padding: 0 9px 12px;
   line-height: 18px;
 }
-
 ol {
   margin: 15px 0 0 11px;
   display: block;
@@ -111,16 +101,13 @@ ol {
   line-height: 18px;
   color: #777;
 }
-
 li {
   display: list-item;
   color: #777;
 }
-
 h4 {
   color: #777;
 }
-
 h3 {
   padding: 9px 0 6px 10px;
   border-bottom: 1px solid #e8e7e7;

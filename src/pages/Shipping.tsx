@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-import {
-  ShippingAddressBodyStyled,
-  ShippingAddressCloseIconWrap,
-  ShippingAddressContainerStyled,
-  ShippingAddressFormsWrap,
-  ShippingAddressHeaderStyled,
-  ShippingAddressTitleStyled,
-} from "../ShippingAddress.styles";
-import CloseIcon from "../icons/CloseIcon/CloseIcon";
-
+import CloseIcon from "../components/CloseIcon";
 import { useDaumPostcodePopup } from "react-daum-postcode";
+import "../styles/Shipping.css";
 
 interface Forms {
   recipient: string;
@@ -18,7 +10,7 @@ interface Forms {
   detailAddress: string;
 }
 
-export default function ShippingAddress() {
+export default function Shipping() {
   const [forms, setForms] = useState<Forms>({
     recipient: "",
     zipcode: "",
@@ -49,7 +41,7 @@ export default function ShippingAddress() {
       zipcode: data.zonecode,
     });
 
-    console.log(data, fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+    console.log(data, fullAddress);
   };
 
   const handleClick = () => {
@@ -66,15 +58,15 @@ export default function ShippingAddress() {
   };
 
   return (
-    <ShippingAddressContainerStyled>
-      <ShippingAddressBodyStyled>
-        <ShippingAddressHeaderStyled>
-          <ShippingAddressTitleStyled>배송지 작성</ShippingAddressTitleStyled>
-          <ShippingAddressCloseIconWrap>
+    <div className="ShippingAddressContainerStyled">
+      <div className="ShippingAddressBodyStyled">
+        <div className="ShippingAddressHeaderStyled">
+          <div className="ShippingAddressTitleStyled">배송지 작성</div>
+          <div className="ShippingAddressCloseIconWrap">
             <CloseIcon width={32} height={32} />
-          </ShippingAddressCloseIconWrap>
-        </ShippingAddressHeaderStyled>
-        <ShippingAddressFormsWrap>
+          </div>
+        </div>
+        <div className="ShippingAddressFormsWrap">
           <input type="text" disabled value={forms.zipcode} />
           <input type="text" disabled value={forms.address} />
           <input
@@ -85,8 +77,8 @@ export default function ShippingAddress() {
           <button type="button" onClick={handleClick}>
             주소검색
           </button>
-        </ShippingAddressFormsWrap>
-      </ShippingAddressBodyStyled>
-    </ShippingAddressContainerStyled>
+        </div>
+      </div>
+    </div>
   );
 }

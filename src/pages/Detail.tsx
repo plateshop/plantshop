@@ -1,11 +1,11 @@
 import "../styles/Detail.css";
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar";
 
 const Detail = () => {
   return (
-    <div>
+    <div className="detail_wrap">
       <Navbar />
       <div className="detail_out">
         <div className="product_detail">

@@ -6,6 +6,9 @@ import "../styles/JoinPage.css";
 import Footer from "../components/Footer";
 import AddressSearch from "../components/AddressSearch";
 import AddressSearchModal from "../components/AddressSearchModal";
+import DaumPostcodeEmbed from "react-daum-postcode";
+import { Modal } from "@mui/material";
+import DaumPostcode from "react-daum-postcode";
 
 const schema = yup.object().shape({
   username: yup.string().required("아이디를 입력하세요"),
@@ -89,6 +92,8 @@ function JoinPage() {
   const closeAddressSearchModal = () => {
     setAddressSearchModalOpen(false);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handlePhoneNumber1Input = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length >= 3 && phoneNumber1Ref.current) {
@@ -211,7 +216,6 @@ function JoinPage() {
                     label="주소"
                     variant="outlined"
                     value={selectedAddress}
-                    onClick={openAddressSearchModal}
                   />
                   <Button onClick={openAddressSearchModal}>주소 검색</Button>
                   <TextField
@@ -220,6 +224,22 @@ function JoinPage() {
                     value={selectedZipcode}
                   />
                 </div>
+                <Modal open={isModalOpen} onClose={closeAddressSearchModal}>
+                  <div className="modal-content">
+                    <DaumPostcode
+                      onComplete={(data) => {
+                        handleAddressSelect(data.address, data.zonecode);
+                      }}
+                    />
+                    <Button
+                      onClick={() =>
+                        handleAddressSelect(selectedAddress, selectedZipcode)
+                      }
+                    >
+                      선택
+                    </Button>
+                  </div>
+                </Modal>
               </div>
 
               <div className="login-list">

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "../styles/Cup.css";
+import "../styles/Bowls.css";
 import Bowlsdata from "../Data/Bowlsdata";
 import Footer from "../components/Footer";
-import { Navbar } from "../components/Navbar";
+import Navbar from "../components/Navbar";
+import bowlsImage from "../img/list/bowls3.jpg";
 
 interface Bowlsdata {
   id: number;
@@ -12,14 +13,27 @@ interface Bowlsdata {
 }
 
 const Bowls: React.FC = () => {
-  const [cup] = useState<Bowlsdata[]>(Bowlsdata);
+  const [bowlsData] = useState<Bowlsdata[]>(Bowlsdata);
 
   return (
     <div>
       <Navbar />
+      <div className="list-img-box">
+        <div className="list-img">
+          <img src={bowlsImage} alt="Kitchenware" />
+          <div className="list-img-text">
+            <div className="left-text-header">
+              <h1>Bowls</h1>
+              <div className="left-text-description">
+                <p>Fill life to the brim.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="cup">
-        {cup.map((cupItem) => (
-          <Card key={cupItem.id} bowls={cupItem} />
+        {bowlsData.map((bowlsItem) => (
+          <Card key={bowlsItem.id} bowls={bowlsItem} />
         ))}
       </div>
       <Footer />
@@ -33,12 +47,10 @@ interface CardProps {
 
 function Card({ bowls }: CardProps) {
   return (
-    <div>
-      <div className="card">
-        <img src={bowls.img} width="175px" alt={bowls.title} />
-        <h4>{bowls.title}</h4>
-        <p>{bowls.price}</p>
-      </div>
+    <div className="card">
+      <img src={bowls.img} alt={bowls.title} />
+      <h4>{bowls.title}</h4>
+      <p>{bowls.price}</p>
     </div>
   );
 }
