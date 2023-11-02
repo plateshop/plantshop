@@ -7,7 +7,6 @@ import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
-import { useAuth } from "../AuthContext";
 
 type NavbarProps = {
   isLoggedIn: boolean;
