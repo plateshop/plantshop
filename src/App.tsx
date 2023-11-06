@@ -22,6 +22,7 @@ import JoinPage from "./pages/JoinPage.tsx";
 import Image from "./components/ImagePage";
 import Shipping from "./pages/Shipping";
 import ShippingAddress from "./components/ShippingAddress";
+import Search from "./components/Search.tsx";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route path="/joinpage" component={JoinPage} />
           <Route path="/shipping" component={Shipping} />
           <Route path="/shippingaddress" component={ShippingAddress} />
+          <Route path="/Search" component={Search} />
         </Switch>
       </Router>
     </div>

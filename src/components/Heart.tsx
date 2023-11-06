@@ -1,20 +1,24 @@
 import React from "react";
-import styled from "styled-components";
 import HeartImg from "../img/ui/fillfavorite.png";
 import EmptyHeartImg from "../img/ui/favorite.png";
+import "../styles/Heart.css";
 
-const Heart = styled.img`
-  width: 35px;
-  height: 35px;
-`;
-
-interface HeartButtonProps {
+interface HeartProps {
   like: boolean;
   onClick: () => void;
 }
 
-const HeartButton: React.FC<HeartButtonProps> = ({ like, onClick }) => {
-  return <Heart src={like ? HeartImg : EmptyHeartImg} onClick={onClick} />;
+const Heart: React.FC<HeartProps> = ({ like, onClick }) => {
+  const imageSource = like ? HeartImg : EmptyHeartImg;
+
+  return (
+    <img
+      className="heart-img"
+      src={imageSource}
+      alt="Heart"
+      onClick={onClick}
+    />
+  );
 };
 
-export default HeartButton;
+export default Heart;
