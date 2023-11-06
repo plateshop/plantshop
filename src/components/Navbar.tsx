@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
+import Search from "../components/Search";
 import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
@@ -19,6 +20,15 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
     isLoggedIn: false,
     userName: "",
     onLogout: () => {},
+  };
+
+  const [searchVisible, setSearchVisible] = useState(false);
+  const handleMenuClick = () => {
+    if (!searchVisible) {
+      setSearchVisible(true);
+    } else {
+      setSearchVisible(false);
+    }
   };
 
   return (
@@ -56,9 +66,9 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
             </a>
           </div>
           <div className="right-menu">
-            <li className="menu-search">
-              <a href="/">
-                <img src={menu1} width="30" />
+            <li className="menu-search" onClick={handleMenuClick}>
+              <a href="/Search">
+                <img src={menu1} width="30" alt="Menu 1" />
               </a>
             </li>
             <li className="menu-wishlist">
