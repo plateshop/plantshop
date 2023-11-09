@@ -1,0 +1,31 @@
+.SearchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem;
+    margin-right: 0;
+  }
+  
+  .SearchContainer.click {
+    border-bottom: 1px solid black;
+    background-color: white;
+    margin-right: 1.25rem;
+  }
+  
+  .SearchContainer input {
+    transition: width 0.3s linear !important;
+    width: 0;
+    background-color: none;
+    color: black;
+    border: none;
+    outline: none;
+    opacity: 0;
+    margin-left: 0.625rem;
+    padding: 0.3rem;
+  }
+  
+  .SearchContainer.click input {
+    width: 12.5rem;
+    background-color: white;
+    opacity: 1;
+  }

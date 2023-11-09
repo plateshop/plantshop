@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import '../styles/Cup.css';
-import cupdata from '../Data/Cupdata';
+import { Link } from 'react-router-dom';
+import '../styles/Kitchenware.css'; // Kitchenware.css -> Kitchenware.css로 수정
+import CupData  from '../Data/CupData'; // CupData -> Cupdata로 수정
 import Footer from '../components/Footer';
-import  Navbar  from '../components/Navbar';
+import Navbar from '../components/Navbar';
 import cupImage from '../img/list/cup.jpg';
+import  '../pages/CupDetail';
 
-interface CupData {
+
+
+interface CupData  {
   id: number;
-  img: string;
+  img: string[];
   title: string;
   price: string;
+  detail: string;
 }
 
 const Cup: React.FC = () => {
-  const [cup] = useState<CupData[]>(cupdata);
+  const [cups] = useState<CupData []>(CupData );
 
   return (
     <div>
@@ -32,28 +37,31 @@ const Cup: React.FC = () => {
         </div>
       </div>
       <div className="cup">
-        {cup.map((cupItem) => (
-          <Card key={cupItem.id} cup={cupItem} />
+        {cups.map((cupItem) => (
+          <Link key={cupItem.id} to={`/CupDetail/${cupItem.id}`}>
+            <Card cup={cupItem} />
+          </Link>
         ))}
       </div>
       <Footer />
-  </div> 
+    </div> 
   );
 };
 
 interface CardProps {
-  cup: CupData;
+  cup: cups;
 }
 
 function Card({ cup }: CardProps) {
+  const firstImageUrl = Array.isArray(cup.img) ? cup.img[0] : '';
+
   return (
-      <div className="card">
-        <img src={cup.img} alt={cup.title} />
-        <h4>{cup.title}</h4>
-        <p>{cup.price}</p>
-      </div>
+    <div className="card">
+      {firstImageUrl && <img src={firstImageUrl} alt={cup.title} />}
+      <h4>{cup.title}</h4>
+      <p>{cup.price}</p>
+    </div>
   );
 }
 
 export default Cup;
-

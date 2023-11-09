@@ -50,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
         </div>  
         <div className="right-menu">
           <li className="menu-search">
-            <a href="/">
+            <a href="/Search">
               <img src={menu1} width="30" />
             </a>
           </li>

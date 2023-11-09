@@ -9,7 +9,10 @@ import Cart from "./pages/Cart";
 import Cup from './pages/Cup';
 import Payment from './pages/Payment';
 import Products from './pages/Products';
-import Detail from './pages/Detail';
+import cupdetail from './pages/CupDetail.tsx';
+import bowlsdetail from './pages/BowlsDetail.tsx';
+import platesdetail from './pages/PlatesDetail.tsx';
+import kitchenwaredetail from './pages/KitchenwareDetail.tsx';
 import Login from './pages/Login';
 import  Main  from './pages/Main.tsx';
 import Customer6 from './pages/Customer6';
@@ -22,6 +25,9 @@ import JoinPage from './pages/JoinPage.tsx';
 import Image from './components/ImagePage';
 import Shipping from './pages/Shipping';
 import ShippingAddress from './components/ShippingAddress';
+import BowlsDetail from "./pages/BowlsDetail.tsx";
+// import Search from './components/Search';
+
 
 
 
@@ -42,7 +48,7 @@ function App() {
           <Route path="/cup" component={Cup} />
           <Route path="/payment" component={Payment} />
           <Route path="/products" component={Products} />
-          <Route path="/detail" component={Detail} />
+          {/* <Route path="/detail" component={Detail} /> */}
           <Route path="/login" component={Login} />
           <Route path="/Customer6" component={Customer6} />
           <Route path="/Basket" component={Basket} />
@@ -55,6 +61,9 @@ function App() {
           <Route path="/joinpage" component={JoinPage} />
           <Route path="/shipping" component={Shipping} />
           <Route path="/shippingaddress" component={ShippingAddress} />
+          <Route path="/bowlsdetail/:id" component={BowlsDetail} />
+          {/* <Route path="/search" component={Search} /> */}
+
 
 
         </Switch>
