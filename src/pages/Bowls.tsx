@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Kitchenware.css";
-import Bowlsdata from "../Data/BowlsData";
+import Bowlsdata from "../Data/Bowlsdata";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import bowlsImage from "../img/list/bowls3.jpg";
@@ -23,7 +23,7 @@ const Bowls: React.FC = () => {
       <Navbar />
       <div className="list-img-box">
         <div className="list-img">
-          <img src={bowlsImage} alt="Kitchenware" />
+          <img src={bowlsImage} alt="bowlsImage" />
           <div className="list-img-text">
             <div className="left-text-header">
               <h1>Bowls</h1>

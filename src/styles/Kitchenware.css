@@ -90,3 +90,8 @@
   margin: 0;
   font-size: 1rem;
 }
+
+.custom-link {
+  text-decoration: none;
+  color: inherit;
+}

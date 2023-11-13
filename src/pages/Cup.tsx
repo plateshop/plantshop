@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/Kitchenware.css"; // Kitchenware.css -> Kitchenware.css로 수정
-import CupData from "../Data/CupData"; // CupData -> Cupdata로 수정
+import "../styles/Kitchenware.css";
+import Cupdata from "../Data/Cupdata";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import cupImage from "../img/list/cup.jpg";
-import "../pages/CupDetail";
 
-interface CupData {
+interface Cupdata {
   id: number;
-  img: string[];
+  img: string;
   title: string;
   price: string;
   detail: string;
+  detailimg: string[];
 }
 
 const Cup: React.FC = () => {
-  const [cups] = useState<CupData[]>(CupData);
+  const [cupData] = useState<Cupdata[]>(Cupdata);
 
   return (
     <div>
       <Navbar />
       <div className="list-img-box">
         <div className="list-img">
-          <img src={cupImage} alt="Kitchenware" />
+          <img src={cupImage} alt="cupImage" />
           <div className="list-img-text">
             <div className="left-text-header">
               <h1>Cup</h1>
@@ -35,10 +35,15 @@ const Cup: React.FC = () => {
         </div>
       </div>
       <div className="cup">
-        {cups.map((cupItem) => (
-          <Link key={cupItem.id} to={`/CupDetail/${cupItem.id}`}>
-            <Card cup={cupItem} />
-          </Link>
+        {cupData.map((cupItem) => (
+          <div key={cupItem.id} className="card">
+            <img src={cupItem.img} alt={cupItem.title} />
+            <h4>{cupItem.title}</h4>
+            <p>{cupItem.price}</p>
+            <Link to={`/CupDetail/${cupItem.id}`} className="custom-link">
+              View Details
+            </Link>
+          </div>
         ))}
       </div>
       <Footer />
@@ -47,7 +52,7 @@ const Cup: React.FC = () => {
 };
 
 interface CardProps {
-  cup: cups;
+  cup: Cupdata;
 }
 
 function Card({ cup }: CardProps) {

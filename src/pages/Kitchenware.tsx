@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Kitchenware.css";
-import Kitchenwaredata from "../Data/KitchenwareData";
+import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import KitchenwareImage from "../img/list/kitchenware.jpg";

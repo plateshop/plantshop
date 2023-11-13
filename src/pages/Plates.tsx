@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Kitchenware.css";
-import Platesdata from "../Data/PlatesData";
+import Platesdata from "../Data/Platesdata";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import platesImage from "../img/list/plates.jpg";
