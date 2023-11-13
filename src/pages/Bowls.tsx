@@ -24,7 +24,7 @@ const Bowls: React.FC = () => {
       <Navbar />
       <div className='list-img-box'>
         <div className='list-img'>
-          <img src={bowlsImage} alt='Kitchenware' />
+          <img src={bowlsImage} alt='bowlsImage' />
           <div className='list-img-text'>
             <div className='left-text-header'>
               <h1>Bowls</h1>

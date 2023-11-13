@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Kitchenware.css';
 import Kitchenwaredata from '../Data/KitchenwareData';
 import Footer from '../components/Footer';
@@ -10,10 +11,12 @@ interface Kitchenwaredata {
   img: string;
   title: string;
   price: string;
+  detail: string;
+  detailimg: string[];
 }
 
 const Kitchenware: React.FC = () => {
-  const [Kitchenware] = useState<Kitchenwaredata[]>(Kitchenwaredata);
+  const [kitchenwareData] = useState<Kitchenwaredata[]>(Kitchenwaredata);
 
   return (
     <div>
@@ -32,9 +35,16 @@ const Kitchenware: React.FC = () => {
         </div>
       </div>
       <div className="cup">
-        {Kitchenware.map((KitchenwareItem) => (
-          <Card key={KitchenwareItem.id} Kitchenware={KitchenwareItem} />
-        ))}
+  {kitchenwareData.map((kitchenwareItem) => (
+    <div key={kitchenwareItem.id} className="card">
+      <img src={kitchenwareItem.img} alt={kitchenwareItem.title} />
+      <h4>{kitchenwareItem.title}</h4>
+      <p>{kitchenwareItem.price}</p>
+      <Link to={`/kitchenwareDetail/${kitchenwareItem.id}`} className="custom-link">
+          View Details
+      </Link>
+    </div>
+  ))}
       </div>
       <Footer />
     </div>
@@ -42,15 +52,15 @@ const Kitchenware: React.FC = () => {
 };
 
 interface CardProps {
-    Kitchenware: Kitchenwaredata;
+    kitchenware: Kitchenwaredata;
 }
 
-function Card({ Kitchenware }: CardProps) {
+function Card({ kitchenware }: CardProps) {
   return (
       <div className="card">
-        <img src={Kitchenware.img} alt={Kitchenware.title} />
-        <h4>{Kitchenware.title}</h4>
-        <p>{Kitchenware.price}</p>
+        <img src={kitchenware.img} alt={kitchenware.title} />
+        <h4>{kitchenware.title}</h4>
+        <p>{kitchenware.price}</p>
       </div>
   );
 }
