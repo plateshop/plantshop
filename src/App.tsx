@@ -9,10 +9,6 @@ import Cart from "./pages/Cart";
 import Cup from "./pages/Cup";
 import Payment from "./pages/Payment";
 import Products from "./pages/Products";
-import cupdetail from "./pages/CupDetail.tsx";
-import bowlsdetail from "./pages/BowlsDetail.tsx";
-import platesdetail from "./pages/PlatesDetail.tsx";
-import kitchenwaredetail from "./pages/KitchenwareDetail.tsx";
 import Login from "./pages/Login";
 import Main from "./pages/Main.tsx";
 import Customer6 from "./pages/Customer6";
@@ -26,6 +22,9 @@ import Image from "./components/ImagePage";
 import Shipping from "./pages/Shipping";
 import ShippingAddress from "./components/ShippingAddress";
 import BowlsDetail from "./pages/BowlsDetail.tsx";
+import CupDetail from "./pages/CupDetail.tsx";
+import PlatesDetail from "./pages/PlatesDetail.tsx";
+import KitchenwareDetail from "./pages/KitchenwareDetail.tsx";
 // import Search from './components/Search';
 
 function App() {
@@ -58,6 +57,9 @@ function App() {
           <Route path="/shipping" component={Shipping} />
           <Route path="/shippingaddress" component={ShippingAddress} />
           <Route path="/bowlsdetail/:id" component={BowlsDetail} />
+          <Route path="/cupdetail/:id" component={CupDetail} />
+          <Route path="/platesdetail/:id" component={PlatesDetail} />
+          <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
           {/* <Route path="/search" component={Search} /> */}
         </Switch>
       </Router>
