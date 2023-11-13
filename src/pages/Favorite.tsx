@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FavoriteHeart from "../components/Heart";
+import Heart from "../components/Heart";
 import Detail from "../pages/Detail";
 
 interface FavoriteProps {
