@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RouteComponentProps } from "react-router-dom";
-import "../styles/PlatesDetail.css";
+import "../styles/Detail.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Platesdata from "../Data/Platesdata";
