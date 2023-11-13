@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "@material-ui/core/Modal";
 import DaumPostcode from "react-daum-postcode";
 
@@ -16,43 +16,36 @@ function AddressSearchModal({
   const [selectedAddress, setSelectedAddress] = useState("");
   const [selectedZipcode, setSelectedZipcode] = useState("");
 
+  useEffect(() => {
+    if (open) {
+      setSelectedAddress("");
+      setSelectedZipcode("");
+    }
+  }, [open]);
+
   const handleAddressSelect = () => {
     onAddressSelect(selectedAddress, selectedZipcode);
     onClose();
   };
 
+  const handleDaumPostcodeComplete = (data: any) => {
+    setSelectedAddress(data.address);
+    setSelectedZipcode(data.zonecode);
+  };
+
   return (
     <Modal open={open} onClose={onClose}>
       <div className="modal-content">
-        <DaumPostcode
-          onComplete={(data) => {
-            setSelectedAddress(data.address);
-            setSelectedZipcode(data.zonecode);
-          }}
-        />
+        <DaumPostcode onComplete={handleDaumPostcodeComplete} />
         <button onClick={handleAddressSelect}>선택</button>
+        {selectedAddress && (
+          <div>
+            <p>선택한 주소: {selectedAddress}</p>
+          </div>
+        )}
       </div>
     </Modal>
   );
 }
 
 export default AddressSearchModal;
-
-/*const modal = document.querySelector('.modal');
-const closeModalButton = document.querySelector('.modal-close-button');
-const modalBody = document.querySelector('.modal_body');
-
-const showImgModal = src => {
-  // 모달기능
-  const img = document.querySelector('.modal_body > img');
-  img.src = src;
-  modal.style.display = 'block';
-  // body 스크롤 막기
-  document.body.className = 'not-scroll';
-};
-
-closeModalButton.addEventListener('click', () => {
-  modal.style.display = 'none';
-  document.body.className = '';
-});
-*/

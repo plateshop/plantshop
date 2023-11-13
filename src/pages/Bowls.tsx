@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "../styles/Bowls.css";
-import Bowlsdata from "../Data/Bowlsdata";
+import { Link } from "react-router-dom";
+import "../styles/Kitchenware.css";
+import Bowlsdata from "../Data/BowlsData";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import bowlsImage from "../img/list/bowls3.jpg";
@@ -10,6 +11,8 @@ interface Bowlsdata {
   img: string;
   title: string;
   price: string;
+  detail: string;
+  detailimg: string[];
 }
 
 const Bowls: React.FC = () => {
@@ -33,7 +36,14 @@ const Bowls: React.FC = () => {
       </div>
       <div className="cup">
         {bowlsData.map((bowlsItem) => (
-          <Card key={bowlsItem.id} bowls={bowlsItem} />
+          <div key={bowlsItem.id} className="card">
+            <img src={bowlsItem.img} alt={bowlsItem.title} />
+            <h4>{bowlsItem.title}</h4>
+            <p>{bowlsItem.price}</p>
+            <Link to={`/BowlsDetail/${bowlsItem.id}`} className="custom-link">
+              View Details
+            </Link>
+          </div>
         ))}
       </div>
       <Footer />
@@ -46,9 +56,11 @@ interface CardProps {
 }
 
 function Card({ bowls }: CardProps) {
+  const firstImageUrl = Array.isArray(bowls.img) ? bowls.img[0] : "";
+
   return (
     <div className="card">
-      <img src={bowls.img} alt={bowls.title} />
+      {firstImageUrl && <img src={firstImageUrl} alt={bowls.title} />}
       <h4>{bowls.title}</h4>
       <p>{bowls.price}</p>
     </div>

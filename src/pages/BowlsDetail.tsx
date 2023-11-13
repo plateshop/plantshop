@@ -59,7 +59,7 @@ const BowlsDetail: React.FC<DetailProps> = ({ match }) => {
                         onClick={() => setLiked(!isLiked)}
                       />
                     </span>
-                    <svg
+                    {/*<svg
                       stroke="currentColor"
                       fill="none"
                       strokeWidth="0"
@@ -76,7 +76,7 @@ const BowlsDetail: React.FC<DetailProps> = ({ match }) => {
                         strokeWidth="2"
                         d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                       ></path>
-                    </svg>
+                    </svg>*/}
                   </div>
                   <p className="info_wrap_detail">{product.detail}</p>
                 </div>
