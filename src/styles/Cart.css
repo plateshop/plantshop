@@ -1,132 +1,78 @@
-.cartBox{
+.cartBox {
     font-size: 30px;
-}
-
-.contents {
-    max-width: 1230px;
-    margin: 0 auto;
-    padding: 0 80px;
-}
-
-.title{
-    min-height: 30px;
-    margin: 10px 0 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 100px;
+  }
+  
+  .empty-cart-box {
+    font-size: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 100px;
+  }
+  
+  .title {
     text-align: center;
-}
-
-.buttonBox{
-  position: relative;
-  padding: 10px 0;
-  text-align: center;
-} 
-
-.button1{
-    width: 120px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding: 10px 16px;
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 2px 8px;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    font-size: 12px;
-    line-height: 18px;
-    font-weight: normal;
-    text-decoration: none;
-    vertical-align: middle;
-    word-spacing: -0.5px;
-    letter-spacing: 0;
+    margin-bottom: 20px;
+  }
+  
+  .buttonBox {
     text-align: center;
-    white-space: nowrap;
-    color: #fff;
+  }
+  
+  .button1,
+  .button2,
+  .button3 {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     background-color: #333;
-} 
-
-.button2{
-  width: 120px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding: 10px 16px;
-  display: inline-block;
-  box-sizing: border-box;
-  padding: 2px 8px;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: normal;
-  text-decoration: none;
-  vertical-align: middle;
-  word-spacing: -0.5px;
-  letter-spacing: 0;
-  text-align: center;
-  white-space: nowrap;
-  color: #fff;
-  background-color: #999;
-}
-
-.button3{
-  float: right;
-  text-align: right;
-  padding: 10px 16px;
-
-  box-sizing: border-box;
-  padding: 2px 8px;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: normal;
-  text-decoration: none;
-  vertical-align: middle;
-  word-spacing: -0.5px;
-  letter-spacing: 0;
-  text-align: center;
-  white-space: nowrap;
-  color: #333;
-  background-color: #fff;
-}
-
-.informationUse{
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .button2 {
+    background-color: #999;
+  }
+  
+  .informationUse {
     margin: 20px 0;
     border: 1px solid #ddd;
+    border-radius: 10px; /* 박스의 모서리를 더 둥글게 만듭니다. */
     line-height: 18px;
-}
-
-.inner{
-    padding: 0 9px 12px;
-    line-height: 18px;
-}
-
-ol{
-    margin: 15px 0 0 11px;
-    display: block;
-    list-style-type: decimal;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    line-height: 18px;
-    color: #777;
-}
-
-li{
-  display: list-item;
-  color: #777;
+    overflow: hidden; /* 넘치는 내용 숨기기 */
+  }
   
-}
-
-h4{
+  .inner {
+    padding: 20px;
+    line-height: 18px;
+  }
+  
+  ol {
+    margin: 0;
+    padding: 0 0 0 20px;
+    list-style-type: decimal;
+    line-height: 18px;
+  }
+  
+  li {
     color: #777;
-}
-
-h3{
-    padding: 9px 0 6px 10px;
-    border-bottom: 1px solid #e8e7e7;
+  }
+  
+  h4 {
+    color: #777;
+  }
+  
+  h3 {
+    padding: 10px 0 6px 10px;
+    border-bottom: 1px solid #ddd; /* 박스 상단에 테두리 추가 */
     color: #333;
-    font-size: 12px;
+    font-size: 16px;
     background: #fafafa;
     line-height: 18px;
-}
+    margin-bottom: 0; /* 기본 마진을 없앱니다. */
+  }
+  

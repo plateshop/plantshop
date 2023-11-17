@@ -1,16 +1,18 @@
 import '../styles/Cart.css';
 import React, { useState } from 'react';
-import  Tabs  from '../components/Tabs';
+// import  Tabs  from '../components/Tabs';
 import  Footer  from '../components/Footer';
-// import  {Navbar}   from '../components/Navbar';
+import Navbar from '../components/Navbar';
 
 
 
 
 const Cart = () => {
+    const cartItems = [];
+
     return(
         <div>
-        {/* <Navbar /> */}
+        <Navbar />
         <div className='container'>
             <div className='contents'>
                 <div className='title'>
@@ -18,7 +20,15 @@ const Cart = () => {
                 </div>
             </div>
             <div className='cartBox'>
-                <Tabs />
+                 {cartItems.length === 0 ? (
+            <div className="empty-cart-box">
+            <p>장바구니가 비어있습니다.</p>
+          </div>
+          ) : (
+            // 장바구니에 상품이 있을 때의 UI
+            // 상품 목록을 나타내는 코드를 추가해야 함
+            <p>장바구니에 담긴 상품 목록이 여기에 표시됩니다.</p>
+          )}
             </div>
             <div className='buttonBox'>
             <button className='button1'>전체상품주문</button>

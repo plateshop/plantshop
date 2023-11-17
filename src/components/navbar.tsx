@@ -8,6 +8,7 @@ import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
 import { useAuth } from "../AuthContext";
+import Search from "../components/Search";
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -16,13 +17,20 @@ type NavbarProps = {
 };
 
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
+const Navbar: React.FC<NavbarProps> = ({
+  isLoggedIn = false,
+  userName = "",
+  onLogout = () => {},
+}) => {
+  const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
 
-  Navbar.defaultProps = {
-    isLoggedIn: false,
-    userName: "",
-    onLogout: () => {},
+  const toggleSearch = () => {
+    setSearchVisible((prevVisible) => {
+      console.log("isSearchVisible:", !prevVisible);
+      return !prevVisible;
+    });
   };
+  
 
   return (
     <header className="Navbar">
@@ -49,11 +57,10 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
           </a>
         </div>  
         <div className="right-menu">
-          <li className="menu-search">
-            <a href="/Search">
-              <img src={menu1} width="30" />
-            </a>
-          </li>
+        <li className={`menu-search ${isSearchVisible ? 'click' : ''}`} onClick={toggleSearch}>
+    <img src={menu1} width="30" />
+    {isSearchVisible && <Search />}
+  </li>
           <li className="menu-wishlist">  
             <a href="/Register">
               <img src={menu2} width="30" />

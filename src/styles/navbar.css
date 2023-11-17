@@ -6,6 +6,30 @@
   z-index: 300;
   width: 100%;
 }
+/* Navbar.css */
+
+/* Navbar.css */
+
+.menu-search {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  z-index: 2; /* z-index 추가 */
+}
+
+.menu-search.click {
+  transform: translateX(-150px); /* 이동할 거리에 따라 조절하세요 */
+}
+
+.menu-search img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-search.click img {
+  transform: translateX(-20px); /* 이동할 거리에 따라 조절하세요 */
+}
+
 
 .login-box {
   align-items: center;
@@ -67,6 +91,8 @@
 .right-menu {
   display: flex;
   gap: 1.4rem;
+  position: relative;
+  overflow: visible; /* overflow 속성 추가 */
 }
 
 .Navbar-menu {
@@ -92,6 +118,7 @@
 
 li {
   list-style: none;
+  cursor: pointer;
 }
 
 .menu{

@@ -65,3 +65,18 @@
 // export default Search;
 
 
+// 
+// Search.tsx
+
+import React from 'react';
+import '../styles/Search.css'; // 스타일 파일 경로에 맞게 수정
+
+const Search: React.FC = () => {
+  return (
+    <div className="SearchContainer">
+      <input type="text" placeholder="상품을 검색하세요" />
+    </div>
+  );
+};
+
+export default Search;
