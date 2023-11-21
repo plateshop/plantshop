@@ -19,6 +19,7 @@ import Plates from "./pages/Plates";
 import Kitchenware from "./pages/Kitchenware";
 import JoinPage from "./pages/JoinPage.tsx";
 import Image from "./components/ImagePage";
+
 import Shipping from "./pages/Shipping";
 import ShippingAddress from "./components/ShippingAddress";
 import BowlsDetail from "./pages/BowlsDetail.tsx";
@@ -52,6 +53,7 @@ function App() {
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
+
           <Route path="/main" component={Main} />
           <Route path="/joinpage" component={JoinPage} />
           <Route path="/shipping" component={Shipping} />
@@ -60,6 +62,7 @@ function App() {
           <Route path="/cupdetail/:id" component={CupDetail} />
           <Route path="/platesdetail/:id" component={PlatesDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+
           {/* <Route path="/search" component={Search} /> */}
         </Switch>
       </Router>

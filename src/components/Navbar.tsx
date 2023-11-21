@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
-import Search from "../components/Search";
 import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
+import { useAuth } from "../AuthContext";
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -15,20 +15,18 @@ type NavbarProps = {
   onLogout: () => void;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
-  Navbar.defaultProps = {
-    isLoggedIn: false,
-    userName: "",
-    onLogout: () => {},
-  };
+const Navbar: React.FC<NavbarProps> = ({
+  isLoggedIn = false,
+  userName = "",
+  onLogout = () => {},
+}) => {
+  const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
 
-  const [searchVisible, setSearchVisible] = useState(false);
-  const handleMenuClick = () => {
-    if (!searchVisible) {
-      setSearchVisible(true);
-    } else {
-      setSearchVisible(false);
-    }
+  const toggleSearch = () => {
+    setSearchVisible((prevVisible) => {
+      console.log("isSearchVisible:", !prevVisible);
+      return !prevVisible;
+    });
   };
 
   return (
@@ -66,10 +64,16 @@ const Navbar: React.FC<NavbarProps> = ({ isLoggedIn, userName, onLogout }) => {
             </a>
           </div>
           <div className="right-menu">
-            <li className="menu-search" onClick={handleMenuClick}>
-              <a href="/Search">
-                <img src={menu1} width="30" alt="Menu 1" />
-              </a>
+            <li
+              className={`menu-search ${isSearchVisible ? "click" : ""}`}
+              onClick={toggleSearch}
+            >
+              <img src={menu1} width="30" />
+              <div
+                className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
+              >
+                <input type="text" placeholder="상품을 검색하세요" />
+              </div>
             </li>
             <li className="menu-wishlist">
               <a href="/Register">

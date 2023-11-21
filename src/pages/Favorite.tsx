@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Heart from "../components/Heart";
-import Detail from "../pages/Detail";
 
 interface FavoriteProps {
   like: boolean;

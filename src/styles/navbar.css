@@ -65,6 +65,8 @@
 .right-menu {
   display: flex;
   gap: 1.4rem;
+  position: relative;
+  padding-right: 90px;
 }
 
 .Navbar-menu {
@@ -75,6 +77,47 @@
   height: 50px;
   border-top: 1px solid black;
   /* margin-left: 0; */
+}
+
+.menu-search {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-search.click {
+  transform: translateX(-50px);
+}
+.menu-search.click img {
+  transform: translate(50px);
+}
+
+.SearchContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  right: 0;
+  transition: width 0.3s linear, opacity 0.3s linear;
+}
+
+.SearchContainer input {
+  width: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  outline: none;
+  opacity: 0;
+  padding: 0.3rem;
+  border-radius: 15px;
+}
+
+.SearchContainer.click input {
+  width: 12.5rem;
+  opacity: 1;
 }
 
 .menu-wrap {
@@ -90,6 +133,7 @@
 
 li {
   list-style: none;
+  cursor: pointer;
 }
 
 .menu {
