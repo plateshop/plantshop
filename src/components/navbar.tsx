@@ -8,7 +8,6 @@ import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
 import { useAuth } from "../AuthContext";
-import Search from "../components/Search";
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -57,10 +56,12 @@ const Navbar: React.FC<NavbarProps> = ({
           </a>
         </div>  
         <div className="right-menu">
-        <li className={`menu-search ${isSearchVisible ? 'click' : ''}`} onClick={toggleSearch}>
-    <img src={menu1} width="30" />
-    {isSearchVisible && <Search />}
-  </li>
+         <li className={`menu-search ${isSearchVisible ? 'click' : ''}`} onClick={toggleSearch}>
+          <img src={menu1} width="30" />
+          <div className={`SearchContainer ${isSearchVisible ? 'click' : ''}`}>
+            <input type="text" placeholder="상품을 검색하세요" />
+          </div>
+        </li>
           <li className="menu-wishlist">  
             <a href="/Register">
               <img src={menu2} width="30" />

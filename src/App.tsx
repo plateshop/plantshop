@@ -19,6 +19,8 @@ import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
 import JoinPage from './pages/JoinPage.tsx';
 import Image from './components/ImagePage';
+import Search from './components/Search';
+
 import Shipping from './pages/Shipping';
 import ShippingAddress from './components/ShippingAddress';
 import BowlsDetail from "./pages/BowlsDetail.tsx";
@@ -56,6 +58,8 @@ function App() {
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
+          <Route path="/search" component={Search} />
+
           <Route path="/main" component={Main} />
           <Route path="/joinpage" component={JoinPage} />
           <Route path="/shipping" component={Shipping} />
