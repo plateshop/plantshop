@@ -29,7 +29,6 @@ const Navbar: React.FC<NavbarProps> = ({
       return !prevVisible;
     });
   };
-  
 
   return (
     <header className="Navbar">
@@ -63,12 +62,12 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
         </li>
           <li className="menu-wishlist">  
-            <a href="/Register">
+            <a href="/MyPage/UserInfo">
               <img src={menu2} width="30" />
             </a>  
           </li>
           <li className="menu-account">
-            <a href="/List">
+            <a href="/MyPage/Favorite">
               <img src={menu3} width="30" />
             </a>  
           </li>

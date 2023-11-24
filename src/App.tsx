@@ -18,8 +18,14 @@ import Bowls from './pages/Bowls';
 import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
 import JoinPage from './pages/JoinPage.tsx';
+import UserInfo from './pages/UserInfo.tsx';
+import Favorite from './pages/Favorite.tsx';
+import OrderHistory from './pages/OrderHistory.tsx';
+import MyPage from './pages/MyPage.tsx';
+
+
 import Image from './components/ImagePage';
-import Search from './components/Search';
+// import Search from './components/Search';
 
 import Shipping from './pages/Shipping';
 import ShippingAddress from './components/ShippingAddress';
@@ -58,10 +64,14 @@ function App() {
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
-          <Route path="/search" component={Search} />
+          {/* <Route path="/search" component={Search} /> */}
 
           <Route path="/main" component={Main} />
           <Route path="/joinpage" component={JoinPage} />
+          <Route path="/MyPage" component={MyPage} />
+          <Route path="/MyPage/UserInfo" component={UserInfo} />
+          <Route path="/MyPage/OrderHistory" component={OrderHistory} />
+          <Route path="/MyPage/Favorite" component={Favorite} />
           <Route path="/shipping" component={Shipping} />
           <Route path="/shippingaddress" component={ShippingAddress} />
           <Route path="/bowlsdetail/:id" component={BowlsDetail} />

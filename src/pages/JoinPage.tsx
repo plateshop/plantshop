@@ -4,6 +4,7 @@ import { TextField, Button, Grid } from "@material-ui/core";
 import * as yup from "yup";
 import "../styles/JoinPage.css";
 import Footer from "../components/Footer";
+import Navbar from '../components/Navbar';
 import AddressSearch from "../components/AddressSearch";
 import AddressSearchModal from "../components/AddressSearchModal";
 import DaumPostcodeEmbed from "react-daum-postcode";
@@ -113,6 +114,8 @@ function JoinPage() {
   };
 
   return (
+   <div> 
+    <Navbar/>
     <div className="login-container">
       <div className="joinout">
         <div className="join-page">
@@ -319,6 +322,7 @@ function JoinPage() {
         onAddressSelect={handleAddressSelect}
       />
     </div>
+  </div>
   );
 }
 
