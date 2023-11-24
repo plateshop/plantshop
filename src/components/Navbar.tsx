@@ -1,5 +1,5 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom"; // 이 부분 수정
+import { NavLink, useHistory } from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
@@ -21,12 +21,19 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogout = () => {},
 }) => {
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const history = useHistory();
 
   const toggleSearch = () => {
-    setSearchVisible((prevVisible) => {
-      console.log("isSearchVisible:", !prevVisible);
-      return !prevVisible;
-    });
+    setSearchVisible((prevVisible) => !prevVisible);
+  };
+
+  const handleSearch = () => {
+    // Perform search-related logic here
+    // For example, fetch search results from an API
+    // Update the state with the search results
+    // Redirect to the search results page
+    history.push(`/search?q=${encodeURIComponent(searchQuery)}`);
   };
 
   return (
@@ -72,7 +79,12 @@ const Navbar: React.FC<NavbarProps> = ({
               <div
                 className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
               >
-                <input type="text" placeholder="상품을 검색하세요" />
+                <input
+                  type="text"
+                  placeholder="상품을 검색하세요"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
               </div>
             </li>
             <li className="menu-wishlist">

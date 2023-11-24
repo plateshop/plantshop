@@ -1,0 +1,43 @@
+.search-result {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff; /* 배경색을 원하는 색상으로 조정하세요 */
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.search-result button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.search-result h2 {
+  color: #333;
+}
+
+.search-result ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-result li {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.search-result li:hover {
+  background-color: #f0f0f0;
+}
