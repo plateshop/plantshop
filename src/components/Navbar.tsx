@@ -1,5 +1,5 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom"; // 이 부분 수정
+import { NavLink } from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
@@ -21,19 +21,20 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogout = () => {},
 }) => {
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
-  const [searchQuery, setSearchQuery] = useState<string>("");
-  const history = useHistory();
 
   const toggleSearch = () => {
     setSearchVisible((prevVisible) => !prevVisible);
   };
 
-  const handleSearch = () => {
-    // Perform search-related logic here
-    // For example, fetch search results from an API
-    // Update the state with the search results
-    // Redirect to the search results page
-    history.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+  const handleMenu1Click = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.stopPropagation();
+    toggleSearch();
+  };
+
+  const handleSearchContainerClick = (
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    event.stopPropagation();
   };
 
   return (
@@ -75,16 +76,12 @@ const Navbar: React.FC<NavbarProps> = ({
               className={`menu-search ${isSearchVisible ? "click" : ""}`}
               onClick={toggleSearch}
             >
-              <img src={menu1} width="30" />
+              <img src={menu1} width="30" onClick={handleMenu1Click} />
               <div
                 className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
+                onClick={handleSearchContainerClick}
               >
-                <input
-                  type="text"
-                  placeholder="상품을 검색하세요"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
+                <input type="text" placeholder="상품을 검색하세요" />
               </div>
             </li>
             <li className="menu-wishlist">
