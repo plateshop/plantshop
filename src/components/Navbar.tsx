@@ -102,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 {searchInput && (
                   <div className="search-results">
                     {filteredProducts.map((product) => (
-                      <div key={product.id}>
+                      <div key={product.id} className="search-result-item">
                         <img src={product.img} alt={product.title} />
                         <p>{product.title}</p>
                       </div>
