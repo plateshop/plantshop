@@ -99,7 +99,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   value={searchInput}
                   onChange={handleSearchChange}
                 />
-                {searchInput && (
+                {searchInput && isSearchVisible && (
                   <div className="search-results">
                     {filteredProducts.map((product) => (
                       <div key={product.id} className="search-result-item">
