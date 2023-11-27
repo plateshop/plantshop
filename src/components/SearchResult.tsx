@@ -1,51 +1,28 @@
-import { useEffect, useState } from "react";
-import SearchIcon from "../img/ui/search.png";
-import "../styles/Search.css";
-
+import React from "react";
+import "../styles/SearchResult.css";
 interface SearchResultProps {
-  search: string;
-  genreName: string;
+  onClose: () => void;
 }
 
-const SearchResult: React.FC<SearchResultProps> = ({ search, genreName }) => {
-  const productSearch = useGetProductSearch(search).data;
-  const nameSearch = useGetNameSearch(search).data;
-  const [product, setProduct] = useState(true);
-  const [name, setName] = useState(true);
-  useEffect(() => {
-    setProduct(true);
-  }, [productSearch]);
-  useEffect(() => {
-    setName(true);
-  }, [Name]);
+const SearchResult: React.FC<SearchResultProps> = ({ onClose }) => {
+  // 가상의 검색 결과 데이터
+  const searchResults = [
+    // 검색 결과 데이터 예시
+    { id: 1, name: "Product 1" },
+    { id: 2, name: "Product 2" },
+    // 추가적인 검색 결과 데이터를 여기에 추가
+  ];
 
   return (
-    <>
-      {genreName ? (
-        <SearchResultGenre genre={genreName} genreName={genreName} />
-      ) : (
-        <SearchResultBox>
-          <div>
-            <SearchListTitle product={product} name={name}>
-              <div>
-                Product {productSearch?.pages[0]?.data?.total_results}
-                <IoIosArrowForward
-                  onClick={() => setName(!product)}
-                  size={35}
-                />
-              </div>
-              <div>
-                Creator &#38; Name{" "}
-                {productSearch?.pages[0]?.data?.total_results}
-                <IoIosArrowForward onClick={() => setName(!name)} size={35} />
-              </div>
-            </SearchListTitle>
-          </div>
-          <SearchResultProduct search={search} click={product} />
-          <SearchResultName search={search} click={name} />
-        </SearchResultBox>
-      )}
-    </>
+    <div className="search-result">
+      <button onClick={onClose}>Close</button>
+      <h2>Search Results</h2>
+      <ul>
+        {searchResults.map((result) => (
+          <li key={result.id}>{result.name}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

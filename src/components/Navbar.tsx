@@ -7,7 +7,7 @@ import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
-import { useAuth } from "../AuthContext";
+import Cupdata from "../Data/Cupdata";
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -36,6 +36,18 @@ const Navbar: React.FC<NavbarProps> = ({
   ) => {
     event.stopPropagation();
   };
+
+  const [searchInput, setSearchInput] = useState<string>("");
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+
+  const filteredProducts = (Cupdata as Cupdata[]).filter((product: Cupdata) =>
+    product.keywords.some((keyword) =>
+      keyword.toLowerCase().includes(searchInput.toLowerCase())
+    )
+  );
 
   return (
     <header className="Navbar">
@@ -81,9 +93,26 @@ const Navbar: React.FC<NavbarProps> = ({
                 className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
                 onClick={handleSearchContainerClick}
               >
-                <input type="text" placeholder="상품을 검색하세요" />
+                <input
+                  type="text"
+                  placeholder="상품을 검색하세요"
+                  value={searchInput}
+                  onChange={handleSearchChange}
+                />
+                {searchInput && (
+                  <div className="search-results">
+                    {filteredProducts.map((product) => (
+                      <div key={product.id}>
+                        <img src={product.img} alt={product.title} />
+                        <p>{product.title}</p>
+                      </div>
+                    ))}
+                    {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
+                  </div>
+                )}
               </div>
             </li>
+
             <li className="menu-wishlist">
               <a href="/Register">
                 <img src={menu2} width="30" />
