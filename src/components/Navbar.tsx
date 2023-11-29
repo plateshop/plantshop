@@ -8,6 +8,16 @@ import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
 import Cupdata from "../Data/Cupdata";
+import Bowlsdata from "../Data/Bowlsdata";
+import Kitchenwaredata from "..//Data/Kitchenwaredata";
+import Platesdata from "../Data/Platesdata";
+
+type ProductData = {
+  id: number;
+  title: string;
+  img: string;
+  keywords: string[];
+};
 
 type NavbarProps = {
   isLoggedIn: boolean;
@@ -21,6 +31,14 @@ const Navbar: React.FC<NavbarProps> = ({
   onLogout = () => {},
 }) => {
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>("");
+
+  const ProductDataSources: ProductData[][] = [
+    Cupdata,
+    Bowlsdata,
+    Kitchenwaredata,
+    Platesdata,
+  ];
 
   const toggleSearch = () => {
     setSearchVisible((prevVisible) => !prevVisible);
@@ -37,14 +55,14 @@ const Navbar: React.FC<NavbarProps> = ({
     event.stopPropagation();
   };
 
-  const [searchInput, setSearchInput] = useState<string>("");
-
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(event.target.value);
   };
 
-  const filteredProducts = (Cupdata as Cupdata[]).filter((product: Cupdata) =>
-    product.keywords.some((keyword) =>
+  const allProducts: ProductData[] = ProductDataSources.flatMap((data) => data);
+
+  const filteredProducts = allProducts.filter((product) =>
+    (product.keywords || []).some((keyword) =>
       keyword.toLowerCase().includes(searchInput.toLowerCase())
     )
   );
