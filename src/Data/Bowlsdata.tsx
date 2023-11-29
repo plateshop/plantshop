@@ -5,6 +5,7 @@ export interface Bowlsdata {
   price: string;
   detail: string;
   detailimg: string[];
+  keywords: string[];
 }
 
 const Bowlsdata: Bowlsdata[] = [
@@ -20,6 +21,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
+    keywords: ["포장", "기프트"],
   },
 
   {
@@ -34,6 +36,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
+    keywords: ["보울", "그릇"],
   },
 
   {
@@ -48,6 +51,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
+    keywords: ["보울", "그릇"],
   },
 
   {
@@ -62,6 +66,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
+    keywords: ["보울", "그릇"],
   },
 ];
 
