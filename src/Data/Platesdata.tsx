@@ -51,7 +51,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["법랑", "그릇"],
+    keywords: ["법랑", "그릇", "블루"],
   },
 
   {
@@ -66,7 +66,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["법랑", "그릇"],
+    keywords: ["법랑", "그릇", "블루"],
   },
 ];
 
