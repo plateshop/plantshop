@@ -22,6 +22,8 @@ import UserInfo from './pages/UserInfo.tsx';
 import Favorite from './pages/Favorite.tsx';
 import OrderHistory from './pages/OrderHistory.tsx';
 import MyPage from './pages/MyPage.tsx';
+import SearchResults from './pages/SearchResults.tsx';
+
 
 
 import Image from './components/ImagePage';
@@ -64,6 +66,8 @@ function App() {
           <Route path="/Plates" component={Plates} />
           <Route path="/Kitchenware" component={Kitchenware} />
           <Route path="/img" component={Image} />
+          <Route path="/searchresults" component={SearchResults} />
+
           {/* <Route path="/search" component={Search} /> */}
 
           <Route path="/main" component={Main} />
@@ -78,6 +82,8 @@ function App() {
           <Route path="/cupdetail/:id" component={CupDetail} />
           <Route path="/platesdetail/:id" component={PlatesDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+          <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+
 
           {/* <Route path="/search" component={Search} /> */}
 

@@ -32,6 +32,14 @@
   text-align: center;
 }
 
+.menu-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.menu-item.selected a {
+  font-weight: bold; /* 선택된 메뉴의 글자를 두껍게 표시하는 예시입니다. */
+}
 .menu-item.selected {
   background-color: #fff; /* 선택된 메뉴에 흰색 배경 적용 */
 }

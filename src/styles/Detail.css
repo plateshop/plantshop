@@ -38,6 +38,8 @@
     padding-top: 50px;
     width: 35%;
     text-align: left;
+    position: sticky;
+    top: 0; /* Navbar가 화면 상단에 고정되도록 설정 */
 }
 
 .detail_container_menu_fixbox{

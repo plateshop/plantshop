@@ -1,5 +1,5 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom"; // 이 부분 수정
+import { NavLink, useHistory ,withRouter, RouteComponentProps  } from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
@@ -7,158 +7,186 @@ import menu2 from "../img/ui/person.png";
 import menu3 from "../img/ui/favorite.png";
 import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
-import { useAuth } from "../AuthContext";
+import Cupdata from "../Data/CupData";
+import Bowlsdata from "../Data/BowlsData";
+import Kitchenwaredata from "../Data/KitchenwareData";
+import Platesdata from "../Data/PlatesData";
 
-type NavbarProps = {
+type ProductData = {
+  id: number;
+  title: string;
+  img: string;
+  keywords: string[];
+};
+
+type NavbarProps = RouteComponentProps & {
   isLoggedIn: boolean;
   userName: string;
   onLogout: () => void;
 };
 
-
 const Navbar: React.FC<NavbarProps> = ({
+  // history, location, match,
   isLoggedIn = false,
   userName = "",
   onLogout = () => {},
 }) => {
+  const history = useHistory();
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
+  const [searchInput, setSearchInput] = useState<string>("");
+
+  const ProductDataSources: ProductData[][] = [
+    Cupdata,
+    Bowlsdata,
+    Kitchenwaredata,
+    Platesdata,
+  ];
+
+  const [searchResults, setSearchResults] = useState<ProductData[]>([]);
 
   const toggleSearch = () => {
-    setSearchVisible((prevVisible) => {
-      console.log("isSearchVisible:", !prevVisible);
-      return !prevVisible;
-    });
+    setSearchVisible((prevVisible) => !prevVisible);
   };
+
+  const handleMenu1Click = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.stopPropagation();
+    toggleSearch();
+  };
+
+  const handleSearchContainerClick = (
+    event: React.MouseEvent<HTMLDivElement>
+  ) => {
+    event.stopPropagation();
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const input = event.target.value;
+  setSearchInput(input);
+
+  // 검색 로직: 예제로 키워드가 포함된 항목을 모두 결과로 표시
+  const filtered = allProducts.filter((product) =>
+    product.keywords.some((keyword) => keyword.toLowerCase().includes(input.toLowerCase()))
+  );
+  setSearchResults(filtered);
+};
+
+const handleSearchKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  if (event.key === 'Enter' && searchResults.length > 0) {
+    // 검색 결과가 있을 때만 페이지 이동
+    history.push('/SearchResults', { results: searchResults });
+  }
+};
+
+
+  const allProducts: ProductData[] = ProductDataSources.flatMap((data) => data);
+
+  const filteredProducts = allProducts.filter((product) =>
+    (product.keywords || []).some((keyword) =>
+      keyword.toLowerCase().includes(searchInput.toLowerCase())
+    )
+  );
 
   return (
     <header className="Navbar">
       <div className="login-box">
-      <div className="Navbar-member">
-      {isLoggedIn ? (
+        <div className="Navbar-member">
+          {isLoggedIn ? (
             <>
               <span>환영합니다, {userName}님</span>
               <button onClick={onLogout}>로그아웃</button>
             </>
           ) : (
             <>
-              <NavLink to="/joinpage" className="member">회원가입</NavLink>
-              <NavLink to="/login" className="member">로그인</NavLink>
+              <NavLink to="/joinpage" className="member">
+                회원가입
+              </NavLink>
+              <NavLink to="/login" className="member">
+                로그인
+              </NavLink>
             </>
           )}
         </div>
       </div>
       <div className="Navbar-content">
-       <div className="Logo-right-wrap">
-        <div className="Navbar-logo">
-          <a className="Logo-wrap" href="/main">
-            <img className="logo" src={logo} alt="Crow Canyon Home" width="300" height="80" />
-          </a>
-        </div>  
-        <div className="right-menu">
-         <li className={`menu-search ${isSearchVisible ? 'click' : ''}`} onClick={toggleSearch}>
-          <img src={menu1} width="30" />
-          <div className={`SearchContainer ${isSearchVisible ? 'click' : ''}`}>
-            <input type="text" placeholder="상품을 검색하세요" />
+        <div className="Logo-right-wrap">
+          <div className="Navbar-logo">
+            <a className="Logo-wrap" href="/main">
+              <img
+                className="logo"
+                src={logo}
+                alt="Crow Canyon Home"
+                width="300"
+                height="80"
+              />
+            </a>
           </div>
-        </li>
-          <li className="menu-wishlist">  
-            <a href="/MyPage/UserInfo">
-              <img src={menu2} width="30" />
-            </a>  
-          </li>
-          <li className="menu-account">
-            <a href="/MyPage/Favorite">
-              <img src={menu3} width="30" />
-            </a>  
-          </li>
-          <li className="menu-cart">
-            <a href="/Cart">
-              <img src={menu4} width="30" />
-            </a>  
-          </li>
+          <div className="right-menu">
+          <li
+      className={`menu-search ${isSearchVisible ? "click" : ""}`}
+      onClick={toggleSearch}
+    >
+      <img src={menu1} width="30" onClick={handleMenu1Click} />
+      <div
+        className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
+        onClick={handleSearchContainerClick}
+      >
+        <input
+          type="text"
+          placeholder="상품을 검색하세요"
+          value={searchInput}
+          onChange={handleSearchChange}
+          onKeyPress={handleSearchKeyPress} // 여기에 추가
+        />
+        {searchInput && isSearchVisible && (
+          <div className="search-results">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="search-result-item">
+                <img src={product.img} alt={product.title} />
+                <p>{product.title}</p>
+              </div>
+            ))}
+            {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
+          </div>
+        )}
+      </div>
+    </li>
+
+            <li className="menu-wishlist">
+              <a href="/Register">
+                <img src={menu2} width="30" />
+              </a>
+            </li>
+            <li className="menu-account">
+              <a href="/List">
+                <img src={menu3} width="30" />
+              </a>
+            </li>
+            <li className="menu-cart">
+              <a href="/Cart">
+                <img src={menu4} width="30" />
+              </a>
+            </li>
           </div>
         </div>
       </div>
       <nav className="Navbar-menu">
         <ul className="menu-wrap">
-          <a href="/Cup" className="menu">Cup</a>
-          <a href="/Bowls" className="menu">Bowls</a>
-          <a href="/Plates" className="menu">Plates</a>
-          <a href="/Kitchenware" className="menu">Kitchenware</a>
+          <a href="/Cup" className="menu">
+            Cup
+          </a>
+          <a href="/Bowls" className="menu">
+            Bowls
+          </a>
+          <a href="/Plates" className="menu">
+            Plates
+          </a>
+          <a href="/Kitchenware" className="menu">
+            Kitchenware
+          </a>
         </ul>
-      </nav> 
-   </header>
+      </nav>
+    </header>
   );
 };
 
-export default Navbar; 
-
-// import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-// import { Link } from "react-router-dom"; // 이 부분 수정
-// import React, { FC } from "react";
-// import logo from "../img/logo/logo2.png";
-// import menu1 from "../img/ui/search.png";
-// import menu2 from "../img/ui/person.png";
-// import menu3 from "../img/ui/favorite.png";
-// import menu4 from "../img/ui/cart.png";
-// import "../styles/Navbar.css";
-
-// type NavbarProps = {
-//   isLoggedIn: boolean;
-//   onLogout: () => void;
-// };
-
-// export const Navbar: FC<NavbarProps> = ({ isLoggedIn, onLogout }) => {
-//   return (
-//     <NavbarBootstrap bg="light" expand="lg" className="Navbar">
-//       <Container>
-//         <NavbarBootstrap.Brand href="/main">
-//           <img
-//             className="logo"
-//             src={logo}
-//             alt="Crow Canyon Home"
-//             width="400"
-//             height="100"
-//           />
-//         </NavbarBootstrap.Brand>
-//         <NavbarBootstrap.Toggle aria-controls="basic-navbar-nav" />
-//         <NavbarBootstrap.Collapse id="basic-navbar-nav">
-//           <Nav className="mr-auto">
-//             <Nav.Link href="/">홈</Nav.Link>
-//             <Nav.Link href="/Cup">Cup</Nav.Link>
-//             <Nav.Link href="/Bowls">Bowls</Nav.Link>
-//             <Nav.Link href="/Plates">Plates</Nav.Link>
-//             <Nav.Link href="/Kitchenware">Kitchenware</Nav.Link>
-//           </Nav>
-//           <Nav className="right-menu">
-//             <Nav.Link href="/">
-//               <img src={menu1} width="30" alt="" />
-//             </Nav.Link>
-//             {isLoggedIn ? (
-//               <>
-//                 <Nav.Link href="/List">
-//                   <img src={menu3} width="30" alt="" />
-//                 </Nav.Link>
-//                 <Nav.Link href="/List">
-//                   <img src={menu4} width="30" alt="" />
-//                 </Nav.Link>
-//                 <Nav.Link href="#" onClick={onLogout}> {/* 텍스트 클릭으로 로그아웃 */}
-//                 로그아웃
-//               </Nav.Link>
-//             </>
-//             ) : (
-//               <>
-//                 <Nav.Link href="/Register">
-//                   <img src={menu2} width="30" alt="" />
-//                 </Nav.Link>
-//                 <Link to="/login">
-//                   <Nav.Link>로그인</Nav.Link>
-//                 </Link>
-//               </>
-//             )}
-//           </Nav>
-//         </NavbarBootstrap.Collapse>
-//       </Container>
-//     </NavbarBootstrap>
-//   );
-// };
+export default Navbar;
