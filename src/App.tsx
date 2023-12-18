@@ -41,6 +41,7 @@ import KitchenwareDetail from "./pages/KitchenwareDetail.tsx";
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -83,6 +84,7 @@ function App() {
           <Route path="/platesdetail/:id" component={PlatesDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+         
 
 
           {/* <Route path="/search" component={Search} /> */}

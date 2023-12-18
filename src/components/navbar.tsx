@@ -34,6 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({
   const history = useHistory();
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<ProductData[]>([]);
 
   const ProductDataSources: ProductData[][] = [
     Cupdata,
@@ -41,8 +42,6 @@ const Navbar: React.FC<NavbarProps> = ({
     Kitchenwaredata,
     Platesdata,
   ];
-
-  const [searchResults, setSearchResults] = useState<ProductData[]>([]);
 
   const toggleSearch = () => {
     setSearchVisible((prevVisible) => !prevVisible);
@@ -60,22 +59,22 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const input = event.target.value;
-  setSearchInput(input);
+    const input = event.target.value;
+    setSearchInput(input);
 
-  // 검색 로직: 예제로 키워드가 포함된 항목을 모두 결과로 표시
-  const filtered = allProducts.filter((product) =>
-    product.keywords.some((keyword) => keyword.toLowerCase().includes(input.toLowerCase()))
-  );
-  setSearchResults(filtered);
-};
+    const filtered = allProducts.filter((product) =>
+      product.keywords.some((keyword) =>
+        keyword.toLowerCase().includes(input.toLowerCase())
+      )
+    );
+    setSearchResults(filtered);
+  };
 
-const handleSearchKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-  if (event.key === 'Enter' && searchResults.length > 0) {
-    // 검색 결과가 있을 때만 페이지 이동
-    history.push('/SearchResults', { results: searchResults });
-  }
-};
+  const handleSearchKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && searchResults.length > 0) {
+      history.push('/SearchResults', { results: searchResults });
+    }
+  };
 
 
   const allProducts: ProductData[] = ProductDataSources.flatMap((data) => data);
@@ -122,34 +121,34 @@ const handleSearchKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
           </div>
           <div className="right-menu">
           <li
-      className={`menu-search ${isSearchVisible ? "click" : ""}`}
-      onClick={toggleSearch}
-    >
-      <img src={menu1} width="30" onClick={handleMenu1Click} />
-      <div
-        className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
-        onClick={handleSearchContainerClick}
-      >
-        <input
-          type="text"
-          placeholder="상품을 검색하세요"
-          value={searchInput}
-          onChange={handleSearchChange}
-          onKeyPress={handleSearchKeyPress} // 여기에 추가
-        />
-        {searchInput && isSearchVisible && (
-          <div className="search-results">
-            {filteredProducts.map((product) => (
-              <div key={product.id} className="search-result-item">
-                <img src={product.img} alt={product.title} />
-                <p>{product.title}</p>
+              className={`menu-search ${isSearchVisible ? "click" : ""}`}
+              onClick={toggleSearch}
+            >
+              <img src={menu1} width="30" onClick={handleMenu1Click} />
+              <div
+                className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
+                onClick={handleSearchContainerClick}
+              >
+                <input
+                  type="text"
+                  placeholder="상품을 검색하세요"
+                  value={searchInput}
+                  onChange={handleSearchChange}
+                  onKeyPress={handleSearchKeyPress}
+                />
+                {searchInput && isSearchVisible && (
+                  <div className="search-results">
+                    {filteredProducts.map((product) => (
+                      <div key={product.id} className="search-result-item">
+                        <img src={product.img} alt={product.title} />
+                        <p>{product.title}</p>
+                      </div>
+                    ))}
+                    {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
+                  </div>
+                )}
               </div>
-            ))}
-            {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
-          </div>
-        )}
-      </div>
-    </li>
+            </li>
 
             <li className="menu-wishlist">
               <a href="/Register">
