@@ -6,7 +6,7 @@ interface UserProviderProps {
 }
 
 const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  // 실제 애플리케이션에서는 여기서 서버에서 사용자 데이터를 가져올 것입니다
+  // 실제 서버에서 사용자 데이터를 가져오기
   const userData: UserContextProps = {
     address: "서울시 강남구",
     // 필요한 경우 다른 사용자 정보 추가
