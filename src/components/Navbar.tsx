@@ -11,6 +11,7 @@ import Cupdata from "../Data/Cupdata";
 import Bowlsdata from "../Data/Bowlsdata";
 import Kitchenwaredata from "..//Data/Kitchenwaredata";
 import Platesdata from "../Data/Platesdata";
+import SearchResult from "../components/SearchResult";
 
 type ProductData = {
   id: number;

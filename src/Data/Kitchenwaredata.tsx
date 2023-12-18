@@ -36,7 +36,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["트레이", "쟁반"],
+    keywords: ["트레이", "쟁반", "민트"],
   },
 
   {
@@ -47,7 +47,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
     detail:
       " 크로우캐년홈은 1977년 창업이래, 클래식한 디자인과 내구성 둘 다 갖춘 높은 퀄리티의 에나멜웨어를 만들어왔습니다. 미국 뿐 아니라 전세계적으로 유리나 플라스틱 등 깨지기 쉬운 소재가 환경에 안좋은 소재가 사용되는 것을 우려하여 지속 가능하며 청결하고 디자인까지 멋진 제품은 없을까 라는 아이디어에서 시작하여 만들어졌습니다. 머그의 용량은 340ml 이며, 색상은 민트 색상입니다.",
     detailimg: [
-      "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/D11_EBAFBCED8AB8_1.jpg",
+      "https://crowcanyon.co.kr/web/upload/NNEditor/202,30105/D11_EBAFBCED8AB8_1.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
@@ -66,7 +66,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["트레이", "쟁반"],
+    keywords: ["트레이", "쟁반", "블루"],
   },
 
   {
@@ -81,7 +81,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["트레이", "쟁반"],
+    keywords: ["트레이", "쟁반", "핑크"],
   },
 
   {
@@ -111,7 +111,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["그릇", "브라우니"],
+    keywords: ["그릇", "브라우니", "블랙"],
   },
 
   {
@@ -126,7 +126,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["그릇", "브라우니"],
+    keywords: ["그릇", "브라우니", "마블", "옐로우"],
   },
 
   {
@@ -141,7 +141,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["그릇", "오픈로스터"],
+    keywords: ["그릇", "오픈로스터", "마블", "네이비", "블루"],
   },
 
   {
@@ -156,7 +156,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "그레이"],
   },
 
   {
@@ -171,7 +171,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "네이비", "블루"],
   },
 
   {
@@ -186,7 +186,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "하늘색", "베이비블루"],
   },
 
   {
@@ -201,7 +201,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "블루"],
   },
 
   {
@@ -216,7 +216,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "핑크"],
   },
   {
     id: 14,
@@ -230,7 +230,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "옐로우"],
   },
   {
     id: 15,
@@ -244,7 +244,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["숟가락", "스푼"],
+    keywords: ["숟가락", "스푼", "마블", "오렌지"],
   },
 ];
 
