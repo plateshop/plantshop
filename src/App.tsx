@@ -26,6 +26,10 @@ import BowlsDetail from "./pages/BowlsDetail.tsx";
 import CupDetail from "./pages/CupDetail.tsx";
 import PlatesDetail from "./pages/PlatesDetail.tsx";
 import KitchenwareDetail from "./pages/KitchenwareDetail.tsx";
+
+import UserProvider, { useUser } from "./components/UserProvider.tsx";
+import Order from "./pages/Order.tsx";
+
 // import Search from './components/Search';
 
 function App() {
@@ -35,36 +39,43 @@ function App() {
         {/* <Main title="Main Title" sub="Sub Title" /> */}
       </div>
       <Router>
-        <Switch>
-          <Route path="/" exact component={Image} />
-          {/* <Route path="/customer" element={<Customer />} />
+        <UserProvider>
+          <Switch>
+            <Route path="/" exact component={Image} />
+            {/* <Route path="/customer" element={<Customer />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/search" element={<Search />} /> */}
-          <Route path="/cart" component={Cart} />
-          <Route path="/cup" component={Cup} />
-          <Route path="/payment" component={Payment} />
-          <Route path="/products" component={Products} />
-          {/* <Route path="/detail" component={Detail} /> */}
-          <Route path="/login" component={Login} />
-          <Route path="/Customer6" component={Customer6} />
-          <Route path="/Basket" component={Basket} />
-          <Route path="/Pngword" component={Pngword} />
-          <Route path="/Bowls" component={Bowls} />
-          <Route path="/Plates" component={Plates} />
-          <Route path="/Kitchenware" component={Kitchenware} />
-          <Route path="/img" component={Image} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/cup" component={Cup} />
+            <Route path="/payment" component={Payment} />
+            <Route path="/products" component={Products} />
+            {/* <Route path="/detail" component={Detail} /> */}
+            <Route path="/login" component={Login} />
+            <Route path="/Customer6" component={Customer6} />
+            <Route path="/Basket" component={Basket} />
+            <Route path="/Pngword" component={Pngword} />
+            <Route path="/Bowls" component={Bowls} />
+            <Route path="/Plates" component={Plates} />
+            <Route path="/Kitchenware" component={Kitchenware} />
+            <Route path="/img" component={Image} />
 
-          <Route path="/main" component={Main} />
-          <Route path="/joinpage" component={JoinPage} />
-          <Route path="/shipping" component={Shipping} />
-          <Route path="/shippingaddress" component={ShippingAddress} />
-          <Route path="/bowlsdetail/:id" component={BowlsDetail} />
-          <Route path="/cupdetail/:id" component={CupDetail} />
-          <Route path="/platesdetail/:id" component={PlatesDetail} />
-          <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+            <Route path="/main" component={Main} />
+            <Route path="/joinpage" component={JoinPage} />
+            <Route path="/shipping" component={Shipping} />
+            <Route path="/shippingaddress" component={ShippingAddress} />
+            <Route path="/bowlsdetail/:id" component={BowlsDetail} />
+            <Route path="/cupdetail/:id" component={CupDetail} />
+            <Route path="/platesdetail/:id" component={PlatesDetail} />
+            <Route
+              path="/Kitchenwaredetail/:id"
+              component={KitchenwareDetail}
+            />
 
-          {/* <Route path="/search" component={Search} /> */}
-        </Switch>
+            <Route path="/order" component={Order} />
+
+            {/* <Route path="/search" component={Search} /> */}
+          </Switch>
+        </UserProvider>
       </Router>
     </div>
   );
