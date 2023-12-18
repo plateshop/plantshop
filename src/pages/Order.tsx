@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import {
   Button,
   Container,
@@ -73,8 +73,7 @@ const App: React.FC = () => {
           <Typography variant="h6">
             선택한 상품: {selectedProduct?.name}
           </Typography>
-          {/* 주문 페이지 내용 추가 */}
-          {/* 주문하기 버튼을 누르면 handleOrder 함수를 호출하도록 구현 */}
+          
           <Button
             variant="contained"
             color="primary"
@@ -87,6 +86,94 @@ const App: React.FC = () => {
       </Dialog>
     </Container>
   );
+}; 
+
+export default App;*/
+
+import React, { useState } from "react";
+import { useUser } from "../components/UserProvider";
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+
+const Order: React.FC = () => {
+  const { address } = useUser();
+  const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
+  const [shippingAddress, setShippingAddress] = useState<string>("");
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  const handleProductSelection = (product: Product) => {
+    const isProductSelected = selectedProducts.some((p) => p.id === product.id);
+
+    if (isProductSelected) {
+      const updatedProducts = selectedProducts.filter(
+        (p) => p.id !== product.id
+      );
+      setSelectedProducts(updatedProducts);
+    } else {
+      setSelectedProducts([...selectedProducts, product]);
+    }
+  };
+
+  const calculateTotalPrice = () => {
+    const totalPrice = selectedProducts.reduce(
+      (acc, product) => acc + product.price,
+      0
+    );
+    setTotalPrice(totalPrice);
+  };
+
+  const handleAddressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShippingAddress(event.target.value);
+  };
+
+  const handleOrderSubmit = () => {
+    console.log("Order submitted:", {
+      selectedProducts,
+      shippingAddress,
+      totalPrice,
+    });
+  };
+
+  return (
+    <div>
+      <h2>주문 페이지</h2>
+
+      <div>
+        <h3>상품 목록</h3>
+        {selectedProducts.map((product) => (
+          <div key={product.id}>
+            <span>{product.name}</span>
+            <span>{product.price}원</span>
+            <button onClick={() => handleProductSelection(product)}>
+              {selectedProducts.some((p) => p.id === product.id)
+                ? "선택 해제"
+                : "선택"}
+            </button>
+          </div>
+        ))}
+        <p>총 주문 금액: {totalPrice}원</p>
+      </div>
+
+      <div>
+        <h3>배송 정보</h3>
+        <label>
+          배송 주소:
+          <input type="text" value={address} readOnly />
+        </label>
+      </div>
+
+      <div>
+        <h3>결제</h3>
+        {/* 결제 관련 컴포넌트를 추가할 수 있습니다. */}
+      </div>
+
+      <button onClick={handleOrderSubmit}>주문 완료</button>
+    </div>
+  );
 };
 
-export default App;
+export default Order;
