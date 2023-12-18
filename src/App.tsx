@@ -22,7 +22,7 @@ import UserInfo from "./pages/UserInfo.tsx";
 import Favorite from "./pages/Favorite.tsx";
 import OrderHistory from "./pages/OrderHistory.tsx";
 import MyPage from "./pages/MyPage.tsx";
-import SearchResults from "./pages/SearchResult.tsx";
+import SearchResults from "./pages/SearchResults.tsx";
 
 import Image from "./components/ImagePage";
 
