@@ -1,5 +1,10 @@
 import { Navbar as NavbarBootstrap, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom"; // 이 부분 수정
+import {
+  NavLink,
+  useHistory,
+  withRouter,
+  RouteComponentProps,
+} from "react-router-dom"; // 이 부분 수정
 import React, { FC, useContext, useState } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
@@ -9,9 +14,8 @@ import menu4 from "../img/ui/cart.png";
 import "../styles/Navbar.css";
 import Cupdata from "../Data/Cupdata";
 import Bowlsdata from "../Data/Bowlsdata";
-import Kitchenwaredata from "..//Data/Kitchenwaredata";
+import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Platesdata from "../Data/Platesdata";
-import SearchResult from "../components/SearchResult";
 
 type ProductData = {
   id: number;
@@ -20,19 +24,22 @@ type ProductData = {
   keywords: string[];
 };
 
-type NavbarProps = {
+type NavbarProps = RouteComponentProps & {
   isLoggedIn: boolean;
   userName: string;
   onLogout: () => void;
 };
 
 const Navbar: React.FC<NavbarProps> = ({
+  // history, location, match,
   isLoggedIn = false,
   userName = "",
   onLogout = () => {},
 }) => {
+  const history = useHistory();
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<ProductData[]>([]);
 
   const ProductDataSources: ProductData[][] = [
     Cupdata,
@@ -57,7 +64,23 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(event.target.value);
+    const input = event.target.value;
+    setSearchInput(input);
+
+    const filtered = allProducts.filter((product) =>
+      product.keywords.some((keyword) =>
+        keyword.toLowerCase().includes(input.toLowerCase())
+      )
+    );
+    setSearchResults(filtered);
+  };
+
+  const handleSearchKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === "Enter" && searchResults.length > 0) {
+      history.push("/SearchResults", { results: searchResults });
+    }
   };
 
   const allProducts: ProductData[] = ProductDataSources.flatMap((data) => data);
@@ -117,6 +140,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   placeholder="상품을 검색하세요"
                   value={searchInput}
                   onChange={handleSearchChange}
+                  onKeyPress={handleSearchKeyPress}
                 />
                 {searchInput && isSearchVisible && (
                   <div className="search-results">
