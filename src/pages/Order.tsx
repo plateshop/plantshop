@@ -99,11 +99,19 @@ interface Product {
   price: number;
 }
 
+enum PaymentMethod {
+  Card = "card",
+  BankTransfer = "bankTransfer",
+}
+
 const Order: React.FC = () => {
   const { address } = useUser();
   const [selectedProducts, setSelectedProducts] = useState<Product[]>([]);
   const [shippingAddress, setShippingAddress] = useState<string>("");
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod | null>(
+    null
+  );
 
   const handleProductSelection = (product: Product) => {
     const isProductSelected = selectedProducts.some((p) => p.id === product.id);
@@ -130,11 +138,16 @@ const Order: React.FC = () => {
     setShippingAddress(event.target.value);
   };
 
+  const handlePaymentMethodChange = (method: PaymentMethod) => {
+    setPaymentMethod(method);
+  };
+
   const handleOrderSubmit = () => {
     console.log("Order submitted:", {
       selectedProducts,
       shippingAddress,
       totalPrice,
+      paymentMethod,
     });
   };
 
@@ -168,7 +181,29 @@ const Order: React.FC = () => {
 
       <div>
         <h3>결제</h3>
-        {/* 결제 관련 컴포넌트를 추가할 수 있습니다. */}
+        <label>
+          <input
+            type="radio"
+            name="paymentMethod"
+            value={PaymentMethod.Card}
+            checked={paymentMethod === PaymentMethod.Card}
+            onChange={() => handlePaymentMethodChange(PaymentMethod.Card)}
+          />
+          카드 결제
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="paymentMethod"
+            value={PaymentMethod.BankTransfer}
+            checked={paymentMethod === PaymentMethod.BankTransfer}
+            onChange={() =>
+              handlePaymentMethodChange(PaymentMethod.BankTransfer)
+            }
+          />
+          무통장 입금
+        </label>
+        {/* 결제 방식에 따른 추가 입력 폼 기입 가능. */}
       </div>
 
       <button onClick={handleOrderSubmit}>주문 완료</button>
