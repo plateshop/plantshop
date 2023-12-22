@@ -11,6 +11,7 @@ import Cupdata from "../Data/CupData";
 import Bowlsdata from "../Data/BowlsData";
 import Kitchenwaredata from "../Data/KitchenwareData";
 import Platesdata from "../Data/PlatesData";
+import SearchResult from "../pages/SearchResults";
 
 type ProductData = {
   id: number;
@@ -151,7 +152,7 @@ const Navbar: React.FC<NavbarProps> = ({
             </li>
 
             <li className="menu-wishlist">
-              <a href="/Register">
+              <a href="/Mypage">
                 <img src={menu2} width="30" />
               </a>
             </li>

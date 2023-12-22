@@ -18,8 +18,8 @@ import Bowls from './pages/Bowls';
 import Plates from './pages/Plates';
 import Kitchenware from './pages/Kitchenware';
 import JoinPage from './pages/JoinPage.tsx';
-import UserInfo from './pages/UserInfo.tsx';
-import Favorite from './pages/Favorite.tsx';
+import MyInfo from './pages/MyInfo.tsx';
+import MyPick from './pages/MyPick.tsx';
 import OrderHistory from './pages/OrderHistory.tsx';
 import MyPage from './pages/MyPage.tsx';
 import SearchResults from './pages/SearchResults.tsx';
@@ -35,6 +35,8 @@ import BowlsDetail from "./pages/BowlsDetail.tsx";
 import CupDetail from "./pages/CupDetail.tsx";
 import PlatesDetail from "./pages/PlatesDetail.tsx";
 import KitchenwareDetail from "./pages/KitchenwareDetail.tsx";
+// import UserProvider, { useUser } from "./components/UserProvider.tsx";
+import Order from "./pages/Order.tsx";
 // import Search from './components/Search';
 
 
@@ -74,9 +76,9 @@ function App() {
           <Route path="/main" component={Main} />
           <Route path="/joinpage" component={JoinPage} />
           <Route path="/MyPage" component={MyPage} />
-          <Route path="/MyPage/UserInfo" component={UserInfo} />
+          <Route path="/MyPage/MyInfo" component={MyInfo} />
           <Route path="/MyPage/OrderHistory" component={OrderHistory} />
-          <Route path="/MyPage/Favorite" component={Favorite} />
+          <Route path="/MyPage/MyPick" component={MyPick} />
           <Route path="/shipping" component={Shipping} />
           <Route path="/shippingaddress" component={ShippingAddress} />
           <Route path="/bowlsdetail/:id" component={BowlsDetail} />
@@ -84,6 +86,7 @@ function App() {
           <Route path="/platesdetail/:id" component={PlatesDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
+          <Route path="/order" component={Order} />
          
 
 

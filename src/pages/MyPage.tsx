@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import OrderHistory from './OrderHistory';
-import UserInfo from './UserInfo';
-import Favorite from './Favorite';
+import UserInfo from './MyInfo';
+import Favorite from './MyPick';
 import '../styles/MyPage.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -19,7 +19,6 @@ const MyPage: React.FC = () => {
   
     return (
     <div>
-        <Navbar/>
       <div className="mypage-container">
       <div className="mypage-header">
         <div className="mypage-title">마이 페이지</div>
@@ -32,15 +31,15 @@ const MyPage: React.FC = () => {
             </div>
             <div
               className={`menu-item ${selectedMenu === 'personalInfo' && 'selected'}`}
-              onClick={() => handleMenuClick('UserInfo')}
+              onClick={() => handleMenuClick('MyInfo')}
             >
-              <Link to={`${url}/UserInfo`}>개인 정보</Link>
+              <Link to={`${url}/MyInfo`}>개인 정보</Link>
             </div>
             <div
               className={`menu-item ${selectedMenu === 'wishlist' && 'selected'}`}
-              onClick={() => handleMenuClick('Favorite')}
+              onClick={() => handleMenuClick('MyPick')}
             >
-              <Link to={`${url}/Favorite`}>찜한 상품</Link>
+              <Link to={`${url}/MyPick`}>찜한 상품</Link>
             </div>
         </div>
         </div>
@@ -50,10 +49,10 @@ const MyPage: React.FC = () => {
             <Route path={`${path}/orderHistory`}>
               <OrderHistory />
             </Route>
-            <Route path={`${path}/UserInfo`}>
+            <Route path={`${path}/MyInfo`}>
               <UserInfo />
             </Route>
-            <Route path={`${path}/Favorite`}>
+            <Route path={`${path}/MyPick`}>
               <Favorite />
             </Route>
           </Switch>

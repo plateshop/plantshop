@@ -50,8 +50,8 @@
 // export default Favorite;
 import React from 'react';
 
-const Favorite: React.FC = () => {
+const MyPick: React.FC = () => {
   return <div>찜한 상품 페이지</div>;
 };
 
-export default Favorite;
+export default MyPick;
