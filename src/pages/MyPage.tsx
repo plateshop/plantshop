@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import OrderHistory from './OrderHistory';
-import UserInfo from './MyInfo';
-import Favorite from './MyPick';
+import MyInfo from './MyInfo';
+import MyPick from './MyPick';
 import '../styles/MyPage.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -50,10 +50,10 @@ const MyPage: React.FC = () => {
               <OrderHistory />
             </Route>
             <Route path={`${path}/MyInfo`}>
-              <UserInfo />
+              <MyInfo />
             </Route>
             <Route path={`${path}/MyPick`}>
-              <Favorite />
+              <MyPick />
             </Route>
           </Switch>
         </div>

@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 // import { Navbar } from "./components/Navbar";
 import Cart from "./pages/Cart";
-// import Customer from "./pages/Customer";
-// import Favorite from "./pages/Favorite";
-// import Search from "./pages/Search";
 import Cup from './pages/Cup';
 import Payment from './pages/Payment';
 import Products from './pages/Products';
@@ -53,9 +50,6 @@ function App() {
       <Router>
         <Switch>
         <Route path="/" exact component={Image} />
-          {/* <Route path="/customer" element={<Customer />} />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/search" element={<Search />} /> */} 
           <Route path="/cart" component={Cart} />
           <Route path="/cup" component={Cup} />
           <Route path="/payment" component={Payment} />

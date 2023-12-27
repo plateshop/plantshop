@@ -1,5 +1,7 @@
 // SearchResults.tsx
 
+// SearchResults.tsx
+
 import React, { useState } from "react";
 import { useLocation, RouteComponentProps, withRouter, useHistory } from "react-router-dom";
 import Navbar from '../components/Navbar';
@@ -21,7 +23,7 @@ interface YourResultType {
   category: string; // 상품 카테고리 추가
 }
 
-const SearchResults: React.FC<RouteComponentProps<{}>> = () => {
+const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
   const location = useLocation<{ results: YourResultType[] }>();
   const results = location.state?.results || [];
   const history = useHistory();
@@ -53,56 +55,53 @@ const SearchResults: React.FC<RouteComponentProps<{}>> = () => {
     return rows;
   };
 
-  const filteredBowls = Bowlsdata.filter((bowl: BowlsDataType) =>
-    bowl.title.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-  const filteredCups = Cupdata.filter((cup: CupDataType) =>
-    cup.title.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-  const filteredKitchenware = Kitchenwaredata.filter(
-    (item: KitchenwareDataType) =>
-      item.title.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-  const filteredPlates = Platesdata.filter((plate: PlatesDataType) =>
-    plate.title.toLowerCase().includes(searchInput.toLowerCase())
-  );
-
-
   const handleProductClick = (productId: number, category: string) => {
-    // 카테고리가 정의되었는지 확인하고, 정의되지 않았다면 빈 문자열로 대체
-    const formattedCategory = category?.replace(/ /g, '') ?? '';
-    
-    // 클릭한 상품의 ID와 카테고리를 이용하여 해당 상품의 디테일 페이지로 이동
-    const detailPageName = `${formattedCategory}Detail`;
-    history.push(`/${detailPageName}/${productId}`);
+    const categoryToDetailPage: Record<string, string> = {
+      Bowls: 'BowlsDetail',
+      Cups: 'CupDetail',
+      Kitchenware: 'KitchenwareDetail',
+      Plates: 'PlatesDetail',
+      // 필요한 만큼 더 많은 카테고리를 추가하세요.
+    };
+
+    const formattedCategory = category.replace(/ /g, '').toLowerCase();
+    const detailPageName = categoryToDetailPage[formattedCategory];
+
+    if (detailPageName) {
+      history.push(`/${detailPageName}/${productId}`);
+    } else {
+      console.error(`디테일 페이지를 찾을 수 없음: ${category}`);
+    }
   };
 
   return (
     <div>
-      <Navbar history={undefined} location={undefined} match={undefined} isLoggedIn={false} userName={""} onLogout={function (): void {
-        throw new Error("Function not implemented.");
-      } } />
+      <Navbar history={undefined} location={undefined} match={undefined} isLoggedIn={false} userName={""} onLogout={() => {}} />
       <div className='search-results'>
-      <li
-      className={`menu-search ${isSearchVisible ? "click" : ""}`}
-      onClick={handleSearchContainerClick}
-    >
-      {/* 검색 입력과 버튼을 위한 기존 코드 */}
-      {/* ... */}
-
-      {/* 검색 결과를 표시합니다. */}
-      {searchInput && isSearchVisible && (
-        <>
-          {renderSearchResults(filteredBowls)}
-          {renderSearchResults(filteredCups)}
-          {renderSearchResults(filteredKitchenware)}
-          {renderSearchResults(filteredPlates)}
-        </>
-      )}
-    </li>
+        <li
+          className={`menu-search ${isSearchVisible ? "click" : ""}`}
+          onClick={handleSearchContainerClick}
+        >
+          {/* 검색 입력과 버튼을 위한 기존 코드 */}
+          {/* ... */}
+          {/* 검색 결과를 표시합니다. */}
+          {searchInput && isSearchVisible && (
+            <>
+              {renderSearchResults(Bowlsdata.filter((bowl: BowlsDataType) =>
+                bowl.title.toLowerCase().includes(searchInput.toLowerCase())
+              ))}
+              {renderSearchResults(Cupdata.filter((cup: CupDataType) =>
+                cup.title.toLowerCase().includes(searchInput.toLowerCase())
+              ))}
+              {renderSearchResults(Kitchenwaredata.filter((item: KitchenwareDataType) =>
+                item.title.toLowerCase().includes(searchInput.toLowerCase())
+              ))}
+              {renderSearchResults(Platesdata.filter((plate: PlatesDataType) =>
+                plate.title.toLowerCase().includes(searchInput.toLowerCase())
+              ))}
+            </>
+          )}
+        </li>
         <h2>검색 결과</h2>
         <div className='search-results-box'>
           {results.map((result) => (
@@ -119,6 +118,7 @@ const SearchResults: React.FC<RouteComponentProps<{}>> = () => {
 };
 
 export default withRouter(SearchResults);
+
 
 
 
