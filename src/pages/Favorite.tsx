@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Detail from "../pages/Detail";
 
 interface FavoriteProps {
   like: boolean;
@@ -10,6 +11,10 @@ interface Content {
   title: string;
   text: string;
   author: string;
+}
+
+interface DetailProps {
+  content: Content | null;
 }
 
 const Favorite: React.FC<FavoriteProps> = (props) => {
@@ -36,6 +41,10 @@ const Favorite: React.FC<FavoriteProps> = (props) => {
     } catch (error) {
       console.error("좋아요 토글 실패", error);
     }
+  };
+
+  const Detail: React.FC<DetailProps> = ({ content }) => {
+    return <div>{content as React.ReactNode}</div>;
   };
 
   return (
