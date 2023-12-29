@@ -4,15 +4,16 @@ import {
   RouteComponentProps,
   withRouter,
   useHistory,
+  useRouteMatch,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/SearchResults.css";
-import Bowlsdata, { Bowlsdata as BowlsDataType } from "../Data/BowlsData";
-import Cupdata, { Cupdata as CupDataType } from "../Data/CupData";
+import Bowlsdata, { Bowlsdata as BowlsDataType } from "../Data/Bowlsdata";
+import Cupdata, { Cupdata as CupDataType } from "../Data/Cupdata";
 import Kitchenwaredata, {
   Kitchenwaredata as KitchenwareDataType,
-} from "../Data/KitchenwareData";
-import Platesdata, { Platesdata as PlatesDataType } from "../Data/PlatesData";
+} from "../Data/Kitchenwaredata";
+import Platesdata, { Platesdata as PlatesDataType } from "../Data/Platesdata";
 
 interface YourResultType {
   id: number;
@@ -21,15 +22,26 @@ interface YourResultType {
   price: string;
   detail: string;
   detailimg: string[];
-  category: string; // 상품 카테고리 추가
+  category: string;
 }
 
-const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
-  const location = useLocation<{ results: YourResultType[] }>();
-  const results = location.state?.results || [];
-  const history = useHistory();
+interface SearchResultsProps extends RouteComponentProps {
+  history: ReturnType<typeof useHistory>;
+  location: ReturnType<typeof useLocation>;
+}
+
+const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
+  history,
+  location,
+}) => {
+  const locationState = useLocation<{ results: YourResultType[] }>();
+  const results = locationState.state?.results || [];
+  const historyInstance = useHistory();
   const [searchInput, setSearchInput] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  // useRouteMatch를 통해 match 객체 가져오기
+  const match = useRouteMatch();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -78,9 +90,9 @@ const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
   return (
     <div>
       <Navbar
-        history={undefined}
-        location={undefined}
-        match={undefined}
+        history={history}
+        location={location}
+        match={match}
         isLoggedIn={false}
         userName={""}
         onLogout={() => {}}
@@ -90,9 +102,6 @@ const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
           className={`menu-search ${isSearchVisible ? "click" : ""}`}
           onClick={handleSearchContainerClick}
         >
-          {/* 검색 입력과 버튼을 위한 기존 코드 */}
-          {/* ... */}
-          {/* 검색 결과를 표시합니다. */}
           {searchInput && isSearchVisible && (
             <>
               {renderSearchResults(
