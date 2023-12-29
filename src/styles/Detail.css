@@ -65,6 +65,16 @@
   padding-bottom: 30px;
 }
 
+.info_wrap_quantity {
+  margin-bottom: 10px;
+}
+
+#quantity {
+  width: 50px;
+  padding: 5px;
+  font-size: 16px;
+}
+
 .info_wrap_price {
   font-size: 20px;
   font-weight: 700;

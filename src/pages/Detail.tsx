@@ -4,6 +4,15 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Detail = () => {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(event.target.value, 10) || 1;
+    setQuantity(newQuantity);
+  };
+
+  const totalPrice = 20000 * quantity;
+
   return (
     <div className="detail_wrap">
       <Navbar />
@@ -29,7 +38,19 @@ const Detail = () => {
                 <div className="detail_container_info">
                   <h4 className="info_title">D11 머그 민트마블1</h4>
                   <div className="info_wrap">
-                    <p className="info_wrap_price">"20,000" "원"</p>
+                    {/* 상품 수량 입력 탭 추가 */}
+                    <div className="info_wrap_quantity">
+                      <label htmlFor="quantity">수량:</label>
+                      <input
+                        type="number"
+                        id="quantity"
+                        min="1"
+                        value={quantity}
+                        onChange={handleQuantityChange}
+                      />
+                    </div>
+                    <p className="info_wrap_price">{`"${totalPrice.toLocaleString()}" "원"`}</p>
+
                     <span className="info_wrap_like">
                       하트가 올자리
                       <svg
