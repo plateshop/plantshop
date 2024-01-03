@@ -1,16 +1,10 @@
-// SearchResults.tsx
-
-// SearchResults.tsx
-
 import React, { useState } from "react";
 import { useLocation, RouteComponentProps, withRouter, useHistory } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import '../styles/SearchResults.css';
 import Bowlsdata, { Bowlsdata as BowlsDataType } from '../Data/BowlsData';
 import Cupdata, { Cupdata as CupDataType } from '../Data/CupData';
-import Kitchenwaredata, {
-  Kitchenwaredata as KitchenwareDataType,
-} from '../Data/KitchenwareData';
+import Kitchenwaredata, { Kitchenwaredata as KitchenwareDataType } from '../Data/KitchenwareData';
 import Platesdata, { Platesdata as PlatesDataType } from '../Data/PlatesData';
 
 interface YourResultType {
@@ -20,13 +14,18 @@ interface YourResultType {
   price: string;
   detail: string;
   detailimg: string[];
-  category: string; // 상품 카테고리 추가
+  category: string;
 }
 
-const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
-  const location = useLocation<{ results: YourResultType[] }>();
-  const results = location.state?.results || [];
-  const history = useHistory();
+interface SearchResultsProps extends RouteComponentProps {
+  history: ReturnType<typeof useHistory>;
+  location: ReturnType<typeof useLocation>;
+}
+
+const SearchResults: React.FunctionComponent<SearchResultsProps> = ({ history, location, match }) => {
+  const locationState = useLocation<{ results: YourResultType[] }>();
+  const results = locationState.state?.results || [];
+  const historyInstance = useHistory();
   const [searchInput, setSearchInput] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -61,7 +60,6 @@ const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
       Cups: 'CupDetail',
       Kitchenware: 'KitchenwareDetail',
       Plates: 'PlatesDetail',
-      // 필요한 만큼 더 많은 카테고리를 추가하세요.
     };
 
     const formattedCategory = category.replace(/ /g, '').toLowerCase();
@@ -74,17 +72,32 @@ const SearchResults: React.FunctionComponent<RouteComponentProps<{}>> = () => {
     }
   };
 
+  // URL에 검색어를 반영하기 위한 useEffect
+  React.useEffect(() => {
+    const unlisten = history.listen(() => {
+      const search = location.search.replace('?search=', ''); // search 쿼리 파라미터에서 검색어 추출
+      setSearchInput(search);
+    });
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => unlisten();
+  }, [history, location.search]);
+
   return (
     <div>
-      <Navbar history={undefined} location={undefined} match={undefined} isLoggedIn={false} userName={""} onLogout={() => {}} />
+      <Navbar
+        history={history}
+        location={location}
+        match={match}
+        isLoggedIn={false}
+        userName={""}
+        onLogout={() => {}}
+      />
       <div className='search-results'>
         <li
           className={`menu-search ${isSearchVisible ? "click" : ""}`}
           onClick={handleSearchContainerClick}
         >
-          {/* 검색 입력과 버튼을 위한 기존 코드 */}
-          {/* ... */}
-          {/* 검색 결과를 표시합니다. */}
           {searchInput && isSearchVisible && (
             <>
               {renderSearchResults(Bowlsdata.filter((bowl: BowlsDataType) =>
