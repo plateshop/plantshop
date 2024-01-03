@@ -16,12 +16,15 @@ import Cupdata from "../Data/Cupdata";
 import Bowlsdata from "../Data/Bowlsdata";
 import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Platesdata from "../Data/Platesdata";
-import SearchResults from "../pages/SearchResults";
+import SearchResult from "../pages/SearchResults";
 
 type ProductData = {
   id: number;
-  title: string;
   img: string;
+  title: string;
+  price: number;
+  detail: string;
+  detailimg: string[];
   keywords: string[];
 };
 
@@ -32,7 +35,6 @@ type NavbarProps = RouteComponentProps & {
 };
 
 const Navbar: React.FC<NavbarProps> = ({
-  // history, location, match,
   isLoggedIn = false,
   userName = "",
   onLogout = () => {},
@@ -64,14 +66,12 @@ const Navbar: React.FC<NavbarProps> = ({
     event.stopPropagation();
   };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value.toLowerCase();
     setSearchInput(input);
 
     const filtered = allProducts.filter((product) =>
-      product.keywords.some((keyword) =>
-        keyword.toLowerCase().includes(input.toLowerCase())
-      )
+      `${product.title} ${product.detail}`.toLowerCase().includes(input)
     );
     setSearchResults(filtered);
   };
@@ -80,7 +80,8 @@ const Navbar: React.FC<NavbarProps> = ({
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if (event.key === "Enter" && searchResults.length > 0) {
-      history.push("/SearchResults", { results: searchResults });
+      // 검색 결과 페이지로 이동하면서 검색어를 전달
+      history.push(`/SearchResults/${searchInput}`, { results: searchResults });
     }
   };
 

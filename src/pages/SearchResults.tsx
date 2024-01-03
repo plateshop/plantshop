@@ -4,7 +4,6 @@ import {
   RouteComponentProps,
   withRouter,
   useHistory,
-  useRouteMatch,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/SearchResults.css";
@@ -33,15 +32,13 @@ interface SearchResultsProps extends RouteComponentProps {
 const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
   history,
   location,
+  match,
 }) => {
   const locationState = useLocation<{ results: YourResultType[] }>();
   const results = locationState.state?.results || [];
   const historyInstance = useHistory();
   const [searchInput, setSearchInput] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-
-  // useRouteMatch를 통해 match 객체 가져오기
-  const match = useRouteMatch();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -74,7 +71,6 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
       Cups: "CupDetail",
       Kitchenware: "KitchenwareDetail",
       Plates: "PlatesDetail",
-      // 필요한 만큼 더 많은 카테고리를 추가하세요.
     };
 
     const formattedCategory = category.replace(/ /g, "").toLowerCase();
@@ -86,6 +82,17 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
       console.error(`디테일 페이지를 찾을 수 없음: ${category}`);
     }
   };
+
+  // URL에 검색어를 반영하기 위한 useEffect
+  React.useEffect(() => {
+    const unlisten = history.listen(() => {
+      const search = location.search.replace("?search=", ""); // search 쿼리 파라미터에서 검색어 추출
+      setSearchInput(search);
+    });
+
+    // 컴포넌트가 언마운트될 때 리스너 해제
+    return () => unlisten();
+  }, [history, location.search]);
 
   return (
     <div>
