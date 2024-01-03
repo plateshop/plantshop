@@ -3,7 +3,7 @@ import { RouteComponentProps } from "react-router-dom";
 import "../styles/Detail.css";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Cupdata from "../Data/Cupdata";
+import { Cupdata as CupdataType } from "../Data/Cupdata";
 import Heart from "../components/Heart";
 
 interface MatchParams {
@@ -12,29 +12,48 @@ interface MatchParams {
 
 interface DetailProps extends RouteComponentProps<MatchParams> {}
 
+interface Cupdata {
+  id: number;
+  img: string;
+  title: string;
+  price: number;
+  detail: string;
+  detailimg: string[];
+  keywords: string[];
+}
+
 const CupDetail: React.FC<DetailProps> = ({ match }) => {
   const { id } = match.params;
-  const product = Cupdata.find((item) => item.id === parseInt(id));
+  const product = CupdataType.find((item) => item.id === parseInt(id));
 
   const [isLiked, setLiked] = useState<boolean>(false);
+  const [quantity, setQuantity] = useState<number>(1);
 
   useEffect(() => {
     const fetchUserLikeStatus = async () => {
       try {
-        // 서버에서 사용자의 좋아요 상태를 가져오는 API 엔드포인트를 호출
-        const response = await fetch(`/api/user/likeStatus/${product?.id}`);
-        const data = await response.json();
-        setLiked(data.isLiked);
+        if (product) {
+          // 서버에서 사용자의 좋아요 상태를 가져오는 API 엔드포인트를 호출
+          const response = await fetch(`/api/user/likeStatus/${product.id}`);
+          const data = await response.json();
+          setLiked(data.isLiked);
+        }
       } catch (error) {
         console.error("Error fetching user like status:", error);
       }
     };
+
     fetchUserLikeStatus();
-  }, [product?.id]);
+  }, [product]);
 
   if (!product) {
     return <div>상품을 찾을 수 없습니다.</div>;
   }
+
+  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuantity = parseInt(event.target.value, 10) || 1;
+    setQuantity(newQuantity);
+  };
 
   return (
     <div className="detail_wrap">
@@ -53,11 +72,27 @@ const CupDetail: React.FC<DetailProps> = ({ match }) => {
                   <h4 className="info_title">{product.title}</h4>
                   <div className="info_wrap">
                     <p className="info_wrap_price">{product.price}</p>
-                    <span className="info_wrap_like">
-                      <Heart
-                        like={isLiked}
-                        onClick={() => setLiked(!isLiked)}
-                      />
+                    <span>
+                      <div className="info_wrap_like">
+                        <Heart
+                          like={isLiked}
+                          onClick={() => setLiked(!isLiked)}
+                        />
+                      </div>
+                      <div className="info_wrap_quantity">
+                        <label htmlFor="quantity">수량:</label>
+                        <input
+                          type="number"
+                          id="quantity"
+                          min="1"
+                          value={quantity}
+                          onChange={handleQuantityChange}
+                        />
+                      </div>
+                      <p className="info_wrap_price">
+                        {`총 가격: "${(20000 * quantity).toLocaleString()}" 원`}
+                      </p>
+                      <p className="info_wrap_detail">{product.detail}</p>
                     </span>
                     {/*<svg
                       stroke="currentColor"
