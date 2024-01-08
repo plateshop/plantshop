@@ -1,30 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface MyPickProps {
-  products?: Cupdata[]; // Optional으로 변경
+  products?: Cupdata[];
+  likedProducts?: Cupdata[]; // 좋아요 된 상품만 받을 수 있도록 추가
 }
 
 interface Cupdata {
   id: number;
   img: string;
   title: string;
-  price: string;
+  price: number;
   detail: string;
   detailimg: string[];
+  keywords: string[];
   isExecuted?: boolean;
 }
 
-const MyPick: React.FC<MyPickProps> = ({ products = [] }) => {
-  // products가 undefined일 경우를 방지하기 위해 기본값으로 빈 배열을 설정
-
-  const executedProducts = products.filter(
-    (product) => product.isExecuted === true
-  );
-
+const MyPick: React.FC<MyPickProps> = ({ likedProducts = [] }) => {
   return (
     <div className="my-pick-container">
-      <p>찜</p>
-      {executedProducts.map((product) => (
+      <p>♥ My Pick ♥</p>
+      {likedProducts.map((product) => (
         <div key={product.id} className="product-item">
           {/* SVG 아이콘을 표시 */}
           <svg

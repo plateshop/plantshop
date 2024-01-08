@@ -4,6 +4,7 @@ import {
   RouteComponentProps,
   withRouter,
   useHistory,
+  Link,
 } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import "../styles/SearchResults.css";
@@ -53,12 +54,17 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
     for (let i = 0; i < data.length; i += 4) {
       rows.push(
         <div key={i} className="search-results-row">
-          {data.slice(i, i + 4).map((item) => (
-            <div key={item.id} className="search-result-item">
-              <img src={item.img} alt={item.title} />
-              <p>{item.title}</p>
-            </div>
-          ))}
+          {data.slice(i, i + 4).map((item) =>
+            item && item.id ? (
+              <div key={item.id} className="search-result-item">
+                <>
+                  <img src={item.img} alt={item.title} />
+                  <h4>{item.title && item.title.toLowerCase()}</h4>
+                  <p>{item.price && item.price.toLowerCase()}</p>
+                </>
+              </div>
+            ) : null
+          )}
         </div>
       );
     }
@@ -67,17 +73,18 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
 
   const handleProductClick = (productId: number, category: string) => {
     const categoryToDetailPage: Record<string, string> = {
-      Bowls: "BowlsDetail",
-      Cups: "CupDetail",
-      Kitchenware: "KitchenwareDetail",
-      Plates: "PlatesDetail",
+      Bowls: "bowlsdetail",
+      Cup: "cupdetail", // 수정된 부분
+      Kitchenware: "kitchenwaredetail",
+      Plate: "platesdetail", // 수정된 부분
+      // 필요한 만큼 더 많은 카테고리를 추가하세요.
     };
 
-    const formattedCategory = category.replace(/ /g, "").toLowerCase();
-    const detailPageName = categoryToDetailPage[formattedCategory];
+    const formattedCategory = category.replace(/\s+/g, "").toLowerCase(); // 수정된 부분
+    const detailPagePath = categoryToDetailPage[formattedCategory];
 
-    if (detailPageName) {
-      history.push(`/${detailPageName}/${productId}`);
+    if (detailPagePath) {
+      history.push(`/${detailPagePath}/${productId}`);
     } else {
       console.error(`디테일 페이지를 찾을 수 없음: ${category}`);
     }
@@ -112,23 +119,42 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
           {searchInput && isSearchVisible && (
             <>
               {renderSearchResults(
-                Bowlsdata.filter((bowl: BowlsDataType) =>
-                  bowl.title.toLowerCase().includes(searchInput.toLowerCase())
+                Bowlsdata.filter(
+                  (bowl: BowlsDataType) =>
+                    bowl.title &&
+                    typeof bowl.title === "string" &&
+                    bowl.title.toLowerCase().includes(searchInput.toLowerCase())
                 )
               )}
+
               {renderSearchResults(
-                Cupdata.filter((cup: CupDataType) =>
-                  cup.title.toLowerCase().includes(searchInput.toLowerCase())
+                Cupdata.filter(
+                  (cup: CupDataType) =>
+                    cup.title &&
+                    typeof cup.title === "string" &&
+                    cup.title.toLowerCase().includes(searchInput.toLowerCase())
                 )
               )}
+
               {renderSearchResults(
-                Kitchenwaredata.filter((item: KitchenwareDataType) =>
-                  item.title.toLowerCase().includes(searchInput.toLowerCase())
+                Kitchenwaredata.filter(
+                  (Kitchenware: KitchenwareDataType) =>
+                    Kitchenware.title &&
+                    typeof Kitchenware.title === "string" &&
+                    Kitchenware.title
+                      .toLowerCase()
+                      .includes(searchInput.toLowerCase())
                 )
               )}
+
               {renderSearchResults(
-                Platesdata.filter((plate: PlatesDataType) =>
-                  plate.title.toLowerCase().includes(searchInput.toLowerCase())
+                Platesdata.filter(
+                  (plates: PlatesDataType) =>
+                    plates.title &&
+                    typeof plates.title === "string" &&
+                    plates.title
+                      .toLowerCase()
+                      .includes(searchInput.toLowerCase())
                 )
               )}
             </>
@@ -137,15 +163,19 @@ const SearchResults: React.FunctionComponent<SearchResultsProps> = ({
         <h2>검색 결과</h2>
         <div className="search-results-box">
           {results.map((result) => (
-            <div
+            <Link
               key={result.id}
+              to={`/${result.category.toLowerCase()}detail/${result.id}`}
               className="search-result-item"
-              onClick={() => handleProductClick(result.id, result.category)}
             >
-              <img src={result.img} alt={result.title} />
-              <h4>{result.title}</h4>
-              <p>{result.price}</p>
-            </div>
+              {result && ( // 추가 부분: result가 존재하는 경우에만 렌더링
+                <>
+                  <img src={result.img} alt={result.title} />
+                  <h4>{result.title}</h4>
+                  <p>{result.price}</p>
+                </>
+              )}
+            </Link>
           ))}
         </div>
       </div>
