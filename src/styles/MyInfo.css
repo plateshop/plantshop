@@ -3,11 +3,12 @@ form {
   flex-direction: column;
   width: 300px;
   margin: auto;
-  padding: 20px;
+  padding: 80px;
+  border: 0.05cm solid grey;
 }
 
 form > * {
-  margin-bottom: 0.5cm;
+  margin-bottom: 1cm;
 }
 
 label {
@@ -16,7 +17,7 @@ label {
 }
 
 button {
-  margin-top: 10px;
+  margin-top: 1cm;
   padding: 8px;
   background-color: #4caf50;
   color: white;
