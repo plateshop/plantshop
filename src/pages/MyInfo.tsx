@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import { Controller, useForm, SubmitHandler } from "react-hook-form";
-import {
-  GooglemMap,
-  LoadScript,
-  StandaloneSearchBox,
-  usePlacesAutocomplete,
-} from "react-google-maps/api";
+import DaumPostcode from "react-daum-postcode";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
 import "../styles/MyInfo.css";
 
 interface FormValues {
@@ -36,13 +33,13 @@ const MyInfo: React.FC = () => {
       await schema.validate(data);
       setValue("nickname", data.nickname);
       setValue("phoneNumber", data.phoneNumber);
+      setValue("address", data.address);
+      setValue("postalCode", data.postalCode);
       console.log(data);
     } catch (error) {
-      console.error(error); // 유효성 검사 오류 기록
+      console.error(error);
     }
   };
-
-  const { getInputProps, suggestions } = usePlacesAutocomplete();
 
   const schema = yup.object().shape({
     username: yup.string().required("아이디를 입력하세요."),
@@ -53,137 +50,158 @@ const MyInfo: React.FC = () => {
     postalCode: yup.string().required("우편번호를 입력하세요."),
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openAddressSearchModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeAddressSearchModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleAddressSelect = (address: string, zipcode: string) => {
+    setValue("address", address);
+    setValue("postalCode", zipcode);
+    closeAddressSearchModal();
+  };
+
   return (
-    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>정 보 확 인</label>
-
-          <Controller
-            name="nickname"
-            control={control}
-            defaultValue=""
-            render={({ field, fieldState }) => (
-              <TextField
-                {...field}
-                label="닉네임"
-                variant="outlined"
-                error={!!fieldState.error}
-                helperText={fieldState.error?.message}
-              />
-            )}
-          />
-        </div>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label>정보 확인</label>
 
         <Controller
-          name="username"
+          name="nickname"
           control={control}
           defaultValue=""
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              label="아이디"
+              label="닉네임"
               variant="outlined"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
             />
           )}
         />
+      </div>
 
-        <Controller
-          name="confirmPassword"
-          control={control}
-          defaultValue=""
-          render={({ field, fieldState }) => (
-            <TextField
-              {...field}
-              label="비밀번호"
-              type="password"
-              variant="outlined"
-              error={!!fieldState.error}
-              helperText={fieldState.error?.message}
-            />
-          )}
-        />
-
-        <div>
-          <Controller
-            name="phoneNumber"
-            control={control}
-            defaultValue=""
-            render={({ field, fieldState }) => (
-              <div>
-                <TextField
-                  {...field}
-                  label="휴대폰 번호"
-                  variant="outlined"
-                  error={!!fieldState.error}
-                  helperText={fieldState.error?.message}
-                  style={{ width: "80px", marginRight: "8px" }}
-                />
-                <span>-</span>
-                <TextField
-                  {...field}
-                  label=""
-                  variant="outlined"
-                  error={!!fieldState.error}
-                  helperText={fieldState.error?.message}
-                  style={{ width: "80px", margin: "0 8px" }}
-                />
-                <span>-</span>
-                <TextField
-                  {...field}
-                  label=""
-                  variant="outlined"
-                  error={!!fieldState.error}
-                  helperText={fieldState.error?.message}
-                  style={{ width: "80px" }}
-                />
-              </div>
-            )}
+      <Controller
+        name="username"
+        control={control}
+        defaultValue=""
+        render={({ field, fieldState }) => (
+          <TextField
+            {...field}
+            label="아이디"
+            variant="outlined"
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
           />
-        </div>
+        )}
+      />
 
+      <Controller
+        name="confirmPassword"
+        control={control}
+        defaultValue=""
+        render={({ field, fieldState }) => (
+          <TextField
+            {...field}
+            label="비밀번호"
+            type="password"
+            variant="outlined"
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
+          />
+        )}
+      />
+
+      <div>
         <Controller
-          name="address"
+          name="phoneNumber"
           control={control}
           defaultValue=""
           render={({ field, fieldState }) => (
             <div>
               <TextField
                 {...field}
-                label="주소"
+                label="휴대폰 번호"
                 variant="outlined"
                 error={!!fieldState.error}
                 helperText={fieldState.error?.message}
-                {...getInputProps()}
+                style={{ width: "80px", marginRight: "8px" }}
               />
-              {/* 주소 자동완성 제안 표시 */}
-              {suggestions.map((suggestion: any, index: any) => (
-                <div key={index}>{suggestion.description}</div>
-              ))}
+              <span>-</span>
+              <TextField
+                {...field}
+                label=""
+                variant="outlined"
+                error={!!fieldState.error}
+                helperText={fieldState.error?.message}
+                style={{ width: "80px", margin: "0 8px" }}
+              />
+              <span>-</span>
+              <TextField
+                {...field}
+                label=""
+                variant="outlined"
+                error={!!fieldState.error}
+                helperText={fieldState.error?.message}
+                style={{ width: "80px" }}
+              />
             </div>
           )}
         />
+      </div>
 
-        <Controller
-          name="postalCode"
-          control={control}
-          defaultValue=""
-          render={({ field, fieldState }) => (
+      <Controller
+        name="address"
+        control={control}
+        defaultValue=""
+        render={({ field, fieldState }) => (
+          <div>
             <TextField
               {...field}
-              label="우편번호"
+              label="주소"
               variant="outlined"
               error={!!fieldState.error}
               helperText={fieldState.error?.message}
             />
-          )}
-        />
+            <Button onClick={openAddressSearchModal}>주소 검색</Button>
+          </div>
+        )}
+      />
 
-        <button type="submit">수정</button>
-      </form>
-    </LoadScript>
+      <Controller
+        name="postalCode"
+        control={control}
+        defaultValue=""
+        render={({ field, fieldState }) => (
+          <TextField
+            {...field}
+            label="우편번호"
+            variant="outlined"
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
+          />
+        )}
+      />
+
+      <button type="submit">수정</button>
+
+      <Modal open={isModalOpen} onClose={closeAddressSearchModal}>
+        <div className="modal-content">
+          <DaumPostcode
+            onComplete={(data) => {
+              handleAddressSelect(data.address, data.zonecode);
+            }}
+          />
+          <Button onClick={() => handleAddressSelect("", "")}>선택</Button>
+        </div>
+      </Modal>
+    </form>
   );
 };
 
