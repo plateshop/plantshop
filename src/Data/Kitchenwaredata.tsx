@@ -6,6 +6,7 @@ export interface Kitchenwaredata {
   detail: string;
   detailimg: string[];
   keywords: string[];
+  type: string;
 }
 
 const Kitchenwaredata: Kitchenwaredata[] = [
@@ -22,6 +23,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["포장", "기프트"],
+    type: 'Kitchenware',
   },
 
   {
@@ -37,6 +39,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["트레이", "쟁반"],
+    type: 'Kitchenware',
   },
 
   {
@@ -52,6 +55,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["트레이", "쟁반"],
+    type: 'Kitchenware',
   },
 
   {
@@ -67,6 +71,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["트레이", "쟁반"],
+    type: 'Kitchenware',
   },
 
   {
@@ -82,6 +87,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["트레이", "쟁반"],
+    type: 'Kitchenware',
   },
 
   {
@@ -97,6 +103,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["트레이", "쟁반"],
+    type: 'Kitchenware',
   },
 
   {
@@ -112,6 +119,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["그릇", "브라우니"],
+    type: 'Kitchenware',
   },
 
   {
@@ -127,6 +135,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["그릇", "브라우니"],
+    type: 'Kitchenware',
   },
 
   {
@@ -142,6 +151,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["그릇", "오픈로스터"],
+    type: 'Kitchenware',
   },
 
   {
@@ -157,6 +167,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
 
   {
@@ -172,6 +183,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
 
   {
@@ -187,6 +199,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
 
   {
@@ -202,6 +215,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
 
   {
@@ -217,6 +231,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
   {
     id: 14,
@@ -231,6 +246,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
   {
     id: 15,
@@ -245,6 +261,7 @@ const Kitchenwaredata: Kitchenwaredata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["숟가락", "스푼"],
+    type: 'Kitchenware',
   },
 ];
 

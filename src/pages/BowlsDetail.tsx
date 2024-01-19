@@ -58,7 +58,7 @@ const BowlsDetail: React.FC<DetailProps> = ({ match }) => {
             <div className="detail_container_menu">
               <div className="detail_container_menu_fixbox">
                 <div className="detail_container_info">
-                  <h4 className="info_title">{product.title}</h4>
+                <h4 className="info_title">{product?.title}</h4>
                   <div className="info_wrap">
                     <p className="info_wrap_price">{product.price}</p>
                     <span className="info_wrap_like">

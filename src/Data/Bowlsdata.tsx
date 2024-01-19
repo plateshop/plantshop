@@ -6,6 +6,7 @@ export interface Bowlsdata {
   detail: string;
   detailimg: string[];
   keywords: string[];
+  type: string;
 }
 
 const Bowlsdata: Bowlsdata[] = [
@@ -22,6 +23,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["포장", "기프트"],
+    type: 'Bowls'
   },
 
   {
@@ -37,6 +39,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["보울", "그릇"],
+    type: 'Bowls'
   },
 
   {
@@ -52,6 +55,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["보울", "그릇"],
+    type: 'Bowls'
   },
 
   {
@@ -67,6 +71,7 @@ const Bowlsdata: Bowlsdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["보울", "그릇"],
+    type: 'Bowls'
   },
 ];
 

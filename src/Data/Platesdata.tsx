@@ -6,6 +6,7 @@ export interface Platesdata {
   detail: string;
   detailimg: string[];
   keywords: string[];
+  type: string;
 }
 
 const Platesdata: Platesdata[] = [
@@ -22,6 +23,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["포장", "기프트"],
+    type: 'Plates',
   },
 
   {
@@ -37,6 +39,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["법랑", "그릇"],
+    type: 'Plates',
   },
 
   {
@@ -52,6 +55,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["법랑", "그릇"],
+    type: 'Plates',
   },
 
   {
@@ -67,6 +71,7 @@ const Platesdata: Platesdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
     keywords: ["법랑", "그릇"],
+    type: 'Plates',
   },
 ];
 

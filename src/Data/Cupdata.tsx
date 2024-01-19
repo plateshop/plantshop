@@ -6,6 +6,7 @@ export interface Cupdata {
   detail: string;
   detailimg: string[];
   keywords: string[];
+  type: string;
 }
 
 const Cupdata: Cupdata[] = [
@@ -20,6 +21,8 @@ const Cupdata: Cupdata[] = [
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230810/E18492E185AAE1848BE185B5E18490E185B3E18480E185B5E18491E185B3E18490E185B3E18487E185A1E186A8E18489E185B3_E18489E185A1E186BCE18489E185A6E18491E185A6E1848BE185B5E1848CE185B5_02.jpg",
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII="],
       keywords: ["포장", "기프트"],
+      type: 'Cup',
+
       },
     
       {
@@ -32,6 +35,7 @@ const Cupdata: Cupdata[] = [
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg"],
         keywords: ["컵", "머그", "마블"],
+        type: 'Cup',
       },
     
       {
@@ -44,6 +48,7 @@ const Cupdata: Cupdata[] = [
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg"],
         keywords: ["컵", "머그", "마블"],
+        type: 'Cup',
       },
 
       {
@@ -56,6 +61,7 @@ const Cupdata: Cupdata[] = [
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
         "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg"],
         keywords: ["컵", "머그", "마블"],
+        type: 'Cup',
       }
 
 ]

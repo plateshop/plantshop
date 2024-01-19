@@ -13,6 +13,15 @@ import Kitchenwaredata from "../Data/KitchenwareData";
 import Platesdata from "../Data/PlatesData";
 import SearchResult from "../pages/SearchResults";
 
+
+
+
+type NavbarProps = RouteComponentProps & {
+  isLoggedIn: boolean;
+  userName: string;
+  onLogout: () => void;
+};
+
 type ProductData = {
   id: number;
   img: string;
@@ -21,12 +30,7 @@ type ProductData = {
   detail: string;
   detailimg: string[];
   keywords: string[];
-};
-
-type NavbarProps = RouteComponentProps & {
-  isLoggedIn: boolean;
-  userName: string;
-  onLogout: () => void;
+  type: string; // 각 상품의 타입 추가 (Cup, Bowls, Plates, Kitchenware 등)
 };
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -38,6 +42,27 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<ProductData[]>([]);
+
+  const handleProductClick = (product: ProductData) => {
+    // 검색 결과를 클릭하면 해당 상품이 속한 데이터의 타입을 확인하고 이동
+    switch (product.type) {
+      case 'Cup':
+        history.push(`/Detail/Cup/${product.id}`);
+        break;
+      case 'Bowls':
+        history.push(`/Detail/Bowls/${product.id}`);
+        break;
+      case 'Plates':
+        history.push(`/Detail/Plates/${product.id}`);
+        break;
+      case 'Kitchenware':
+        history.push(`/Detail/Kitchenware/${product.id}`);
+        break;
+      default:
+        break;
+    }
+  };
+
 
   const ProductDataSources: ProductData[][] = [
     Cupdata,
@@ -124,34 +149,38 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="right-menu">
           <li
-              className={`menu-search ${isSearchVisible ? "click" : ""}`}
-              onClick={toggleSearch}
-            >
-              <img src={menu1} width="30" onClick={handleMenu1Click} />
-              <div
-                className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
-                onClick={handleSearchContainerClick}
-              >
-                <input
-                  type="text"
-                  placeholder="상품을 검색하세요"
-                  value={searchInput}
-                  onChange={handleSearchChange}
-                  onKeyPress={handleSearchKeyPress}
-                />
-                {searchInput && isSearchVisible && (
-                  <div className="search-results">
-                    {filteredProducts.map((product) => (
-  <div key={product.id} className="search-result-item">
-    <img src={product.img} alt={product.title} />
-    <p>{product.title}</p>
-  </div>
-))}
-                    {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
-                  </div>
-                )}
-              </div>
-            </li>
+        className={`menu-search ${isSearchVisible ? "click" : ""}`}
+        onClick={toggleSearch}
+      >
+        <img src={menu1} width="30" onClick={handleMenu1Click} />
+        <div
+          className={`SearchContainer ${isSearchVisible ? "click" : ""}`}
+          onClick={handleSearchContainerClick}
+        >
+          <input
+            type="text"
+            placeholder="상품을 검색하세요"
+            value={searchInput}
+            onChange={handleSearchChange}
+            onKeyPress={handleSearchKeyPress}
+          />
+          {searchInput && isSearchVisible && (
+            <div className="search-results">
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="search-result-item"
+                  onClick={() => handleProductClick(product)}
+                >
+                  <img src={product.img} alt={product.title} />
+                  <p>{product.title}</p>
+                </div>
+              ))}
+              {filteredProducts.length === 0 && <p>결과가 없습니다</p>}
+            </div>
+          )}
+        </div>
+      </li>
 
             <li className="menu-wishlist">
               <a href="/Mypage">
