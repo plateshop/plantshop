@@ -12,6 +12,7 @@ import Bowlsdata from "../Data/BowlsData";
 import Kitchenwaredata from "../Data/KitchenwareData";
 import Platesdata from "../Data/PlatesData";
 import SearchResult from "../pages/SearchResults";
+export type { ProductData };
 
 
 

@@ -161,6 +161,8 @@
 
 import React from 'react';
 import { RouteComponentProps, withRouter, Link } from 'react-router-dom';
+import { Location } from 'history';
+
 
 // ProductData 타입을 임포트
 import { ProductData } from '../components/Navbar';
@@ -170,7 +172,7 @@ interface SearchResultsProps extends RouteComponentProps<any> {
     state: {
       results: ProductData[];
     };
-  };
+  } & Location; // Location 타입 추가
 }
 
 const SearchResults: React.FC<SearchResultsProps> = ({ location, history }) => {
