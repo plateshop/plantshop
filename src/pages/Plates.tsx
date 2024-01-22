@@ -1,19 +1,22 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Kitchenware.css";
 import Platesdata from "../Data/Platesdata";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import platesImage from "../img/list/plates.jpg";
 
-interface PlatesData {
+interface Platesdata {
   id: number;
   img: string;
   title: string;
   price: string;
+  detail: string;
+  detailimg: string[];
 }
 
 const Plates: React.FC = () => {
-  const [Plates] = useState<PlatesData[]>(Platesdata);
+  const [platesData] = useState<Platesdata[]>(Platesdata);
 
   return (
     <div>
@@ -32,8 +35,15 @@ const Plates: React.FC = () => {
         </div>
       </div>
       <div className="cup">
-        {Plates.map((PlatesItem) => (
-          <Card key={PlatesItem.id} cup={PlatesItem} />
+        {platesData.map((platesItem) => (
+          <div key={platesItem.id} className="card">
+            <img src={platesItem.img} alt={platesItem.title} />
+            <h4>{platesItem.title}</h4>
+            <p>{platesItem.price}</p>
+            <Link to={`/BowlsDetail/${platesItem.id}`} className="custom-link">
+              View Details
+            </Link>
+          </div>
         ))}
       </div>
       <Footer />
@@ -42,15 +52,15 @@ const Plates: React.FC = () => {
 };
 
 interface CardProps {
-  cup: PlatesData;
+  plates: Platesdata;
 }
 
-function Card({ cup }: CardProps) {
+function Card({ plates }: CardProps) {
   return (
     <div className="card">
-      <img src={cup.img} width="175px" alt={cup.title} />
-      <h4>{cup.title}</h4>
-      <p>{cup.price}</p>
+      <img src={plates.img} width="175px" alt={plates.title} />
+      <h4>{plates.title}</h4>
+      <p>{plates.price}</p>
     </div>
   );
 }
