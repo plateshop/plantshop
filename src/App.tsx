@@ -72,8 +72,11 @@ function App() {
           <Route path="/cupdetail/:id" component={CupDetail} />
           <Route path="/platesdetail/:id" component={PlatesDetail} />
           <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
-          <Route path="/Kitchenwaredetail/:id" component={KitchenwareDetail} />
           <Route path="/order" component={Order} />
+          <Route path="/Detail/Cup/:id" component={CupDetail} />
+          <Route path="/Detail/Bowls/:id" component={BowlsDetail} />
+          <Route path="/Detail/Plates/:id" component={PlatesDetail} />
+          <Route path="/Detail/Kitchenware/:id" component={KitchenwareDetail} />
 
           {/* <Route path="/search" component={Search} /> */}
         </Switch>

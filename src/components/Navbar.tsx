@@ -17,21 +17,23 @@ import Bowlsdata from "../Data/Bowlsdata";
 import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Platesdata from "../Data/Platesdata";
 import SearchResult from "../pages/SearchResults";
-
-type ProductData = {
-  id: number;
-  img: string;
-  title: string;
-  price: number;
-  detail: string;
-  detailimg: string[];
-  keywords: string[];
-};
+export type { ProductData };
 
 type NavbarProps = RouteComponentProps & {
   isLoggedIn: boolean;
   userName: string;
   onLogout: () => void;
+};
+
+type ProductData = {
+  id: number;
+  img: string;
+  title: string;
+  price: string;
+  detail: string;
+  detailimg: string[];
+  keywords: string[];
+  type: string; // 각 상품의 타입 추가 (Cup, Bowls, Plates, Kitchenware 등)
 };
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -43,6 +45,26 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<ProductData[]>([]);
+
+  const handleProductClick = (product: ProductData) => {
+    // 검색 결과를 클릭하면 해당 상품이 속한 데이터의 타입을 확인하고 이동
+    switch (product.type) {
+      case "Cup":
+        history.push(`/Detail/Cup/${product.id}`);
+        break;
+      case "Bowls":
+        history.push(`/Detail/Bowls/${product.id}`);
+        break;
+      case "Plates":
+        history.push(`/Detail/Plates/${product.id}`);
+        break;
+      case "Kitchenware":
+        history.push(`/Detail/Kitchenware/${product.id}`);
+        break;
+      default:
+        break;
+    }
+  };
 
   const ProductDataSources: ProductData[][] = [
     Cupdata,
@@ -67,12 +89,11 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value.trim().toLowerCase();
+    const input = e.target.value.toLowerCase();
     setSearchInput(input);
 
-    const filtered = allProducts.filter(
-      (product) =>
-        product.keywords.includes(input) && product.keywords.length === 1
+    const filtered = allProducts.filter((product) =>
+      `${product.title} ${product.detail}`.toLowerCase().includes(input)
     );
     setSearchResults(filtered);
   };
@@ -148,7 +169,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 {searchInput && isSearchVisible && (
                   <div className="search-results">
                     {filteredProducts.map((product) => (
-                      <div key={product.id} className="search-result-item">
+                      <div
+                        key={product.id}
+                        className="search-result-item"
+                        onClick={() => handleProductClick(product)}
+                      >
                         <img src={product.img} alt={product.title} />
                         <p>{product.title}</p>
                       </div>
