@@ -67,11 +67,12 @@ const Navbar: React.FC<NavbarProps> = ({
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value.toLowerCase();
+    const input = e.target.value.trim().toLowerCase();
     setSearchInput(input);
 
-    const filtered = allProducts.filter((product) =>
-      `${product.title} ${product.detail}`.toLowerCase().includes(input)
+    const filtered = allProducts.filter(
+      (product) =>
+        product.keywords.includes(input) && product.keywords.length === 1
     );
     setSearchResults(filtered);
   };
