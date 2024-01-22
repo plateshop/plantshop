@@ -39,7 +39,7 @@ const Cupdata: Cupdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["컵", "머그", "마블"],
+    keywords: ["컵", "머그", "마블", "민트"],
     type: "Cup",
   },
 
@@ -55,7 +55,7 @@ const Cupdata: Cupdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["컵", "머그", "마블"],
+    keywords: ["컵", "머그", "마블", "옐로우", "노랑"],
     type: "Cup",
   },
 
@@ -71,7 +71,7 @@ const Cupdata: Cupdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909324-1111.jpg",
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230105/copy-1672909346-D02_EC97B0ECB69CECBBB7.jpg",
     ],
-    keywords: ["컵", "머그", "마블"],
+    keywords: ["컵", "머그", "마블", "핑크", "분홍"],
     type: "Cup",
   },
 ];
