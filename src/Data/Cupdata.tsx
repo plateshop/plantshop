@@ -13,7 +13,7 @@ const Cupdata: Cupdata[] = [
   {
     id: 0,
     img: "https://crowcanyon.co.kr/web/product/medium/202212/333caecd9c54d8b5f854d45a75243b90.jpg",
-    title: "크로우캐년홈 기프트박스",
+    title: "크로우캐년홈 선물박스",
     price: "￦2,000",
     detail:
       " 크로우캐년홈의 기프트박스입니다.소중한 분에게 마음을 담아 선물해보세요!기프트박스, 버블페이퍼(종이완충재), 손잡이 리본으로 구성되어 있습니다.기프트박스의 크기는 가로 27cm, 세로 20cm, 높이 10cm 입니다.",
@@ -23,7 +23,7 @@ const Cupdata: Cupdata[] = [
       "https://crowcanyon.co.kr/web/upload/NNEditor/20230810/E18492E185AAE1848BE185B5E18490E185B3E18480E185B5E18491E185B3E18490E185B3E18487E185A1E186A8E18489E185B3_E18489E185A1E186BCE18489E185A6E18491E185A6E1848BE185B5E1848CE185B5_02.jpg",
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=",
     ],
-    keywords: ["포장", "기프트"],
+    keywords: ["박스", "포장"],
     type: "Cup",
   },
 
