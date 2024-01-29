@@ -9,10 +9,11 @@
   margin: 80px 0 10px; /* 수정된 부분 */
 
   .search-results-container {
-    margin-top: 250px; /* Navbar의 높이에 따라 조절하세요 */
-  }
+    /* margin-top: 250px; */
+    padding-top: 20px; /* 또는 다른 방법으로 조절 */
+}
   
-  search-results {
+  .search-results {
     align-items: center;
     width: 100%;
     margin: 10px auto;
@@ -54,3 +55,4 @@
     margin: 0;
     font-size: 1rem;
   }
+  

@@ -94,8 +94,9 @@ const Navbar: React.FC<NavbarProps> = ({
     const filtered = allProducts.filter((product) =>
       `${product.title} ${product.detail}`.toLowerCase().includes(input)
     );
-    setSearchResults(filtered);
+    setSearchResults(filtered); // 이 부분 수정
   };
+  
   
 
   const handleSearchKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -104,6 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({
       history.push(`/SearchResults/${searchInput}`, { results: searchResults });
     }
   };
+  
 
 
   const allProducts: ProductData[] = ProductDataSources.flatMap((data) => data);

@@ -159,12 +159,20 @@
 
 // src/pages/SearchResults.tsx
 
+// SearchResults.tsx
+
+// SearchResults.tsx
+
+// SearchResults.tsx
+
+// SearchResults.tsx
+
 import React from 'react';
 import { RouteComponentProps, withRouter, Link } from 'react-router-dom';
 import { Location } from 'history';
-
-
-// ProductData 타입을 임포트
+import '../styles/SearchResults.css';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import { ProductData } from '../components/Navbar';
 
 interface SearchResultsProps extends RouteComponentProps<any> {
@@ -177,10 +185,6 @@ interface SearchResultsProps extends RouteComponentProps<any> {
 
 const SearchResults: React.FC<SearchResultsProps> = ({ location, history }) => {
   const { results } = location.state;
-
-  if (!results || results.length === 0) {
-    return <p>검색 결과가 없습니다.</p>;
-  }
 
   const handleProductClick = (product: ProductData) => {
     // 검색 결과를 클릭하면 해당 상품이 속한 데이터의 타입을 확인하고 이동
@@ -204,19 +208,29 @@ const SearchResults: React.FC<SearchResultsProps> = ({ location, history }) => {
 
   return (
     <div>
-      <h2>검색 결과</h2>
-      <div className="search-results">
-        {results.map((product) => (
-          <div key={product.id} className="search-result-item" onClick={() => handleProductClick(product)}>
-            <img src={product.img} alt={product.title} />
-            <p>{product.title}</p>
-            {/* 클릭 시 해당 상품의 디테일 페이지로 이동 */}
-            <Link to={`/Detail/${product.type}/${product.id}`}>상세 보기</Link>
-          </div>
-        ))}
-      </div>
+      <Navbar />
+      <div className="search-results-container">
+  <h2>검색 결과</h2>
+  {results && results.length > 0 ? (
+    <div className="search-results">
+      {results.map((product) => (
+        <div key={product.id} className="search-result-item" onClick={() => handleProductClick(product)}>
+          <img src={product.img} alt={product.title} />
+          <h4>{product.title}</h4>
+          <p>{product.price}</p>
+          <Link to={`/Detail/${product.type}/${product.id}`}>View Details</Link>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p>검색 결과가 없습니다.</p>
+  )}
+</div>
+
+      <Footer />
     </div>
   );
 };
 
 export default withRouter(SearchResults);
+

@@ -1,6 +1,11 @@
-.detail_wrap{
+.detail_wrap {
+    font-family: "Arial", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    /* Merged styles */
     margin-left: 0;
-}
+  }
+
 .detail_out{
     box-sizing: border-box;
     display: flex;
@@ -23,7 +28,6 @@
     width: 65%;
     margin: 0px auto;
     margin-left: 0;
-
 }
 
 .detail_container_menu{
