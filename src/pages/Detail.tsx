@@ -11,7 +11,8 @@ const Detail = () => {
     setQuantity(newQuantity);
   };
 
-  const totalPrice = 20000 * quantity;
+  const pricePerUnit = 20000;
+  const totalPrice = pricePerUnit * quantity;
 
   return (
     <div className="detail_wrap">
@@ -49,7 +50,10 @@ const Detail = () => {
                         onChange={handleQuantityChange}
                       />
                     </div>
-                    <p className="info_wrap_price">{`"${totalPrice.toLocaleString()}" "원"`}</p>
+                    <p className="info_wrap_price">
+                      {pricePerUnit.toLocaleString()} 원
+                    </p>
+                    <p className="info_wrap_totalPrice">{`총 가격: ${totalPrice.toLocaleString()} 원`}</p>
 
                     <span className="info_wrap_like">
                       하트가 올자리
@@ -83,8 +87,6 @@ const Detail = () => {
                     민트 색상입니다.
                   </p>
                 </div>
-                <div className="detail_container_total"></div>
-                <div className="detail_container_button"></div>
               </div>
             </div>
           </div>
