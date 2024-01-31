@@ -1,8 +1,12 @@
-.search-results-container {
-  margin-top: 250px; /* Navbar의 높이에 따라 조절하세요 */
+footer {
+  margin-top: 20px;
 }
 
-search-results {
+.search-results-container {
+  margin-bottom: 20px;
+}
+
+.search-results {
   align-items: center;
   width: 100%;
   margin: 10px auto;

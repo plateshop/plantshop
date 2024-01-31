@@ -80,7 +80,8 @@
   font-size: 16px;
 }
 
-.info_wrap_price {
+.info_wrap_price,
+.info_wrap_totalPrice {
   font-size: 20px;
   font-weight: 700;
   width: 100%;

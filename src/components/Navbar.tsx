@@ -5,7 +5,7 @@ import {
   withRouter,
   RouteComponentProps,
 } from "react-router-dom"; // 이 부분 수정
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext, useState, useEffect } from "react";
 import logo from "../img/logo/logo2.png";
 import menu1 from "../img/ui/search.png";
 import menu2 from "../img/ui/person.png";
@@ -41,10 +41,25 @@ const Navbar: React.FC<NavbarProps> = ({
   userName = "",
   onLogout = () => {},
 }) => {
-  const history = useHistory();
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<ProductData[]>([]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "PageDown") {
+        setSearchVisible(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
+  const history = useHistory();
 
   const handleProductClick = (product: ProductData) => {
     // 검색 결과를 클릭하면 해당 상품이 속한 데이터의 타입을 확인하고 이동
@@ -65,7 +80,6 @@ const Navbar: React.FC<NavbarProps> = ({
         break;
     }
   };
-
   const ProductDataSources: ProductData[][] = [
     Cupdata,
     Bowlsdata,
@@ -173,6 +187,7 @@ const Navbar: React.FC<NavbarProps> = ({
                         key={product.id}
                         className="search-result-item"
                         onClick={() => handleProductClick(product)}
+                        style={{ cursor: "pointer" }} // 커서를 포인터로 변경하여 클릭 가능하게 만듭니다.
                       >
                         <img src={product.img} alt={product.title} />
                         <p>{product.title}</p>
