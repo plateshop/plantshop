@@ -152,6 +152,7 @@ body {
   align-items: center;
   margin-bottom: 10px;
   background-color: #aeefff;
+  cursor: pointer;
 }
 
 .search-result-item img {
