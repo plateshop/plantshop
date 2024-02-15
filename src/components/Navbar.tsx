@@ -17,6 +17,7 @@ import Bowlsdata from "../Data/Bowlsdata";
 import Kitchenwaredata from "../Data/Kitchenwaredata";
 import Platesdata from "../Data/Platesdata";
 import SearchResult from "../pages/SearchResults";
+import Modal from "./Modal";
 export type { ProductData };
 
 type NavbarProps = RouteComponentProps & {
@@ -44,6 +45,10 @@ const Navbar: React.FC<NavbarProps> = ({
   const [isSearchVisible, setSearchVisible] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
   const [searchResults, setSearchResults] = useState<ProductData[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<ProductData | null>(
+    null
+  );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -62,6 +67,9 @@ const Navbar: React.FC<NavbarProps> = ({
   const history = useHistory();
 
   const handleProductClick = (product: ProductData) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+
     // 검색 결과를 클릭하면 해당 상품이 속한 데이터의 타입을 확인하고 이동
     switch (product.type) {
       case "Cup":
@@ -80,6 +88,11 @@ const Navbar: React.FC<NavbarProps> = ({
         break;
     }
   };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const ProductDataSources: ProductData[][] = [
     Cupdata,
     Bowlsdata,
@@ -131,6 +144,15 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="Navbar">
+      {isModalOpen && selectedProduct && (
+        <Modal onClose={closeModal}>
+          {/* 모달 내용 */}
+          <h3>{selectedProduct.title}</h3>
+          <p>{selectedProduct.detail}</p>
+          {/* 추가적인 상품 정보 표시 가능 */}
+        </Modal>
+      )}
+
       <div className="login-box">
         <div className="Navbar-member">
           {isLoggedIn ? (
