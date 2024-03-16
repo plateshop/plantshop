@@ -1,0 +1,51 @@
+.ShippingAddressContainerStyled {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ShippingAddressBodyStyled {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  max-height: 500px;
+  background-color: #fff;
+  border-radius: 6px;
+}
+
+.ShippingAddressHeaderStyled {
+  background-color: #333;
+  height: 64px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+}
+
+.ShippingAddressTitleStyled {
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ShippingAddressCloseIconWrap {
+  position: absolute;
+  right: 10px;
+}
+
+.ShippingAddressFormsWrap {
+  padding: 24px 10px;
+  display: flex;
+  flex-direction: column;
+}

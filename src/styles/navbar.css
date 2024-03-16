@@ -1,0 +1,199 @@
+.Navbar {
+  align-items: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  z-index: 300;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
+}
+
+body {
+  margin-top: 200px !important;
+}
+
+.login-box {
+  align-items: center;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 100px;
+}
+
+.Navbar-member {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  gap: 1rem;
+  height: 3.6rem;
+  justify-content: flex-end; /* 우측 정렬을 위해 수정 */
+  width: 100%;
+}
+
+.member {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Zilla Slab", sans-serif;
+  font-size: 15px;
+  line-height: normal;
+  font-weight: 500;
+  margin-bottom: -3px;
+}
+
+.Navbar-content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Logo-right-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 50px;
+  margin-bottom: 10px;
+}
+
+.Navbar-logo {
+  align-items: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: 30rem;
+}
+
+.right-menu {
+  display: flex;
+  gap: 1.4rem;
+  position: relative;
+  padding-right: 90px;
+}
+
+.Navbar-menu {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid black;
+}
+
+.menu-search {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 40px;
+}
+
+.menu-search img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-search.click img {
+  transform: translateX(0);
+}
+
+.SearchContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 0.3rem;
+  right: 100%;
+  transition: right 0.3s linear;
+  pointer-events: none;
+}
+
+.menu-search.click .SearchContainer {
+  right: 40px;
+}
+
+.SearchContainer input {
+  width: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  outline: none;
+  opacity: 0;
+  padding: 0.3rem;
+  border-radius: 15px;
+  transition: width 0.3s linear, opacity 0.3s linear;
+}
+
+.SearchContainer.click input {
+  width: 12.5rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s linear;
+  right: 0;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.search-result-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 6px;
+}
+
+.search-result-item p {
+  margin: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.menu-wrap {
+  align-items: center;
+  display: flex;
+  font-weight: 400;
+  height: auto;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+.menu {
+  text-decoration: none;
+  font-family: "LeferiBaseRegular", sans-serif;
+  color: black;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LeferiBaseRegular;
+  src: url("../fonts/LeferiBaseRegular.otf");
+}

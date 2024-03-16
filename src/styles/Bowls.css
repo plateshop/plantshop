@@ -1,0 +1,48 @@
+/* .cup {
+    align-items: center;
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center; 
+}
+
+.first, .second, .third, .fourth {
+    border: none;
+    flex: 1;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 0 20px;
+} */
+.cup {
+    align-items: center;
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .card {
+    border: none;
+    width: calc(25% - 20px); /* 4개가 나란히 정렬되도록 25%로 설정 */
+    box-sizing: border-box;
+    margin: 10px;
+    background-color: white;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 70%;
+    height: auto;
+  }
+  
+  .card h4 {
+    margin: 5px 0;
+    font-size: 1.2rem;
+  }
+  
+  .card p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
